@@ -25,11 +25,8 @@ The core framework guiding all security policies, defenses, and oral exams:
 
 ---
 
-## 📅 Course Progress Tracker
-- [🔄] **Week 1:** Day 1 Basics & Foundations (AI Literacy & Cyber Definitions)
-- [ ] **Week 2:** Linux Administration & Network Architecture
-- [ ] **Week 3:** Security Operations (SOC) & Log Analysis
-- [ ] **Week 4:** Offensive Security & Final Viva Assessment
+## Additional Materials
+* TryHackMe - Introduction to Cyber Security
 
 ---
 
