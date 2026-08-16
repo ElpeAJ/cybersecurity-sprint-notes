@@ -1,6 +1,6 @@
 # Day 6: Firewalls & Firewall Rules (Perimeter Defense)
 
-## 🛡️ Firewall Fundamentals & Rule Components
+## Firewall Fundamentals & Rule Components
 * **Firewall Definition:** A security system designed to monitor and control inbound and outbound network traffic based on predetermined security rules. It establishes a barrier between a trusted internal network and an untrusted external network.
 * **The 4 Core Rule Components:** Every firewall rule must explicitly define these four variables:
   1. **Direction:** Inbound (ingress) or Outbound (egress).
@@ -10,7 +10,7 @@
 
 ---
 
-## 🔄 Filtering Mechanics: Stateful vs. Stateless
+## Filtering Mechanics: Stateful vs. Stateless
 
 | Property | Stateful Inspection | Stateless Filtering |
 | :--- | :--- | :--- |
@@ -19,7 +19,7 @@
 | **Rule Overhead** | Requires only **one rule**. (If you allow outbound web traffic, the reply is automatically let back in). | Requires **two separate rules** (one to allow traffic out, and a second explicit rule to let return traffic in). |
 | **Default Behavior** | **Windows Defender Defaults:** Inbound traffic is blocked by default; Outbound traffic is allowed by default. | Must be explicitly configured manually in both directions for every protocol. |
 
-### 🛠️ Firewall Rule Design Best Practices
+### Firewall Rule Design Best Practices
 * **Deny by Default:** Lock down all network paths entirely, then only open doors for explicitly authorized services.
 * **Be Specific:** Narrow down rules by limiting specific source/destination IP spaces rather than leaving parameters open to any network zone.
 * **Document Every Rule:** Maintain strict documentation detailing exactly *why* a rule was created and who authorized it.
@@ -27,7 +27,7 @@
 
 ---
 
-## 🏢 Real-World Firewall Failures
+## Real-World Firewall Failures
 
 ### Case 1: Target Breach (2013)
 * **The Root Cause:** Deficiencies in internal network segmentation. 
@@ -53,7 +53,7 @@ Translating plain business language instructions into strict technical firewall 
 * **Technical Translation:** 
   * **Direction:** Outbound | **Protocol:** TCP | **Port:** 80, 443 | **Action:** Allow
 <img width="481" height="359" alt="Create new rule" src="https://github.com/user-attachments/assets/49dd0f1e-1159-4c67-b410-7f4677cc635e" />
-<p>Then click <b>Next</b></p>
+<p>Then click <b>New Rule</b></p>
 <!--<img width="891" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />-->
 <img width="653" height="403" alt="image" src="https://github.com/user-attachments/assets/59649dac-407b-47b2-87f0-68f268679655" />
 <p>Then click <b>Next</b></p>
@@ -76,6 +76,7 @@ Translating plain business language instructions into strict technical firewall 
   * **Rule B:** Direction: Inbound | Protocol: TCP | Port: 443 | Action: Allow
   * **Rule C (Catch-All):** Direction: Inbound | Protocol: Any | Port: Any | Action: Block
 <img width="376" height="346" alt="image" src="https://github.com/user-attachments/assets/e037403f-7e40-4120-bd8a-b1576bcde6af" />
+<p>Then click <b>New Rule</b></p>
 <img width="501" height="346" alt="image" src="https://github.com/user-attachments/assets/b1f06a48-f2a8-4026-8428-4653f5fdd296" />
 <p>Then click <b>Next</b></p>
 <img width="587" height="303" alt="image" src="https://github.com/user-attachments/assets/e3b3385d-1ca4-4e68-bdc2-65c1e11353ad" />
@@ -96,6 +97,7 @@ Translating plain business language instructions into strict technical firewall 
   * **Rule A:** Direction: Inbound | Source IP: `203.0.113.0/24` | Port: Any | Action: Block
   * **Rule B:** Direction: Outbound | Destination IP: `203.0.113.0/24` | Port: Any | Action: Block
 <img width="432" height="351" alt="image" src="https://github.com/user-attachments/assets/283afc22-67fd-4852-b10d-d15e28d27adc" />
+<p>Then click <b>New Rule</b></p>
 <img width="542" height="351" alt="image" src="https://github.com/user-attachments/assets/97faaed7-9454-488d-94f3-f6746fb1de76" />
 <p>Then click <b>Next</b></p>
 <img width="671" height="349" alt="image" src="https://github.com/user-attachments/assets/061b8ca8-5564-4ab4-8d72-282789eb2791" />
