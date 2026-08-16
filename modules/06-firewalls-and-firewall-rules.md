@@ -57,7 +57,7 @@ Translating plain business language instructions into strict technical firewall 
 <p>Select <b>Port</b> then click <b>Next</b></p>
 <!--<img width="891" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />-->
 <img width="653" height="403" alt="image" src="https://github.com/user-attachments/assets/59649dac-407b-47b2-87f0-68f268679655" />
-<p>Select <b>TCP, and specify the port numbers </b> then click <b>Next</b></p>
+<p>Select <b>TCP, and specify the port numbers: 80, 443 </b> then click <b>Next</b></p>
 <img width="705" height="370" alt="image" src="https://github.com/user-attachments/assets/14067cdf-fade-4695-a62b-dd88ebd8330b" />
 <p>Select <b>Allow the connection </b>then click <b>Next</b></p>
 <img width="679" height="367" alt="image" src="https://github.com/user-attachments/assets/2cdf81ca-2684-4e2c-ab58-e508842f01b1" />
@@ -66,7 +66,7 @@ Translating plain business language instructions into strict technical firewall 
 <p>Then Add a <b>Name</b> and <b>Description</b> for your newly created rule</p>
 <img width="654" height="386" alt="image" src="https://github.com/user-attachments/assets/151ca141-31c4-49da-bd77-51c59f967c1c" />
 <p>Then click <b>Finish</b></p>
-<p><b>NEW OUTBOUND RULE CREATED</b></p>
+<p><b> SCREENSHOT OF NEW OUTBOUND RULE CREATED</b></p>
 <img width="1038" height="208" alt="image" src="https://github.com/user-attachments/assets/921e4c81-cbb2-4004-bcde-53034f48b259" />
 
 
@@ -76,19 +76,21 @@ Translating plain business language instructions into strict technical firewall 
   * **Rule A:** Direction: Inbound | Protocol: TCP | Port: 22 | Action: Allow
   * **Rule B:** Direction: Inbound | Protocol: TCP | Port: 443 | Action: Allow
   * **Rule C (Catch-All):** Direction: Inbound | Protocol: Any | Port: Any | Action: Block
+
+<p>Right click on Inbound Rules and select <b>New Rule</b></p>
 <img width="376" height="346" alt="image" src="https://github.com/user-attachments/assets/e037403f-7e40-4120-bd8a-b1576bcde6af" />
-<p>Then click <b>New Rule</b></p>
+<p>Select <b>Port</b> then click <b>Next</b></p>
 <img width="501" height="346" alt="image" src="https://github.com/user-attachments/assets/b1f06a48-f2a8-4026-8428-4653f5fdd296" />
-<p>Then click <b>Next</b></p>
+<p>Select <b>TCP, and specify the port numbers: 22, 443 </b> then click <b>Next</b></p>
 <img width="587" height="303" alt="image" src="https://github.com/user-attachments/assets/e3b3385d-1ca4-4e68-bdc2-65c1e11353ad" />
-<p>Then click <b>Next</b></p>
+<p>Select <b>Allow the connection </b>then click <b>Next</b></p>
 <img width="649" height="318" alt="image" src="https://github.com/user-attachments/assets/37ff0fb6-65f3-4c51-9964-fdcf324a1180" />
-<p>Then click <b>Next</b></p>
+<p>Leave the default settings for when the rule applies then click <b>Next</b></p>
 <img width="623" height="281" alt="image" src="https://github.com/user-attachments/assets/b873df9b-7f40-4829-bc48-69d87edf8b1f" />
-<p>Then click <b>Next</b></p>
+<p>Then Add a <b>Name</b> and <b>Description</b> for your newly created rule</p>
 <img width="557" height="308" alt="image" src="https://github.com/user-attachments/assets/a3cc9d57-110e-4e7b-83d8-9dc2304545d0" />
 <p>Then click <b>Finish</b></p>
-<p><b>NEW OUTBOUND RULE CREATED</b></p>
+<p><b>SCREENSHOT OF NEW OUTBOUND RULE CREATED</b></p>
 <img width="1034" height="226" alt="image" src="https://github.com/user-attachments/assets/79231d76-08f3-4a4b-95fd-abf8bb7a6526" />
 
 
@@ -97,33 +99,38 @@ Translating plain business language instructions into strict technical firewall 
 * **Technical Translation:**
   * **Rule A:** Direction: Inbound | Source IP: `203.0.113.0/24` | Port: Any | Action: Block
   * **Rule B:** Direction: Outbound | Destination IP: `203.0.113.0/24` | Port: Any | Action: Block
+
+<p>Right click on Inbound Rules and select <b>New Rule</b></p>
 <img width="432" height="351" alt="image" src="https://github.com/user-attachments/assets/283afc22-67fd-4852-b10d-d15e28d27adc" />
-<p>Then click <b>New Rule</b></p>
+<p>Select <b>Custom</b> then click <b>Next</b></p>
 <img width="542" height="351" alt="image" src="https://github.com/user-attachments/assets/97faaed7-9454-488d-94f3-f6746fb1de76" />
-<p>Then click <b>Next</b></p>
+<p>Select <b>All programs</b> then click <b>Next</b></p>
 <img width="671" height="349" alt="image" src="https://github.com/user-attachments/assets/061b8ca8-5564-4ab4-8d72-282789eb2791" />
+<p>Keep the defaults to which ports or protocols the rule apply <b>Protocol type: Any</b></p>
 <p>Then click <b>Next</b></p>
 <img width="519" height="387" alt="image" src="https://github.com/user-attachments/assets/d8ef0665-1fd6-4383-8404-4b682b26efb1" />
-<p>Then click <b>These IP Addresses</b></p>
+<p>Then select <b>These IP Addresses</b> and click <b>Add</b> next to it</p>
 <img width="644" height="480" alt="image" src="https://github.com/user-attachments/assets/82d89871-e4fa-45a5-8fc5-e31492349dbf" />
-<p>Then click <b>Add</b></p>
+<p>Enter the <b>IP Address or subnet</b>then click <b>Ok</b> then <b>Next</b></p>
 <img width="657" height="439" alt="image" src="https://github.com/user-attachments/assets/a943f064-6564-4dba-9295-fa21cb3deb4a" />
-<p>Then click <b>OK</b> and then <b>Next</b></p>
+<p>Select <b>Block the connection </b>then click <b>Next</b></p>
 <img width="656" height="296" alt="image" src="https://github.com/user-attachments/assets/8c397e0a-5bed-41c7-96da-e2f87cabaa3d" />
-<p>Then click <b>Next</b></p>
+<p>Leave the default settings for when the rule applies then click <b>Next</b></p>
 <img width="622" height="301" alt="image" src="https://github.com/user-attachments/assets/c62d2c0d-e0cb-4120-a11c-63747b29dc7e" />
-<p>Then click <b>Next</b></p>
+<p>Then Add a <b>Name</b> and <b>Description</b> for your newly created rule</p>
 <img width="662" height="307" alt="image" src="https://github.com/user-attachments/assets/b0f8aa1a-cfab-489e-a751-11eab6a956a9" />
 <p>Then click <b>Finish</b></p>
-<p><b>NEW OUTBOUND RULE CREATED</b></p>
+<p><b>SCREENSHOT OF NEW OUTBOUND RULE CREATED</b></p>
 <img width="1034" height="260" alt="image" src="https://github.com/user-attachments/assets/f95b2f21-bbff-4215-914d-e33b42bf8c83" />
 
+*Note: FOLLOW SAME STEPS BUT THIS TIME TO BLOCK OUTBOUND TRAFFIC ON THE SPECIFIED IP ADDRESS.*
 
 ### 4. Legacy Protocol Blacklisting
 * **Plain Language:** Block unencrypted legacy Telnet connections.
 * **Technical Translation:**
   * **Direction:** Inbound/Outbound | Protocol: TCP | Port: 23 | Action: Block
 
+*Note: FOLLOW SAME STEPS BUT THIS TIME TO BLOCK INBOUND/OUTBOUND TRAFFIC FOR TELNET CONNECTIONS.*
 ---
 
 ## 💻 Practical Lab Walkthrough: macOS Packet Filter (PF)
