@@ -131,6 +131,7 @@ Translating plain business language instructions into strict technical firewall 
   * **Direction:** Inbound/Outbound | Protocol: TCP | Port: 23 | Action: Block
 
 *Note: FOLLOW SAME STEPS BUT THIS TIME TO BLOCK INBOUND/OUTBOUND TRAFFIC FOR TELNET CONNECTIONS.*
+
 ---
 
 ## 💻 Practical Lab Walkthrough: macOS Packet Filter (PF)
