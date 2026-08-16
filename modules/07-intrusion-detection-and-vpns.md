@@ -1,4 +1,4 @@
-<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 31 PM" src="https://github.com/user-attachments/assets/bd445832-3d2b-4356-a9e8-d5abb37ab968" />
+<!--<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 31 PM" src="https://github.com/user-attachments/assets/bd445832-3d2b-4356-a9e8-d5abb37ab968" />-->
 # Day 7: Intrusion Detection & VPN Implementations
 
 ## Perimeter Monitoring: IDS vs. IPS Architectures
@@ -99,16 +99,16 @@ Instead of downloading and installing the full Proton VPN desktop software appli
 
 #### Step 2: Core WireGuard Integration
 1. Initialize the open-source **WireGuard** interface console client.
-<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 59 PM" src="https://github.com/user-attachments/assets/38105ca3-f296-4207-bc87-7006bb39adb5" />
+<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 59 PM" src="https://github.com/user-attachments/assets/38105ca3-f296-4207-bc87-7006bb39adb5" /> <br><br>
 
 <p>2. Select **Import Tunnel(s) from File** and point it directly to the downloaded Proton VPN `.conf` profile.</p>
 <!--<img width="699" height="337" alt="Screenshot 2026-08-16 at 5 11 37 PM" src="https://github.com/user-attachments/assets/b4f2fb69-871e-44db-a734-152570e85b0d" />-->
-<img width="699" height="337" alt="Screenshot 2026-08-16 at 5 12 43 PM" src="https://github.com/user-attachments/assets/69c99fba-e990-49c6-80f2-f50f5e8d1b04" />
+<img width="699" height="337" alt="Screenshot 2026-08-16 at 5 12 43 PM" src="https://github.com/user-attachments/assets/69c99fba-e990-49c6-80f2-f50f5e8d1b04" /><br><br>
 
 3. Toggle the active routing switches to enable the internal DNS mapping protection parameters.
-<img width="699" height="520" alt="Activating WireGuard Tunnels" src="https://github.com/user-attachments/assets/afcdba02-5892-4764-a372-d7a67b574658" />
+<img width="699" height="520" alt="Activating WireGuard Tunnels" src="https://github.com/user-attachments/assets/afcdba02-5892-4764-a372-d7a67b574658" /><br>
 
-<img width="699" height="520" alt="Wireguard Tunnel Activation" src="https://github.com/user-attachments/assets/6bf5eeb5-c7db-4347-b0a2-c3695953201c" />
+<img width="699" height="520" alt="Wireguard Tunnel Activation" src="https://github.com/user-attachments/assets/6bf5eeb5-c7db-4347-b0a2-c3695953201c" /><br><br>
 
 #### Step 3: Verifying Traffic Redirection Boundaries
 
@@ -122,13 +122,13 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 ====================================================================
 ```
 * **Verification Step:** Navigate to a public address inspector site (e.g., `WhatIsMyIP`) before and after enabling WireGuard to ensure your real geographic origin is completely masked.
-<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 25 46 PM" src="https://github.com/user-attachments/assets/dedefffc-a57f-4b7e-b65d-69cead7dc081" />
+<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 25 46 PM" src="https://github.com/user-attachments/assets/dedefffc-a57f-4b7e-b65d-69cead7dc081" /><br><br>
 
 <p><b>Before Activation</b></p>
-<img width="1196" height="570" alt="Before Activation" src="https://github.com/user-attachments/assets/31e648d7-d6d5-4a64-8d66-378b132d6352" />
+<img width="1196" height="570" alt="Before Activation" src="https://github.com/user-attachments/assets/31e648d7-d6d5-4a64-8d66-378b132d6352" /><br><br>
 
 <p><b>After Activation</b>(reload browser to see new IP details)</p>
-<img width="1196" height="570" alt="After Activation" src="https://github.com/user-attachments/assets/db64ce35-b6bc-4b28-847c-cdf723526009" />
+<img width="1196" height="570" alt="After Activation" src="https://github.com/user-attachments/assets/db64ce35-b6bc-4b28-847c-cdf723526009" /><br>
 
 ---
 
@@ -142,6 +142,3 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 * **Milestone:** No immediate standalone quiz today, but this material directly feeds into the upcoming **Week 2 MCQ Exam**.
 
 <!--<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 26 30 PM" src="https://github.com/user-attachments/assets/d7723bdc-d64c-40f6-8a2c-778cbd32795b" />-->
-
-* **Format:** Semi-guided to Independent review template.
-* **Milestone:** No immediate standalone quiz today, but this material directly feeds into the upcoming **Week 2 MCQ Exam**.
