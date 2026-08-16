@@ -52,17 +52,18 @@ Translating plain business language instructions into strict technical firewall 
 * **Plain Language:** Allow outbound web traffic on ports 80 and 443.
 * **Technical Translation:** 
   * **Direction:** Outbound | **Protocol:** TCP | **Port:** 80, 443 | **Action:** Allow
+<p>Right click on Outbound Rules and select <b>New Rule</b></p>
 <img width="481" height="359" alt="Create new rule" src="https://github.com/user-attachments/assets/49dd0f1e-1159-4c67-b410-7f4677cc635e" />
-<p>Then click <b>New Rule</b></p>
+<p>Select <b>Port</b> then click <b>Next</b></p>
 <!--<img width="891" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />-->
 <img width="653" height="403" alt="image" src="https://github.com/user-attachments/assets/59649dac-407b-47b2-87f0-68f268679655" />
-<p>Then click <b>Next</b></p>
+<p>Select <b>TCP, and specify the port numbers </b> then click <b>Next</b></p>
 <img width="705" height="370" alt="image" src="https://github.com/user-attachments/assets/14067cdf-fade-4695-a62b-dd88ebd8330b" />
-<p>Then click <b>Next</b></p>
+<p>Select <b>Allow the connection </b>then click <b>Next</b></p>
 <img width="679" height="367" alt="image" src="https://github.com/user-attachments/assets/2cdf81ca-2684-4e2c-ab58-e508842f01b1" />
-<p>Then click <b>Next</b></p>
+<p>Leave the default settings for when the rule applies then click <b>Next</b></p>
 <img width="632" height="332" alt="image" src="https://github.com/user-attachments/assets/d939bde6-9763-4bbe-b19c-58b0cbe8c575" />
-<p>Then click <b>Next</b></p>
+<p>Then Add a <b>Name</b> and <b>Description</b> for your newly created rule</p>
 <img width="654" height="386" alt="image" src="https://github.com/user-attachments/assets/151ca141-31c4-49da-bd77-51c59f967c1c" />
 <p>Then click <b>Finish</b></p>
 <p><b>NEW OUTBOUND RULE CREATED</b></p>
