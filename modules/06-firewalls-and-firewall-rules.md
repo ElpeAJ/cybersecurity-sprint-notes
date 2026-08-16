@@ -53,7 +53,24 @@ Translating plain business language instructions into strict technical firewall 
 * **Technical Translation:** 
   * **Direction:** Outbound | **Protocol:** TCP | **Port:** 80, 443 | **Action:** Allow
 <img width="481" height="359" alt="Create new rule" src="https://github.com/user-attachments/assets/49dd0f1e-1159-4c67-b410-7f4677cc635e" />
-<img width="481" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />
+* Then click **Next**
+<!--<img width="891" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />-->
+<img width="653" height="403" alt="image" src="https://github.com/user-attachments/assets/59649dac-407b-47b2-87f0-68f268679655" />
+* Then click **Next**
+<img width="705" height="370" alt="image" src="https://github.com/user-attachments/assets/14067cdf-fade-4695-a62b-dd88ebd8330b" />
+* Then click **Next**
+<img width="679" height="367" alt="image" src="https://github.com/user-attachments/assets/2cdf81ca-2684-4e2c-ab58-e508842f01b1" />
+* Then click **Next**
+<img width="632" height="332" alt="image" src="https://github.com/user-attachments/assets/d939bde6-9763-4bbe-b19c-58b0cbe8c575" />
+* Then click **Next**
+<img width="654" height="386" alt="image" src="https://github.com/user-attachments/assets/151ca141-31c4-49da-bd77-51c59f967c1c" />
+* Then click **Finish**
+*  **NEW OUTBOUND RULE CREATED**
+* <img width="1038" height="208" alt="image" src="https://github.com/user-attachments/assets/921e4c81-cbb2-4004-bcde-53034f48b259" />
+
+
+
+
 
 
 ### 2. Inbound Shell & Web Secure Policy
