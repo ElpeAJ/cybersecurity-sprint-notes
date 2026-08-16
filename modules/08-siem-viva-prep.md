@@ -79,6 +79,20 @@ To definitively separate a true positive compromise from a false positive mistak
 
 ---
 
-## ⚖️ Real-World Impact: Why Triage Matters
+## Real-World Impact: Why Triage Matters
 * **Historical Failure:** In several major public corporate breaches, alerts detailing the initial hacker entries were sitting inside SIEM data logs weeks before the damage occurred. However, because analysts were overwhelmed by alert fatigue, the alerts were left unreviewed.
 * **Defensive Practice:** Exceptional triage is often the single boundary lane separating early containment from an absolute disaster.
+
+---
+
+## Additional Materials
+* TryHackMe - Junior Security Analyst Intro (Completed)
+* TryHackMe - SOC Role in Blue Team (Completed)
+* TryHackMe - SOC Fundamentals (Completed)
+* TryHackMe - SOC L1 Alert Reporting (Not started)
+* LetsDefend - SOC Fundamentals (In progress)
+* <img width="733" height="425" alt="Screenshot 2026-08-16 at 9 40 38 PM" src="https://github.com/user-attachments/assets/c23b20b2-bd9d-45fa-baa5-88a377099fe2" />
+* <img width="733" height="594" alt="Screenshot 2026-08-16 at 9 40 19 PM" src="https://github.com/user-attachments/assets/7c90f123-8fc2-445c-a2eb-a2193196b206" />
+* <img width="883" height="446" alt="Screenshot 2026-08-16 at 9 44 21 PM" src="https://github.com/user-attachments/assets/f76f3e7f-cc6c-4131-aa20-6f76530dde56" />
+*<img width="567" height="462" alt="Screenshot 2026-08-16 at 9 55 01 PM" src="https://github.com/user-attachments/assets/0330d021-7cf4-4402-917f-e80faf0268f1" />
+
