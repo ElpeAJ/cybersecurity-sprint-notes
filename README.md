@@ -12,7 +12,12 @@ Welcome to my central repository for documenting my journey through the intensiv
 
 ### 📁 Module 2: Network Security & Operations
 - [✓] **Day 5:** Core Networking, Architecture, & Segmentation Mechanics
-- [🔄] **Day 6:** Firewalls, Stateful/Stateless Inspection, & Rule Writing Labs
+- [✓] **Day 6:** Firewalls, Stateful/Stateless Inspection, & Rule Writing Labs
+- [✓] **Day 7:** Intrusion Detection (IPS, IDS) & Virtual Private Network (VPN)
+- [✓] **Day 8:** SIEM & ... Week 2 Assessment (MCQ Quiz & Viva Oral Examination)
+
+### 📁 Module 3: ...
+- [🔄] **Day 9:** 
 
 
 ---
@@ -37,9 +42,9 @@ netstat -tuln
 * [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
 * [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
 * [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
-* [Day 6: Networking & Security Operations](modules/06-networking-and-security-operations.md)
-* [Day 7: Firewalls & Perimeter Defense](modules/07-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
-* 
+* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](modules/07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+
 
 
 
