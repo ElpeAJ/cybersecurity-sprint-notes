@@ -108,6 +108,14 @@ When an endpoint boots up and attempts to access a service on the internet, prot
 
 ---
 
+## Additional Materials
+* TryHackMe - Networking Concepts (Room Completed)
+* TryHackMe - Inside a Computer System (Room Completed)
+* LetsDefend - Network Fundamentals (Badge Received)
+
+---
+
+
 ## 📝 Assessment Reference
 * **Format:** Reference material.
 * **Milestone:** Review thoroughly before the **Week 2 MCQ Exam**.
