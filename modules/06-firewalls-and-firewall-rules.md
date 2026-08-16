@@ -69,6 +69,13 @@ Translating plain business language instructions into strict technical firewall 
 <p><b> SCREENSHOT OF NEW OUTBOUND RULE CREATED</b></p>
 <img width="1038" height="208" alt="image" src="https://github.com/user-attachments/assets/921e4c81-cbb2-4004-bcde-53034f48b259" />
 
+Before & After Rule creation - port 80
+
+<img width="648" height="374" alt="image" src="https://github.com/user-attachments/assets/5b0698f7-149e-4388-be2d-5e72b4d86428" />
+Before & After Rule creation - port 443
+
+<img width="660" height="372" alt="image" src="https://github.com/user-attachments/assets/340bc3e5-8b90-4ef6-bd54-f73d781d9d22" />
+
 
 ### 2. Inbound Shell & Web Secure Policy
 * **Plain Language:** Block all inbound traffic except SSH (22) and HTTPS (443).
