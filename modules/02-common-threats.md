@@ -32,6 +32,13 @@ Analysis of practical scenario classifications reviewed during today's session:
 
 ---
 
+
+## Additional Materials
+* TryHackMe - Common Attacks (Room Completed)
+* TryHackMe - Security Principles (Room Completed)
+
+---
+
 ## 📝 Assessment Reference
 * **Format:** Self-study reference material.
 * **Milestone:** Review thoroughly before taking the **Week 1 MCQ**.
