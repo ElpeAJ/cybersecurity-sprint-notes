@@ -1,3 +1,4 @@
+<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 31 PM" src="https://github.com/user-attachments/assets/bd445832-3d2b-4356-a9e8-d5abb37ab968" />
 # Day 7: Intrusion Detection & VPN Implementations
 
 ## Perimeter Monitoring: IDS vs. IPS Architectures
@@ -98,8 +99,16 @@ Instead of downloading and installing the full Proton VPN desktop software appli
 
 #### Step 2: Core WireGuard Integration
 1. Initialize the open-source **WireGuard** interface console client.
-2. Select **Import Tunnel(s) from File** and point it directly to the downloaded Proton VPN `.conf` profile.
+<img width="699" height="469" alt="Screenshot 2026-08-16 at 5 09 59 PM" src="https://github.com/user-attachments/assets/38105ca3-f296-4207-bc87-7006bb39adb5" />
+
+<p>2. Select **Import Tunnel(s) from File** and point it directly to the downloaded Proton VPN `.conf` profile.</p>
+<!--<img width="699" height="337" alt="Screenshot 2026-08-16 at 5 11 37 PM" src="https://github.com/user-attachments/assets/b4f2fb69-871e-44db-a734-152570e85b0d" />-->
+<img width="699" height="337" alt="Screenshot 2026-08-16 at 5 12 43 PM" src="https://github.com/user-attachments/assets/69c99fba-e990-49c6-80f2-f50f5e8d1b04" />
+
 3. Toggle the active routing switches to enable the internal DNS mapping protection parameters.
+<img width="699" height="520" alt="Activating WireGuard Tunnels" src="https://github.com/user-attachments/assets/afcdba02-5892-4764-a372-d7a67b574658" />
+
+<img width="699" height="520" alt="Wireguard Tunnel Activation" src="https://github.com/user-attachments/assets/6bf5eeb5-c7db-4347-b0a2-c3695953201c" />
 
 #### Step 3: Verifying Traffic Redirection Boundaries
 
@@ -113,6 +122,13 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 ====================================================================
 ```
 * **Verification Step:** Navigate to a public address inspector site (e.g., `WhatIsMyIP`) before and after enabling WireGuard to ensure your real geographic origin is completely masked.
+<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 25 46 PM" src="https://github.com/user-attachments/assets/dedefffc-a57f-4b7e-b65d-69cead7dc081" />
+
+<p><b>Before Activation</b></p>
+<img width="1196" height="570" alt="Before Activation" src="https://github.com/user-attachments/assets/31e648d7-d6d5-4a64-8d66-378b132d6352" />
+
+<p><b>After Activation</b>(reload browser to see new IP details)</p>
+<img width="1196" height="570" alt="After Activation" src="https://github.com/user-attachments/assets/db64ce35-b6bc-4b28-847c-cdf723526009" />
 
 ---
 
@@ -125,116 +141,7 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 * **Format:** Semi-guided to Independent review template.
 * **Milestone:** No immediate standalone quiz today, but this material directly feeds into the upcoming **Week 2 MCQ Exam**.
 
+<!--<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 26 30 PM" src="https://github.com/user-attachments/assets/d7723bdc-d64c-40f6-8a2c-778cbd32795b" />-->
 
-
-
-# Module 2 — Day 7: Intrusion Detection & VPN Implementations
-
-## 🚨 Perimeter Monitoring: IDS vs. IPS Architectures
-
-Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) are automated security solutions deployed to audit network traffic behavior:
-
-* **Intrusion Detection System (IDS):** An inline monitoring utility that analyzes packet flows and fires an administrative warning upon spotting anomalies or threats, but **does not** modify traffic directly. (Primary Role: Traffic Visibility).
-* **Intrusion Prevention System (IPS):** An inline reactive utility situated directly within the traffic pipeline that actively interrupts, drops, or blocks malicious activity automatically.
-
-### 📊 Operational Analogy Matrix
-
-| Parameter | Smoke Alarm (IDS) | Sprinkler System (IPS) |
-| :--- | :--- | :--- |
-| **Core Action** | Detects threat indicators and triggers an alarm. Takes zero direct action on the fire. | Detects threat thresholds and discharges water instantly without human intervention. |
-| **Response Agent** | A human analyst must review the alert context to decide on the mitigation. | The system self-executes a programmatic response with no human-in-the-loop delay. |
-| **False Positive Cost** | Generates temporary noise. Mildly irritating but zero asset damage occurs. | Inflicts actual water damage to healthy property. The remediation action itself carries operational cost. |
-
----
-
-## 🧠 Detection Logic: Signatures vs. Anomalies
-
-* **Signature-Based Detection:** References incoming files or traffic strings against a local database of known threat fingerprints or malicious patterns.
-  * *Analogy:* A security guard holding a physical poster displaying faces of documented criminals.
-* **Anomaly-Based Detection:** Models a strict behavioral "baseline" of normal system traffic over a learned period. Anything that deviates significantly from this baseline flags a violation.
-  * *Analogy:* A seasoned guard who identifies suspicious, out-of-character behavior without relying on a pre-printed list.
-
----
-
-## 🔒 Virtual Private Network (VPN) Architecture
-
-A VPN abstracts your traffic by establishing an encrypted connection over an untrusted network environment to a remote transit server, mapping directly back to the **Confidentiality** pillar from Week 1.
-
-### 💡 Lab Concept: How Our Setup Actually Works
-Instead of downloading and installing the full Proton VPN desktop software application onto the PC, we split the service provider parameters from the connection engine:
-1. **The Configuration File:** We log into Proton VPN online to generate a specialized configuration file (`.conf`). This file acts as our permission slip and mapping guide to use Proton's secure global infrastructure.
-2. **The WireGuard Engine:** We feed this configuration file directly into the WireGuard client. WireGuard reads the file instructions to build the tunnel and change our virtual location whenever we activate it.
-3. **The Activation Verification:** We navigate to a public address inspector site (like `WhatIsMyIP`) before and after clicking activate to visually confirm our public network footprint has safely shifted to a remote server.
-
----
-
-## 🏢 Real-World Incidents & Case Studies
-
-### Case 1: Marriott Breach (2018)
-* **The Vulnerability:** An **Anomaly Detection Failure**.
-* **The Impact:** Malicious actors remained inside the network completely undetected for **4 years**, slowly exfiltrating millions of guest records because internal behavior tracking failed to flag the abnormal data movements.
-
-### Case 2: Pulse Secure Breach (2019)
-* **The Vulnerability:** A critical software flaw in a corporate VPN system.
-* **The Impact:** Threat actors weaponized the VPN vulnerability directly as their entry attack path, bypassing traditional outer perimeter defenses to exploit corporate internal assets.
-
----
-
-## 💻 Practical Labs Walkthrough
-
-### Part 1: Simulating Detection & Prevention Scripts
-
-#### Step 1: Create a mock traffic log file
-Open your local terminal and use an EOF block to write a dummy log dataset tracking traffic ports and payloads:
-```bash
-cat << 'EOF' > ~/Desktop/traffic.log
-09:14 10.0.0.15 443 12KB
-09:15 10.0.0.15 443 8KB
-02:47 10.0.0.22 4444 2MB
-09:20 10.0.0.18 22 1KB
-EOF
-```
-
-#### Step 2: Simulate an IDS warning logic
-Search the log space for anomalous port activity (`4444`). The script echoes an alert to the terminal panel without modifying the source log or tracking file:
-```bash
-grep "4444" ~/Desktop/traffic.log && echo "ALERT: suspicious port 4444 detected, notifying analyst"
-```
-
-#### Step 3: Simulate an IPS automated blocking routine
-Execute the detection logic, but append an active structural change that drops malicious packets by feeding the offending IP string directly to the macOS firewall block table:
-```bash
-grep "4444" ~/Desktop/traffic.log && echo "BLOCKED: adding 10.0.0.22 to firewall deny list" && sudo pfctl -t blocklist -T add 10.0.0.22
-```
-
----
-
-### Part 2: Guided Tunnel Configuration via WireGuard & Proton VPN
-
-#### Step 1: Secure Server Configuration Provisioning
-1. Authenticate into your personal **Proton VPN** dashboard account.
-2. Select your targeted operational platform deployment option (e.g., Windows, macOS, or Linux).
-3. Generate and download the customized cryptographic connection profile (`.conf` file configuration string).
-
-#### Step 2: Core WireGuard Integration
-1. Initialize the open-source **WireGuard** interface console client.
-2. Select **Import Tunnel(s) from File** and point it directly to the downloaded Proton VPN `.conf` profile.
-3. Toggle the active routing switches to enable the internal DNS mapping protection parameters.
-
-#### Step 3: Verifying Traffic Redirection Boundaries
-
-```text
-====================================================================
-METRIC               PRE-TUNNEL RESCUE          POST-TUNNEL ENCRYPTED
-====================================================================
-Public IP Address    [Record Local ISP IP]      [Record Remote Tunneled IP]
-Geographic Location  [Your True City/Country]   [Target Server Country Location]
-Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
-====================================================================
-```
-
----
-
-## 📝 Assessment Reference
 * **Format:** Semi-guided to Independent review template.
 * **Milestone:** No immediate standalone quiz today, but this material directly feeds into the upcoming **Week 2 MCQ Exam**.
