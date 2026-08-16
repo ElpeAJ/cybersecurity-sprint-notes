@@ -1,0 +1,131 @@
+# Day 6: Firewalls & Firewall Rules (Perimeter Defense)
+
+## 🛡️ Firewall Fundamentals & Rule Components
+* **Firewall Definition:** A security system designed to monitor and control inbound and outbound network traffic based on predetermined security rules. It establishes a barrier between a trusted internal network and an untrusted external network.
+* **The 4 Core Rule Components:** Every firewall rule must explicitly define these four variables:
+  1. **Direction:** Inbound (ingress) or Outbound (egress).
+  2. **Protocol:** The transport mechanism layer used (typically TCP or UDP).
+  3. **Port:** The specific communication channel identifier (e.g., Port 80, Port 443).
+  4. **Action:** What the firewall does when a packet matches the rule parameters (**Allow/Pass** or **Block/Deny**).
+
+---
+
+## 🔄 Filtering Mechanics: Stateful vs. Stateless
+
+| Property | Stateful Inspection | Stateless Filtering |
+| :--- | :--- | :--- |
+| **Connection Tracking** | Tracks the operational state of active network connections. | Inspects individual packets in total isolation. |
+| **Context Awareness** | Knows if an incoming packet is a legitimate reply to an outbound request you already made. | Has no memory or context of past packets or open sessions. |
+| **Rule Overhead** | Requires only **one rule**. (If you allow outbound web traffic, the reply is automatically let back in). | Requires **two separate rules** (one to allow traffic out, and a second explicit rule to let return traffic in). |
+| **Default Behavior** | **Windows Defender Defaults:** Inbound traffic is blocked by default; Outbound traffic is allowed by default. | Must be explicitly configured manually in both directions for every protocol. |
+
+### 🛠️ Firewall Rule Design Best Practices
+* **Deny by Default:** Lock down all network paths entirely, then only open doors for explicitly authorized services.
+* **Be Specific:** Narrow down rules by limiting specific source/destination IP spaces rather than leaving parameters open to any network zone.
+* **Document Every Rule:** Maintain strict documentation detailing exactly *why* a rule was created and who authorized it.
+* **Review Regularly:** Audit rules continuously to delete obsolete permissions that increase attack surfaces.
+
+---
+
+## 🏢 Real-World Firewall Failures
+
+### Case 1: Target Breach (2013)
+* **The Root Cause:** Deficiencies in internal network segmentation. 
+* **The Impact:** Attackers compromised a third-party HVAC vendor credential, gained entry to the perimeter, and moved laterally to retail Point-of-Sale (POS) systems due to loose internal filtering rules.
+
+### Case 2: Capital One Breach (2019)
+* **The Root Cause:** A single misconfigured Web Application Firewall (WAF) rule.
+* **The Impact:** A cloud misconfiguration allowed a malicious actor to trick the firewall proxy, leading to server-side resource exploitation and massive database theft.
+
+---
+
+## Creating Inbound and Outbound Rules on Windows Defender - Class Exercise
+
+Translating plain business language instructions into strict technical firewall rule parameters:
+
+### 1. Web Traffic Policy
+* **Plain Language:** Allow outbound web traffic on ports 80 and 443.
+* **Technical Translation:** 
+  * **Direction:** Outbound | **Protocol:** TCP | **Port:** 80, 443 | **Action:** Allow
+
+### 2. Inbound Shell & Web Secure Policy
+* **Plain Language:** Block all inbound traffic except SSH (22) and HTTPS (443).
+* **Technical Translation:**
+  * **Rule A:** Direction: Inbound | Protocol: TCP | Port: 22 | Action: Allow
+  * **Rule B:** Direction: Inbound | Protocol: TCP | Port: 443 | Action: Allow
+  * **Rule C (Catch-All):** Direction: Inbound | Protocol: Any | Port: Any | Action: Block
+
+### 3. Perimeter Isolation Policy
+* **Plain Language:** Block a specific external malicious network range (`203.0.113.0/24`) in both directions.
+* **Technical Translation:**
+  * **Rule A:** Direction: Inbound | Source IP: `203.0.113.0/24` | Port: Any | Action: Block
+  * **Rule B:** Direction: Outbound | Destination IP: `203.0.113.0/24` | Port: Any | Action: Block
+
+### 4. Legacy Protocol Blacklisting
+* **Plain Language:** Block unencrypted legacy Telnet connections.
+* **Technical Translation:**
+  * **Direction:** Inbound/Outbound | Protocol: TCP | Port: 23 | Action: Block
+
+---
+
+## 💻 Practical Lab Walkthrough: macOS Packet Filter (PF)
+*Note: While Windows uses Windows Defender graphical user interface controls, macOS uses a powerful terminal tool called **PF (Packet Filter)** to manage network connections.*
+
+### Step 1: Initialize local server space
+Open Terminal Window 1 and spin up a mock target web server listening locally on port 5555:
+```bash
+nc -l 5555
+```
+
+### Step 2: Test basic connectivity
+Open Terminal Window 2 and connect to your mock web server instance. Type a test phrase and hit enter; it should appear across Window 1 instantly, confirming no firewall rules are interfering yet:
+```bash
+nc localhost 5555
+```
+*Close out both connections inside their terminals using `Ctrl + C` before continuing.*
+
+### Step 3: Audit default firewall state
+Check the system's underlying firewall configuration status. By default, macOS has this backend utility disabled:
+```bash
+sudo pfctl -s info
+```
+
+### Step 4: Write a stateful rule syntax
+Open an anchor configuration workspace file inside your command line text editor:
+```bash
+sudo nano /etc/pf.anchors/demo
+```
+Paste this explicit filtering statement into the file space, then save and exit (`Ctrl+O`, `Enter`, `Ctrl+X`):
+```text
+block in all
+pass in proto tcp to port 5555 keep state
+```
+> 🧠 **Key Concept:** The `keep state` parameter commands the network card to track this session. Once it allows an incoming request through port 5555, it automatically allows the outbound response to pass back through without a second rule.
+
+### Step 5: Load and initialize rule definitions
+Load the custom anchor rules definition list and explicitly trigger the engine:
+```bash
+sudo pfctl -a demo -f /etc/pf.anchors/demo
+sudo pfctl -e
+```
+
+### Step 6: Verify connection tracking stability
+Repeat the test from Steps 1 and 2. The connection succeeds completely because the rule explicitly passes port 5555 traffic and tracks its operational state continuously.
+
+### Step 7: Transition to stateless validation
+Re-open the layout workspace file (`sudo nano /etc/pf.anchors/demo`) and adjust the rule layout to drop memory capabilities:
+```text
+block in all
+pass in proto tcp to port 5555 no state
+```
+Reload your runtime settings configuration:
+```bash
+sudo pfctl -a demo -f /etc/pf.anchors/demo
+```
+> 🧠 **Key Concept:** Changing the instruction parameter to `no state` shifts the firewall into a stateless layout. The literal absence or inclusion of the `state` keyword is the visible syntax switch between these two architectures.
+
+### Step 8: Post-Lab Environment Cleanup
+Disable the rule engine backend fully to restore your machine to normal operating states:
+```bash
+sudo pfctl -d
+```
