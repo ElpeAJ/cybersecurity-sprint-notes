@@ -1,4 +1,4 @@
-# Module 1 — Day 2: Common Threats & The Threat Landscape
+# Day 2: Common Threats & The Threat Landscape
 
 ## The Five Threat Types
 Understanding the primary attack vectors used by malicious actors to compromise organizational infrastructure:
