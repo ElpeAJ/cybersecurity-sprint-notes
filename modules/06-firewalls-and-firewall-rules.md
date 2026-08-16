@@ -202,3 +202,16 @@ Disable the rule engine backend fully to restore your machine to normal operatin
 ```bash
 sudo pfctl -d
 ```
+
+---
+
+## Additional Materials
+* TryHackMe - Security Principles (Room Completed)
+* TryHackMe - Networking Concepts (Room Completed)
+
+---
+
+
+## 📝 Assessment Reference
+* **Format:** Reference material.
+* **Milestone:** Review thoroughly before the **Week 2 MCQ Exam**.
