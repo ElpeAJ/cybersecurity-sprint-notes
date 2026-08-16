@@ -83,8 +83,11 @@ grep "4444" ~/Desktop/traffic.log && echo "BLOCKED: adding 10.0.0.22 to firewall
 
 #### Step 1: Secure Server Configuration Provisioning
 1. Authenticate into your personal **Proton VPN** dashboard account.
+<img width="282" height="305" alt="Screenshot 2026-08-16 at 4 38 05 PM" src="https://github.com/user-attachments/assets/9d9c11b7-d441-409d-bbd0-7ab1ef872f71" />
 2. Select your targeted operational platform deployment option (e.g., Windows, macOS, or Linux).
+<img width="940" height="556" alt="Screenshot 2026-08-16 at 4 38 50 PM" src="https://github.com/user-attachments/assets/6c52b618-3544-44eb-b0cb-c0f20794b687" />
 3. Generate and download the customized cryptographic connection profile (`.conf` file configuration string).
+<img width="804" height="698" alt="Screenshot 2026-08-16 at 4 40 11 PM" src="https://github.com/user-attachments/assets/8310a132-4fac-4fe9-9edd-f5a0213e4df4" />
 
 #### Step 2: Core WireGuard Integration
 1. Initialize the open-source **WireGuard** interface console client.
@@ -103,6 +106,11 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 ====================================================================
 ```
 * **Verification Step:** Navigate to a public address inspector site (e.g., `WhatIsMyIP`) before and after enabling WireGuard to ensure your real geographic origin is completely masked.
+
+---
+
+## Additional Materials
+* TryHackMe - Snort (2 hrs - Not started)
 
 ---
 
