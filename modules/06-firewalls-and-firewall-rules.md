@@ -39,8 +39,7 @@
 
 ---
 
-## Creating Inbound and Outbound Rules on Windows Defender - Class Exercise
-
+## Class Exercise - Creating Inbound and Outbound Rules on Windows Defender
 Translating plain business language instructions into strict technical firewall rule parameters:
 
 ### 1. Web Traffic Policy
@@ -67,6 +66,13 @@ Translating plain business language instructions into strict technical firewall 
   * **Direction:** Inbound/Outbound | Protocol: TCP | Port: 23 | Action: Block
 
 ---
+
+## Class exercise step by step with screenshots
+* On Windows, use the search bar to search for Windows defender firewall and open
+* On the pop-up menu select Advanced settings in the vertical menu
+* Choose between out
+* <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/23d4015c-7d4f-4c19-b774-366f0db080d1" />
+
 
 ## 💻 Practical Lab Walkthrough: macOS Packet Filter (PF)
 *Note: While Windows uses Windows Defender graphical user interface controls, macOS uses a powerful terminal tool called **PF (Packet Filter)** to manage network connections.*
