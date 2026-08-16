@@ -42,8 +42,8 @@
 * On Windows, use the search bar to search for Windows defender firewall and open
 * On the pop-up menu select Advanced settings in the vertical menu
 * Click on inbound rules to see all inbound rules and or set new rules and likewise for outbound rules.
-* <img width="1041" height="385" alt="image" src="https://github.com/user-attachments/assets/314b2782-0dca-4f6e-9206-8afd1b939bd3" />
-* <!--<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/23d4015c-7d4f-4c19-b774-366f0db080d1" />-->
+  <img width="1041" height="385" alt="image" src="https://github.com/user-attachments/assets/314b2782-0dca-4f6e-9206-8afd1b939bd3" />
+  <!--<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/23d4015c-7d4f-4c19-b774-366f0db080d1" />-->
 ---
 ## Class Exercise - Creating Inbound and Outbound Rules on Windows Defender
 Translating plain business language instructions into strict technical firewall rule parameters:
@@ -52,7 +52,9 @@ Translating plain business language instructions into strict technical firewall 
 * **Plain Language:** Allow outbound web traffic on ports 80 and 443.
 * **Technical Translation:** 
   * **Direction:** Outbound | **Protocol:** TCP | **Port:** 80, 443 | **Action:** Allow
-<img width="481" height="359" alt="image" src="https://github.com/user-attachments/assets/49dd0f1e-1159-4c67-b410-7f4677cc635e" />
+<img width="481" height="359" alt="Create new rule" src="https://github.com/user-attachments/assets/49dd0f1e-1159-4c67-b410-7f4677cc635e" />
+<img width="481" alt="choose port " src="https://github.com/user-attachments/assets/22d7fd66-6528-47e1-bdb2-384ca576980a" />
+
 
 ### 2. Inbound Shell & Web Secure Policy
 * **Plain Language:** Block all inbound traffic except SSH (22) and HTTPS (443).
