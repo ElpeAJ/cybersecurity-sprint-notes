@@ -1,4 +1,4 @@
-# Module 1 — Day 3: Access Control & Social Engineering
+# Day 3: Access Control & Social Engineering
 
 ## 🔐 Access Control Architecture (AAA)
 Defensive frameworks deployed to verify corporate identities and strictly isolate organizational assets:
