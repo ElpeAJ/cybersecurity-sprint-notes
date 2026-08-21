@@ -142,3 +142,15 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 * **Milestone:** No immediate standalone quiz today, but this material directly feeds into the upcoming **Week 2 MCQ Exam**.
 
 <!--<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 26 30 PM" src="https://github.com/user-attachments/assets/d7723bdc-d64c-40f6-8a2c-778cbd32795b" />-->
+
+
+<img width="845" height="533" alt="Screenshot 2026-08-21 at 10 49 30 PM" src="https://github.com/user-attachments/assets/f4347fbc-467e-40ad-aadb-8b60b9bebe98" />
+
+<img width="845" height="826" alt="Screenshot 2026-08-21 at 10 50 04 PM" src="https://github.com/user-attachments/assets/fea6fb41-2f7d-4519-ace3-13166d13fea4" />
+
+<img width="845" height="807" alt="Screenshot 2026-08-21 at 10 51 02 PM" src="https://github.com/user-attachments/assets/2be39d82-667b-4f83-aa25-f95e5395331b" />
+
+
+
+
+
