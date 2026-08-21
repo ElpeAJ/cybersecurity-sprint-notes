@@ -86,10 +86,11 @@ To definitively separate a true positive compromise from a false positive mistak
 ---
 
 ## Additional Materials
-* TryHackMe - Junior Security Analyst Intro (Completed)
-* TryHackMe - SOC Role in Blue Team (Completed)
-* TryHackMe - SOC Fundamentals (Completed)
-* TryHackMe - SOC L1 Alert Reporting (Not started)
+* TryHackMe - Junior Security Analyst Intro (Room Completed)
+* TryHackMe - SOC Role in Blue Team (Room Completed)
+* TryHackMe - SOC Fundamentals (Room Completed)
+* TryHackMe - SOC L1 Alert Triage(Room Completed)
+* TryHackMe - SOC L1 Alert Reporting (Room Completed)
 * LetsDefend - SOC Fundamentals (In progress)
 * <img width="733" height="425" alt="Screenshot 2026-08-16 at 9 40 38 PM" src="https://github.com/user-attachments/assets/c23b20b2-bd9d-45fa-baa5-88a377099fe2" />
 * <img width="733" height="594" alt="Screenshot 2026-08-16 at 9 40 19 PM" src="https://github.com/user-attachments/assets/7c90f123-8fc2-445c-a2eb-a2193196b206" />
