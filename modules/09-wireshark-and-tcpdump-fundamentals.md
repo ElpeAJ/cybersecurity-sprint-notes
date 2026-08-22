@@ -141,6 +141,9 @@ When dealing with HTTP traffic, Wireshark exposes two different "Follow" renderi
 * **Follow TCP Stream:** Focuses on the Transport Layer (Layer 4). It outputs the raw data exactly as it flew across the wires. If the web server used compression (`Content-Encoding: gzip`), the text in the window will display as unreadable binary clutter.
 * **Follow HTTP Stream:** Focuses on the Application Layer (Layer 7). Wireshark strips away transport headers and acts like a mini web browser. It automatically decompress zipped web packets to output clean, readable HTML text or script data.
 
+Inspecting Packet Details: expanding a single packet in the lower pane to see every header field, from Ethernet up through the application layer.
+<img width="716" height="21" alt="image" src="https://github.com/user-attachments/assets/004da85a-41c1-40d4-88e1-a58af8a756f5" />
+
 ---
 
 ## Independent Practice Task Solutions
