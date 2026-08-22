@@ -6,7 +6,7 @@
 
 ---
 
-## 📊 The Four Primary Corporate Log Sources
+## 4️⃣ The Four Primary Corporate Log Sources
 
 Security investigations require parsing multiple telemetry feeds to reconstruct an incident cleanly:
 
@@ -16,6 +16,45 @@ Security investigations require parsing multiple telemetry feeds to reconstruct 
 | **System Log** | Captures kernel and OS events, service parameters, run states, application errors, and unexpected crashes. | Ideal for spotting unauthorized automated script installations or system services starting up unexpectedly. | `Service Update-Agent started successfully, 09:00 AM` |
 | **Web Server Log** | Records every connection request delivered to a web application, exposing client source IPs, resource URLs, and response statuses. | Used heavily to audit directories for active vulnerability scanning or remote code exploitation attempts. | `GET /login.php from 102.44.5.6, response 200 (success)` |
 | **Firewall Log** | Logs perimeter network boundary connections, tracking allowed blocks and dropped packet actions. | Critical for mapping out blocked attack vectors or identifying anomalous unauthorized outbound data connections. | `BLOCKED, inbound connection attempt on port 23 from 185.9.2.1` |
+
+---
+
+## OS Storage Directory & Access Quick-Reference
+
+When performing local digital forensics on an endpoint rather than using a centralized SIEM dashboard [07-siem-concepts-and-alert-triage.md], log paths and access methods change based on the underlying Operating System.
+
+### 1. Microsoft Windows Environments
+Windows systems compile logs into structured binary formats (`.evtx`). These cannot be viewed with standard text editors and must be accessed via native diagnostic software.
+* **Primary Desktop Utility:** Press `Win + R`, type **`eventvwr.msc`**, and press Enter to launch the **Windows Event Viewer**.
+* **Core Event Paths:**
+  * **Auth Logs:** Located under `Windows Logs ➔ Security`. (Physical file: `C:\Windows\System32\Winevt\Logs\Security.evtx`).
+  * **System Logs:** Located under `Windows Logs ➔ System`. (Physical file: `C:\Windows\System32\Winevt\Logs\System.evtx`).
+  * **Web Server Logs (IIS):** Default storage path is located at `C:\inetpub\logs\LogFiles\`.
+  * **Firewall Logs:** Disabled by default. When enabled via the Windows Defender Firewall console, the plain text ledger is written directly to `C:\Windows\System32\LogFiles\Firewall\pfirewall.log`.
+
+### 2. Linux Distributions (Ubuntu, Debian, Red Hat)
+Linux systems utilize plaintext structures nested inside a central logging container. They are accessed using terminal paging controls such as `cat`, `less`, `tail -f`, or `grep` using administrative root privileges.
+* **Core Diagnostic Path:** **`/var/log/`**
+* **Core Event Paths:**
+  * **Auth Logs:** 
+    * *Ubuntu/Debian:* `/var/log/auth.log`
+    * *RHEL/CentOS/Fedora:* `/var/log/secure`
+  * **System Logs:** 
+    * *Ubuntu/Debian:* `/var/log/syslog`
+    * *RHEL/CentOS/Fedora:* `/var/log/messages`
+  * **Web Server Logs (Apache / Nginx):** 
+    * *Apache:* `/var/log/apache2/access.log`
+    * *Nginx:* `/var/log/nginx/access.log`
+  * **Firewall Logs (iptables / ufw):** System boundary events are directly injected straight into the core kernel log path at `/var/log/kern.log`.
+
+### 3. Apple macOS Environments
+macOS layers a Unix filesystem foundation beneath an Apple Unified Logging engine dashboard.
+* **Primary Desktop Utility:** Launch the native **`Console.app`** application workspace from your Applications folder.
+* **Core Event Paths:**
+  * **Auth & Session Logs:** Modern macOS registers secure identity and cryptographic token mappings directly inside its unified system telemetry stream. You can audit active authorization events using the terminal command: `log show --predicate 'process == "authorizationhost"'`.
+  * **System Logs:** Classical operating logs reside at `/var/log/system.log`. Modern diagnostics are actively queried in the terminal via the unified stream manager tool: `log show`.
+  * **Web Server Logs:** If running localized open-source deployments, files default to `/var/log/apache2/access_log`.
+  * **Firewall Logs (Application Firewall / socketfilterfw):** Security state records write out directly onto `/var/log/appfirewall.log`.
 
 ---
 
