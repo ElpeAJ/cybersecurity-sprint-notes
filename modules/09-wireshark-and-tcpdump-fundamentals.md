@@ -175,7 +175,7 @@ These standardized queries were written and executed against the pre-recorded sa
 ### Request 3: Show only traffic to or from the address 172.16.238.135 
 >*Use pcap file from Zeek(github link) => https://github.com/zeek/try-zeek/blob/master/manager/static/pcaps/ssh.pcap*
 * **Correct Syntax:** `ip.addr == 172.16.238.135`
-* **Operational Purpose:** Broadly targets a specific host node asset to a
+* **Operational Purpose:** Broadly targets a specific host node asset to analyze its full communication behavior across the network infrastructure.
 
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 4 06 36 AM" src="https://github.com/user-attachments/assets/7aa974e9-5c15-4fd9-8521-b9fb4cb1f688" />
 
