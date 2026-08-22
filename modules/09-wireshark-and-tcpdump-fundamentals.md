@@ -1,6 +1,6 @@
-# Module 3 — Week 3, Day 1: Wireshark & Tcpdump Fundamentals
+# Day 9: Wireshark & Tcpdump Fundamentals
 
-## 🌐 Packet Capture Architecture & Engines
+## Packet Capture Architecture & Engines
 * **Packet Definition:** A small, structured unit of data transmitted across a routing computer network.
 * **Core Interception Mechanics:** Packet capturing is the active interception and recording of network traffic at the networking layer.
 * **Driver Architecture:** Wireshark does not capture raw data independently. Instead, it interfaces directly with low-level capture engines to intercept raw streams directly from the network interface card (network adapter):
@@ -10,7 +10,7 @@
 
 ---
 
-## 🔍 Core Wireshark Interface Navigation
+## Core Wireshark Interface Navigation
 
 Wireshark breaks down individual packets using three distinct workspace panes:
 
@@ -18,7 +18,9 @@ Wireshark breaks down individual packets using three distinct workspace panes:
 2. **Packet Details Pane (Middle):** Provides an expandable tree structure mapping the packet field by field across the network architecture layers, from Ethernet frames up through the application layer. Clicking on a row maps the details directly to this view.
 3. **Packet Bytes Pane (Bottom):** Shows the raw, unedited hexadecimal and ASCII content of the packet, allowing analysts to verify exact data payloads manually.
 
-> 🎨 **Color Coding Insight:** Wireshark automatically applies colors to rows to highlight specific protocols or anomalies. Black and red lines typically indicate network anomalies like packet retransmissions or malformed data, rather than guaranteed malicious activity.
+> **Color Coding Insight:** Wireshark automatically applies colors to rows to highlight specific protocols or anomalies. Black and red lines typically indicate network anomalies like packet retransmissions or malformed data, rather than guaranteed malicious activity.
+
+<img width="1210" height="901" alt="Wireshark Panes" src="https://github.com/user-attachments/assets/1b9f1e7e-92f2-42b2-854d-6d793160ea97" />
 
 ---
 
