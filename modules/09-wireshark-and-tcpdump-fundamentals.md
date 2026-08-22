@@ -75,17 +75,53 @@ Wireshark breaks down individual packets using three distinct workspace panes:
 
 ---
 
-## 🛠️ Display Filters vs. TCP Stream Following
+## Display Filters vs. TCP Stream Following
 * **Display Filtering:** Limits your current pane view to isolated packets matching a specific search parameter (e.g., matching a particular protocol or IP address). It does not piece conversations together; it only displays the isolated packets matching that flag.
 * **Following a TCP Stream:** Right-clicking an IP packet and selecting `Follow -> TCP Stream` actively strips out transport noise and reconstructs the entire fragmented conversation between two endpoints into a single, cohesive, human-readable text block. 
 
-### 📁 Lab Reflection: HTTP vs. Follow Stream
-* **The HTTP Filter:** Narrowed the busy packet list pane down to show row summaries of cleartext web traffic, explicitly highlighting resource path lookups like `GET /index.html` inside the Info column.
-* **The Follow TCP Stream Action:** Revealed the full hidden conversational data exchange, exposing complete raw HTTP request headers, browser User-Agent strings, cookie tokens, and the raw text response returned by the server.
+Understanding how to transition from individual packet views to reconstructed structural network text sessions is a mandatory skill for alert triage:
+
+```text
++-------------------------------------------------------------------------+
+
+|                          THE PANE VIEW DIFFERENCE                       |
++-------------------------------------------------------------------------+
+
+| DISPLAY FILTERS (e.g., "tcp")        | FOLLOW TCP STREAM                |
+| - Shows isolated, individual rows.  | - Reconstructs whole sessions.   |
+| - Chronological time snapshot.       | - Merges fragments into text.    |
+| - Excellent for scanning traffic tags| - Excellent for reading code,    |
+|   and network flags (SYN/ACK).       |   chat logs, and data transfers. |
++-------------------------------------------------------------------------+
+```
+
+* **How to run Display Filters:** Type the target protocol (e.g., `tcp`) into the top entry bar and hit Enter. The interface highlights only matching rows, leaving the remaining streams hidden.
+* **How to run TCP Streams:** Locate any packet in a sequence, **Right-Click -> Follow -> TCP Stream**. A separate pop-up text window initializes, displaying the full dialogue exchange between the client and server.
+
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 15 AM" src="https://github.com/user-attachments/assets/659c7826-1f54-47f5-841d-8f1d82d9663c" />
+
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 19 35 AM" src="https://github.com/user-attachments/assets/87d38c2d-dcfe-4531-b353-03c9ecd70a2b" />
+
+<img width="625" height="608" alt="Screenshot 2026-08-22 at 2 21 21 AM" src="https://github.com/user-attachments/assets/b686f662-74a0-4290-b949-64c46b0681b0" />
+
+<!-- <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 58 AM" src="https://github.com/user-attachments/assets/41fc4425-84cc-4ddf-ba81-45e4a56ed950" />-->
 
 ---
 
-## 💻 Independent Practice Task Solutions
+### Lab Reflection: HTTP vs. Follow Stream
+* **The HTTP Filter:** Narrowed the busy packet list pane down to show row summaries of cleartext web traffic, explicitly highlighting resource path lookups like `GET /index.html` inside the Info column.
+* **The Follow TCP Stream Action:** Revealed the full hidden conversational data exchange, exposing complete raw HTTP request headers, browser User-Agent strings, cookie tokens, and the raw text response returned by the server.
+
+### 2. The HTTP Filter vs. Following the HTTP Stream
+When investigating unencrypted web activity, an analyst must understand what metadata is exposed at each analysis stage:
+
+* **Applying the `http` Filter:** This string narrows down the top pane view to isolate web traffic, showing raw summaries in the Info column (such as `GET /index.html HTTP/1.1`). It gives you a quick checklist of *what* web resources were requested across the timeline.
+* **Executing "Follow TCP Stream" on an HTTP Packet:** This bypasses the single-line row summary entirely to print the raw application-layer headers and content payloads. 
+  * **What it exposes:** The full browser configurations via the `User-Agent` string, tracking tokens inside the `Cookie:` fields, language constraints, host headers, and the literal server output (such as HTML code, text documents, or hidden malware download code).
+
+---
+
+## Independent Practice Task Solutions
 
 Review notes and behavioral descriptions recorded after clearing the filter workspace and downloading targets from the official repository (`wiki.wireshark.org/SampleCaptures`):
 
