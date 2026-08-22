@@ -83,12 +83,12 @@ Understanding how to transition from individual packet views to reconstructed st
 
 ```text
 +-------------------------------------------------------------------------+
-
+|                                                                         |
 |                          THE PANE VIEW DIFFERENCE                       |
 +-------------------------------------------------------------------------+
-
+|                                                                         |
 | DISPLAY FILTERS (e.g., "tcp")        | FOLLOW TCP STREAM                |
-| - Shows isolated, individual rows.  | - Reconstructs whole sessions.   |
+| - Shows isolated, individual rows.   | - Reconstructs whole sessions.   |
 | - Chronological time snapshot.       | - Merges fragments into text.    |
 | - Excellent for scanning traffic tags| - Excellent for reading code,    |
 |   and network flags (SYN/ACK).       |   chat logs, and data transfers. |
@@ -97,11 +97,15 @@ Understanding how to transition from individual packet views to reconstructed st
 
 * **How to run Display Filters:** Type the target protocol (e.g., `tcp`) into the top entry bar and hit Enter. The interface highlights only matching rows, leaving the remaining streams hidden.
 * **How to run TCP Streams:** Locate any packet in a sequence, **Right-Click -> Follow -> TCP Stream**. A separate pop-up text window initializes, displaying the full dialogue exchange between the client and server.
-
+<br>
+> *Filter by tcp*
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 15 AM" src="https://github.com/user-attachments/assets/659c7826-1f54-47f5-841d-8f1d82d9663c" />
-
+<br>
+> *Right click on one packet hover over Follow and click TCPstream*
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 19 35 AM" src="https://github.com/user-attachments/assets/87d38c2d-dcfe-4531-b353-03c9ecd70a2b" />
-
+<br>
+> *Separate pop-up window with full dialogue btn client and server shows up
+> *Note: You can also change the format of the dialogue using **Show as ** option at the bottom*
 <img width="625" height="608" alt="Screenshot 2026-08-22 at 2 21 21 AM" src="https://github.com/user-attachments/assets/b686f662-74a0-4290-b949-64c46b0681b0" />
 
 <!-- <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 58 AM" src="https://github.com/user-attachments/assets/41fc4425-84cc-4ddf-ba81-45e4a56ed950" />-->
@@ -118,6 +122,17 @@ When investigating unencrypted web activity, an analyst must understand what met
 * **Applying the `http` Filter:** This string narrows down the top pane view to isolate web traffic, showing raw summaries in the Info column (such as `GET /index.html HTTP/1.1`). It gives you a quick checklist of *what* web resources were requested across the timeline.
 * **Executing "Follow TCP Stream" on an HTTP Packet:** This bypasses the single-line row summary entirely to print the raw application-layer headers and content payloads. 
   * **What it exposes:** The full browser configurations via the `User-Agent` string, tracking tokens inside the `Cookie:` fields, language constraints, host headers, and the literal server output (such as HTML code, text documents, or hidden malware download code).
+
+<br>
+> *Filter by tcp*
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 33 54 AM" src="https://github.com/user-attachments/assets/4dd306c5-d5f3-4e16-9c2c-bc976f1b172e" />
+<br>
+> *Right click on one packet hover over Follow and click TCPstream*
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 35 47 AM" src="https://github.com/user-attachments/assets/ae245103-0e57-42ee-91ed-c25c34bf2c0d" />
+<br>
+> *Separate pop-up window with full dialogue btn client and server shows up
+> *Note: You can also change the format of the dialogue using **Show as ** option at the bottom*
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 36 58 AM" src="https://github.com/user-attachments/assets/62bee899-91c5-40bd-b414-1305c4d48daa" />
 
 ---
 
