@@ -188,9 +188,19 @@ Review notes and behavioral descriptions recorded after clearing the filter work
 * **Observed Traffic Data:** Displays transactions mapping application layer requests to port 53.
 * **Analytical Description:** This traffic captures your local endpoints communicating with name servers to look up and translate alphanumeric web domain URLs into machine-routable numerical IP addresses.
 
+<br><blockquote><em>DNS Analysis</em></blockquote> <br>
+<img width="1210" height="901" alt="dns analysis" src="https://github.com/user-attachments/assets/a0e5035d-668f-4b01-ad7c-b2e7016ae65c" />
+
 ### 2. `tcp` (Transmission Control Protocol) Filter
 * **Observed Traffic Data:** Displays dense transport layer streams tracking sequence flags (SYN, ACK, FIN).
 * **Analytical Description:** This traffic highlights the structural backbone of reliable network communication, showing the operational connection handshakes and packet tracking states used to move application data smoothly.
+
+<br> <blockquote><em>TCP Analysis</em></blockquote> <br>
+<img width="1210" height="901" alt="tcp analysis" src="https://github.com/user-attachments/assets/456e4394-6256-43bc-88c6-daa9e80b909b" />
+
+<br><br> <blockquote><em>TCP Handshake flow</em></blockquote> <br>
+
+<img width="1210" height="901" alt="TCP Handshake flow" src="https://github.com/user-attachments/assets/afa5b0a9-e491-489a-a361-1c23d281de62" />
 
 ### 3. `arp` (Address Resolution Protocol) Filter
 * **Observed Traffic Data:** Displays local layer 2 broadcasts asking "Who has this IP?" to find hardware locations.
