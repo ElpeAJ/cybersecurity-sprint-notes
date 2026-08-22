@@ -1,5 +1,44 @@
 # Day 9: Wireshark & Tcpdump Fundamentals
 
+## Introduction to Wireshark & Installation Setup
+* **What is it?:** Wireshark is a powerful graphical network protocol analyzer that allows you to inspect and evaluate live or pre-recorded network traffic. If a computer terminal visits a website, initiates an IP connection, queries a DNS server, or communicates with another device, Wireshark logs and displays that transaction packet by packet.
+* **Official Download Resource:** Acquire installers exclusively from the official portal at [wireshark.org/download](https://wireshark.org).
+  * *Windows:* Select the standalone `.exe` installer.
+  * *macOS:* Select the logical volume `.dmg` disk image.
+  * *Linux:* Deploy directly via native package managers (e.g., `sudo apt install wireshark`).
+
+### Step-by-Step Installation Process
+1. Open the verified local system installer package. https://www.wireshark.org/download.html 
+2. Advance sequentially through the baseline setup configuration wizard.
+3. Review and formally accept the software license agreement parameters.
+4. Leave all default core utility components checked and selected.
+5. **Critical Driver Prompt:** When prompted to configure **Npcap**, check the box to allow its installation. This engine is mandatory because it grants Wireshark deep access to capture raw network packets.
+6. Finalize the installation process, restart the interface if prompted, and launch the Wireshark console workspace.
+
+---
+
+## Analyzing the Wireshark Home Screen Interface
+
+When launching Wireshark prior to opening a workspace packet stream, the landing dashboard provides the primary ingestion controls split into three structural operational zones:
+
+### 1. The Open / Recent Files Panel
+* **Purpose:** Provides a rapid tracking workspace link log of historical packet inspection sessions (`.pcap`, `.pcapng`, or `.cap` extensions).
+* **Lab Context:** Displays your specific class files, such as your upcoming exercise target: `/Users/elped/Downloads/Cybersecurity/Day 10/2026-08-09-traffic-analysis-exercise.pcap`.
+
+### 2. The Capture Filter Ingestion Bar
+* **Purpose:** Located directly beneath the capture header (`...using this filter:`). This input box handles initial traffic optimization configuration rules.
+* **Syntax Rule:** This field strictly accepts **BPF (Berkeley Packet Filter)** configurations to discard unneeded protocol noise before saving raw frame bits to the local system storage space.
+
+### 3. The Interface Monitor & Sparkline Activity Graph
+* **Purpose:** Dynamically lists every internal and external hardware connection adapter currently accessible to the host machine's capture drivers (`Npcap`/`Libpcap`).
+* **Key Components:**
+  * **Interface Labels:** Identifies hardware adapter names (e.g., `Wi-Fi: en0` for the primary wireless network card, or `Loopback: lo0` for localized host testing).
+  * **Traffic Sparklines:** The jagged waveform line charts displayed next to each adapter label provide a real-time, visual activity pulse indicator. An active waveform confirms live packets are moving across that hardware boundary, showing the analyst exactly which network interface card should be selected to initiate a live capture session.
+
+<img width="1210" height="901" alt="Wireshark Interface" src="https://github.com/user-attachments/assets/8ef3be73-0d04-4e87-8a50-906fcd36004d" />
+
+---
+
 ## Packet Capture Architecture & Engines
 * **Packet Definition:** A small, structured unit of data transmitted across a routing computer network.
 * **Core Interception Mechanics:** Packet capturing is the active interception and recording of network traffic at the networking layer.
@@ -24,7 +63,7 @@ Wireshark breaks down individual packets using three distinct workspace panes:
 
 ---
 
-## ⚙️ Filter Engineering: Capture vs. Display Filters
+## Filter Engineering: Capture vs. Display Filters
 
 | Parameter | Capture Filters | Display Filters |
 | :--- | :--- | :--- |
