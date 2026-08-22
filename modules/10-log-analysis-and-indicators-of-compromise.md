@@ -21,7 +21,7 @@ Security investigations require parsing multiple telemetry feeds to reconstruct 
 
 ## OS Storage Directory & Access Quick-Reference
 
-When performing local digital forensics on an endpoint rather than using a centralized SIEM dashboard [07-siem-concepts-and-alert-triage.md], log paths and access methods change based on the underlying Operating System.
+When performing local digital forensics on an endpoint rather than using a centralized SIEM dashboard [08-siem-concepts-and-alert-triage.md], log paths and access methods change based on the underlying Operating System.
 
 ### 1. Microsoft Windows Environments
 Windows systems compile logs into structured binary formats (`.evtx`). These cannot be viewed with standard text editors and must be accessed via native diagnostic software.
@@ -31,6 +31,24 @@ Windows systems compile logs into structured binary formats (`.evtx`). These can
   * **System Logs:** Located under `Windows Logs ➔ System`. (Physical file: `C:\Windows\System32\Winevt\Logs\System.evtx`).
   * **Web Server Logs (IIS):** Default storage path is located at `C:\inetpub\logs\LogFiles\`.
   * **Firewall Logs:** Disabled by default. When enabled via the Windows Defender Firewall console, the plain text ledger is written directly to `C:\Windows\System32\LogFiles\Firewall\pfirewall.log`.
+
+<br>
+<blockquote><em>Auth Logs on Windows</em></blockquote><br>
+<img width="1031" height="551" alt="image" src="https://github.com/user-attachments/assets/4dfe9835-a096-4ee4-9468-ba393dbdf361" />
+
+<br><br>
+<blockquote><em>System Logs on Windows </em></blockquote><br>
+
+
+<br><br>
+<blockquote><em>Web Server Logs on Windows </em></blockquote><br>
+
+
+
+<br><br>
+<blockquote><em>Web Server Logs on Windows </em></blockquote><br>
+
+
 
 ### 2. Linux Distributions (Ubuntu, Debian, Red Hat)
 Linux systems utilize plaintext structures nested inside a central logging container. They are accessed using terminal paging controls such as `cat`, `less`, `tail -f`, or `grep` using administrative root privileges.
