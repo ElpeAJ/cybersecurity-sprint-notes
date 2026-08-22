@@ -141,10 +141,44 @@ When dealing with HTTP traffic, Wireshark exposes two different "Follow" renderi
 * **Follow TCP Stream:** Focuses on the Transport Layer (Layer 4). It outputs the raw data exactly as it flew across the wires. If the web server used compression (`Content-Encoding: gzip`), the text in the window will display as unreadable binary clutter.
 * **Follow HTTP Stream:** Focuses on the Application Layer (Layer 7). Wireshark strips away transport headers and acts like a mini web browser. It automatically decompress zipped web packets to output clean, readable HTML text or script data.
 
-Inspecting Packet Details: expanding a single packet in the lower pane to see every header field, from Ethernet up through the application layer.
-<img width="716" height="21" alt="image" src="https://github.com/user-attachments/assets/004da85a-41c1-40d4-88e1-a58af8a756f5" />
+Also you can inspect packet details: expanding a single packet in the lower pane to see every header field, from Ethernet up through the application layer.
+
+<br>
+<img width="1210" height="940" alt="Screenshot 2026-08-22 at 3 06 59 AM" src="https://github.com/user-attachments/assets/37c6a7c0-8e94-468f-b171-12708dc7c33f" />
+<br><br>
+
+> ***Everyday SOC Work**
+In real security operations centers, analysts routinely pull packet captures to confirm or rule out an alert, since a SIEM alert alone often cannot answer detailed questions a packet capture can.
+This is exactly why Wireshark skills remain valuable even in organizations with advanced SIEM platforms already in place.*
 
 ---
+
+## Activity 1: Filter Practice Lab (With Verification Evidence)
+
+These standardized queries were written and executed against the pre-recorded sample file to verify syntax accuracy and rule enforcement:
+
+### Request 1: Show only DNS traffic
+>*Use pcap file from `wiki.wireshark.org/SampleCaptures` - teardrop.cap*
+* **Correct Syntax:** `dns`
+* **Operational Purpose:** Isolates domain name resolution queries and responses traveling over UDP/TCP port 53.
+* **Verification Evidence:** The filter bar background turns **green** upon execution. The entire packet list pane updates instantly to isolate only packets labeled under the `DNS` protocol column, stripping away all standard web and routing noise.
+
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 4 17 20 AM" src="https://github.com/user-attachments/assets/a82190c3-6959-45c4-b162-ff78964a8772" />
+
+### Request 2: Show only traffic on port 22
+>*Use pcap file from Zeek(github link) => https://github.com/zeek/try-zeek/blob/master/manager/static/pcaps/ssh.pcap*
+* **Correct Syntax:** `tcp.port == 22`
+* **Operational Purpose:** Filters the traffic stream exclusively for Secure Shell (SSH) management sessions, allowing analysts to monitor administrative connections.
+* **Verification Evidence:** The filter bar flags the dual-equals sign (`==`) as mathematically valid with a **green** highlight. The pane narrows down to traffic streams matching port 22 in either the source port or destination port parameters.
+
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 4 02 28 AM" src="https://github.com/user-attachments/assets/f4b16596-7b72-4482-a413-b3c62d6db383" />
+
+### Request 3: Show only traffic to or from the address 172.16.238.135 
+>*Use pcap file from Zeek(github link) => https://github.com/zeek/try-zeek/blob/master/manager/static/pcaps/ssh.pcap*
+* **Correct Syntax:** `ip.addr == 172.16.238.135`
+* **Operational Purpose:** Broadly targets a specific host node asset to a
+
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 4 06 36 AM" src="https://github.com/user-attachments/assets/7aa974e9-5c15-4fd9-8521-b9fb4cb1f688" />
 
 ## Independent Practice Task Solutions
 
