@@ -59,8 +59,8 @@ Wireshark breaks down individual packets using three distinct workspace panes:
 3. **Packet Bytes Pane (Bottom):** Shows the raw, unedited hexadecimal and ASCII content of the packet, allowing analysts to verify exact data payloads manually.
 
 > **Color Coding Insight:** Wireshark automatically applies colors to rows to highlight specific protocols or anomalies. Black and red lines typically indicate network anomalies like packet retransmissions or malformed data, rather than guaranteed malicious activity.
-<br>
-<img width="1210" height="901" alt="Wireshark Panes" src="https://github.com/user-attachments/assets/1b9f1e7e-92f2-42b2-854d-6d793160ea97" />
+
+<br><br><img width="1210" height="901" alt="Wireshark Panes" src="https://github.com/user-attachments/assets/1b9f1e7e-92f2-42b2-854d-6d793160ea97" />
 
 ---
 
@@ -98,15 +98,15 @@ Understanding how to transition from individual packet views to reconstructed st
 
 * **How to run Display Filters:** Type the target protocol (e.g., `tcp`) into the top entry bar and hit Enter. The interface highlights only matching rows, leaving the remaining streams hidden.
 * **How to run TCP Streams:** Locate any packet in a sequence, **Right-Click -> Follow -> TCP Stream**. A separate pop-up text window initializes, displaying the full dialogue exchange between the client and server.
-<br>
-<blockquote><em>Filter by tcp</em></blockquote>
+
+<br><br><blockquote><em>Filter by tcp</em></blockquote><br>
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 15 AM" src="https://github.com/user-attachments/assets/659c7826-1f54-47f5-841d-8f1d82d9663c" />
-<br>
-<blockquote><em>Right click on one packet hover over Follow and click TCPstream</em></blockquote> 
+
+<br><br><blockquote><em>Right click on one packet hover over Follow and click TCPstream</em></blockquote> <br>
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 19 35 AM" src="https://github.com/user-attachments/assets/87d38c2d-dcfe-4531-b353-03c9ecd70a2b" />
-<br>
-<blockquote><em>Separate pop-up window with full dialogue btn client and server shows up <br>
-Note: You can also change the format of the dialogue using **Show as ** option at the bottom*</em></blockquote>
+
+<br><br><blockquote><em>Separate pop-up window with full dialogue btn client and server shows up <br>
+Note: You can also change the format of the dialogue using **Show as ** option at the bottom*</em></blockquote><br>
 <img width="625" height="608" alt="Screenshot 2026-08-22 at 2 21 21 AM" src="https://github.com/user-attachments/assets/b686f662-74a0-4290-b949-64c46b0681b0" />
 
 <!-- <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 18 58 AM" src="https://github.com/user-attachments/assets/41fc4425-84cc-4ddf-ba81-45e4a56ed950" />-->
@@ -124,15 +124,14 @@ When investigating unencrypted web activity, an analyst must understand what met
 * **Executing "Follow TCP Stream" on an HTTP Packet:** This bypasses the single-line row summary entirely to print the raw application-layer headers and content payloads. 
   * **What it exposes:** The full browser configurations via the `User-Agent` string, tracking tokens inside the `Cookie:` fields, language constraints, host headers, and the literal server output (such as HTML code, text documents, or hidden malware download code).
 
-<br>
-<blockquote><em>Filter by tcp*</em></blockquote>
-<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 33 54 AM" src="https://github.com/user-attachments/assets/4dd306c5-d5f3-4e16-9c2c-bc976f1b172e" />
-<br>
-<blockquote><em>Right click on one packet hover over Follow and click TCPstream*</em></blockquote>
+<br><br><blockquote><em>Filter by tcp*</em></blockquote>
+<img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 33 54 AM" src="https://github.com/user-attachments/assets/4dd306c5-d5f3-4e16-9c2c-bc976f1b172e" /><br>
+
+<br><br><blockquote><em>Right click on one packet hover over Follow and click TCPstream*</em></blockquote><br>
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 35 47 AM" src="https://github.com/user-attachments/assets/ae245103-0e57-42ee-91ed-c25c34bf2c0d" />
-<br>
-<blockquote><em>Separate pop-up window with full dialogue btn client and server shows up <br>
-Note: You can also change the format of the dialogue using **Show as ** option at the bottom </em></blockquote>
+
+<br><br><blockquote><em>Separate pop-up window with full dialogue btn client and server shows up <br>
+Note: You can also change the format of the dialogue using **Show as ** option at the bottom </em></blockquote><br>
 <img width="1210" height="901" alt="Screenshot 2026-08-22 at 2 36 58 AM" src="https://github.com/user-attachments/assets/62bee899-91c5-40bd-b414-1305c4d48daa" />
 
 ### 3. Follow TCP Stream vs. Follow HTTP Stream
@@ -196,11 +195,14 @@ Review notes and behavioral descriptions recorded after clearing the filter work
 * **Analytical Description:** This traffic highlights the structural backbone of reliable network communication, showing the operational connection handshakes and packet tracking states used to move application data smoothly.
 
 <br> <blockquote><em>TCP Analysis</em></blockquote> <br>
-<img width="1210" height="901" alt="tcp analysis" src="https://github.com/user-attachments/assets/456e4394-6256-43bc-88c6-daa9e80b909b" />
+<!--<img width="1210" height="901" alt="tcp analysis" src="https://github.com/user-attachments/assets/456e4394-6256-43bc-88c6-daa9e80b909b" />-->
+<img width="1210" height="901" alt="tcp analysis" src="https://github.com/user-attachments/assets/936d5b99-2da2-47dc-9a32-9f61d21a67da" />
 
 <br><br> <blockquote><em>TCP Handshake flow</em></blockquote> <br>
 
-<img width="1210" height="901" alt="TCP Handshake flow" src="https://github.com/user-attachments/assets/afa5b0a9-e491-489a-a361-1c23d281de62" />
+<!--<img width="1210" height="901" alt="TCP Handshake flow" src="https://github.com/user-attachments/assets/afa5b0a9-e491-489a-a361-1c23d281de62" />-->
+<img width="1210" height="901" alt="TCP Handshake flow" src="https://github.com/user-attachments/assets/f40d2ce1-6f61-49c0-b1a8-e59566be718e" />
+
 
 ### 3. `arp` (Address Resolution Protocol) Filter
 * **Observed Traffic Data:** Displays local layer 2 broadcasts asking "Who has this IP?" to find hardware locations.
@@ -212,13 +214,14 @@ Review notes and behavioral descriptions recorded after clearing the filter work
 * **The Stuxnet Discovery (2010):** Security analysts studying infected industrial networks relied heavily on patient packet and protocol analysis to discover the worm's hidden lateral movement and unique targeting vectors.
 * **SOC Operations:** Modern Security Operations Centers pull packet captures to confirm or reject SIEM alerts, since raw packet payloads tell the final truth about network activity.
 
+<br><blockquote><em>ARP <b>Address Resolution Protocol</b> Analysis</em></blockquote> <br>
+<img width="1210" height="901" alt="arp analysis" src="https://github.com/user-attachments/assets/a2bedd29-d336-4760-9c60-19d02d6b144b" />
+
 ---
 
 ## 📝 Assessment Reference
 * **Format:** Reference material for hands-on filter proficiency.
 * **Milestone:** Prepares for the upcoming **Week 3 MCQ Quiz on Day 4** and the **Day 2 Wireshark Investigation Lab**.
-
-
 
 
 
