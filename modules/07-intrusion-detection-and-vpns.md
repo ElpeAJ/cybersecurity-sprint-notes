@@ -133,7 +133,7 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 ---
 
 ## Additional Materials
-* TryHackMe - Snort (2 hrs - Not started)
+* TryHackMe - Snort (2 hrs - 52% complete)
 
 ---
 
@@ -143,13 +143,20 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 
 <!--<img width="1051" height="420" alt="Screenshot 2026-08-16 at 5 26 30 PM" src="https://github.com/user-attachments/assets/d7723bdc-d64c-40f6-8a2c-778cbd32795b" />-->
 
+## Links
+* https://www.snort.org
+* https://en.wikipedia.org/wiki/Berkeley_Packet_Filter
+* https://biot.com/capstats/bpf.html
+* https://www.tcpdump.org/manpages/tcpdump.1.html
 
+  
 <img width="845" height="533" alt="Screenshot 2026-08-21 at 10 49 30 PM" src="https://github.com/user-attachments/assets/f4347fbc-467e-40ad-aadb-8b60b9bebe98" />
 
 <img width="845" height="826" alt="Screenshot 2026-08-21 at 10 50 04 PM" src="https://github.com/user-attachments/assets/fea6fb41-2f7d-4519-ace3-13166d13fea4" />
 
 <img width="845" height="807" alt="Screenshot 2026-08-21 at 10 51 02 PM" src="https://github.com/user-attachments/assets/2be39d82-667b-4f83-aa25-f95e5395331b" />
 
+<img width="845" height="863" alt="Screenshot 2026-08-22 at 12 03 28 AM" src="https://github.com/user-attachments/assets/2f6696cf-a1b4-4436-9a17-e1af518e20fb" />
 
 
 
