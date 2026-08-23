@@ -112,16 +112,16 @@ An Indicator of Compromise is an artifact or behavior captured in log data that 
 ---
 
 ## 🏢 Real-World Strategic Case: SolarWinds (2020)
-* **The Incident:** Attackers successfully poisoned a vendor software update mechanism, placing malicious code on thousands of client systems.
+* **The Incident:** Attackers successfully compromised a vendor software update mechanism, placing malicious code on thousands of client systems.
 * **The Threat Design:** The resulting malicious outbound connections were intentionally engineered to blend perfectly with normal periodic update check-in routines, delaying detection for months.
-* **The Lesson:** Modern hackers design malicious traffic patterns specifically to pass casual log inspection. This makes understanding your network's baseline habits mandatory.
+* **The Lesson:** Modern hackers design malicious traffic patterns specifically to pass casual log inspection. This makes understanding your network's baseline logs/habits mandatory.
 
 ---
 
 ## 💻 Lab Simulation: Triage and Correlation
 
 ### Part 1: Wireshark Suspicious Event Hunting
-* **Lab Environment:** Analysing pcap malware files sourced from training databases at `malware-traffic-analysis.net`.
+* **Lab Environment:** Analysing pcap malware files sourced from training databases at `malware-traffic-analysis.net` *(Downloaded 2026-08-09-traffic-analysis-exercise.pcap)*.
 * **Triage Blueprint:** Full investigation credit requires capturing specific timestamps and technical payload properties for **5 distinct suspicious events**, ensuring findings are organized like a standard incident response record.
 * **Key Filter Application:** Sorting packet traffic by `dns` strings and evaluating subdomain character string lengths to catch active data tunneling channels.
 
