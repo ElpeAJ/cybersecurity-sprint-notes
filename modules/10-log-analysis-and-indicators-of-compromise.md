@@ -147,7 +147,8 @@ My previous view showed a list of every single DNS query across your whole netwo
 However, clicking Follow Stream forces Wireshark to act like a private investigator focusing on just one conversation thread, by filtering out the noise. The moment the client machine finishes asking those specific questions and closes that temporary local port (62757), that specific UDP stream is over. Any other DNS requests on your network are part of a completely separate stream number. Hence why the above stream only displayed 6 packets.</em></blockquote>
 
 <br><br>
-<blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 <br>
+<blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 </em></blockquote>![Uploading Screenshot 2026-08-23 at 8.02.41 PM.png…]()
+
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 32 24 PM" src="https://github.com/user-attachments/assets/dfec9b42-1233-46d9-820f-ddb80c7b8359" />
 
 <br><br>
@@ -178,10 +179,54 @@ However, clicking Follow Stream forces Wireshark to act like a private investiga
 * **What is happening:** Running over Port 445. This protocol handles local corporate file sharing, network folders, and remote printing.
 * **The Sequence:** The client initiates a `Negotiate Protocol Request` to ask the server what version of file sharing it supports. The server answers with `Negotiate Protocol Response` utilizing the modern `SMB2` dialect standard.
 
+<br><br>
+<blockquote><em>More Protocols with tcp filter </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 8 18 44 PM" src="https://github.com/user-attachments/assets/5dc087b8-22de-4f65-906d-c53be4e86dd3" />
+
+#### E. SAMR - Security Account Manager Remote Protocol (Packets 2931-2958)
+* **What is happening:** Host `172.16.8.49` initiates a systematic lookup against the domain controller (`172.16.8.8`) to enumerate domain objects.
+* **The Sequence:**
+  * `LookupNames request`: The client verifies targeted user account strings against the database.
+  * `OpenUser request` & `QueryUserInfo`: Exfiltrates profile metadata regarding account security.
+  * `GetGroupsForUser request`: Identifies structural group memberships to discover privilege escalation routes.
+* **Analyst Verdict:** This dense, automated account enumeration pattern via SAMR is a primary indicator of active host-level reconnaissance preceding lateral movement maneuvers.
+
+<br><br>
+<blockquote><em>More Protocols with tcp filter (KRB5, DCERPC, EPM) </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 8 04 41 PM" src="https://github.com/user-attachments/assets/79fa2118-c767-4e85-8380-b08ab60cc2c1" />
+
+#### F. KRB5 — Kerberos Version 5 Protocol (Authentication)
+* **What is happening:** Host `172.16.8.53` is authenticating against the central domain controller (`172.16.8.8`) using encrypted security tokens (tickets).
+* **The Sequence:** 
+  * `AS-REQ` (Authentication Service Request): The client workstation requests an initial Ticket Granting Ticket (TGT).
+  * `KRB Error: KRB5KDC_ERR_PREAUTH_REQUIRED`: The server drops the initial request. *Analyst Note: This is standard behavior indicating that Kerberos Pre-Authentication is actively enforced; the client must encrypt its local timestamp using its password hash to successfully authenticate.*
+
+#### G. DCERPC — Distributed Computing Environment / Remote Procedure Call
+* **What is happening:** Client workstation `172.16.8.53` uses this protocol pipeline to execute software routines and system management tasks directly on the remote server (`172.16.8.8`) as if they were running locally.
+* **The Sequence:** `Bind: call_id: 2, Fragment: Single` loops are initiated by the client to attach to internal programmatic interfaces within the Active Directory architecture.
+
+#### H. EPM — Endpoint Mapper Protocol
+* **What is happening:** Operates on standard **Port 135** to serve as a traffic coordinator or network switchboard for remote DCERPC calls.
+* **The Sequence:** 
+  * `Map request`: The client machine queries EPM over Port 135 to ask which dynamic high-range port a specific Active Directory subsystem is currently running on.
+  * `Map response`: EPM transmits the dynamic port identifier back, allowing the client to shift its traffic pipeline to that specific target port socket.
+
+<br><br>
+<blockquote><em>More Protocols with tcp filter </em></blockquote><br>
+<img width="1024" height="638" alt="image" src="https://github.com/user-attachments/assets/5092edba-ef06-46b6-9d1e-8c481b54d707" />
+
+#### I. DRSUAPI — Directory Replication Service Remote Protocol
+* **What is happening:** Host `172.16.8.53` initiates a structural handshake to bind to the directory database replication engine (`DSBind request`).
+* **The Threat Hunter's Context:** While legitimate between sibling domain controller servers for database synchronization, an ordinary user workstation executing a DRSUAPI bind is a high-severity **Indicator of Compromise (IoC)**. This pattern matches a **DCSync Attack (e.g., weaponized via Mimikatz)**, where an attacker impersonates a domain controller to force the server to replicate and leak its entire database of user password hashes.
+
 
 <br><br>
 <blockquote><em>Follow TCPStream for the first packet on the tcp filter </em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 48 42 PM" src="https://github.com/user-attachments/assets/56eef530-1784-4f6a-b84d-6bf866de32bb" />
+
+
+
+
 
 
 
