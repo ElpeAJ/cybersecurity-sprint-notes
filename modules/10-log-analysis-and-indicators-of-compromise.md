@@ -157,19 +157,18 @@ However, clicking Follow Stream forces Wireshark to act like a private investiga
 #### HTTP Traffic Analysis - External Malware C2 & Data Exfiltration
 * **Target Workspace Scope:** Packet analysis of `2026-08-09-traffic-analysis-exercise.pcap` isolating unencrypted web protocols.
 * **Chronological Sequence Breakdown:**
-  * **Phase 1 (Baseline Connectivity):** System hosts automatically execute `GET /connecttest.txt` routines to confirm internet pipeline validation.
+  * **Phase 1 (Baseline Ingestion):** System hosts automatically execute `GET /connecttest.txt` routines to confirm internet pipeline validation.
   * **Phase 2 (Command & Control Callback):** Host `172.16.8.49` initiates complex, randomized URL tracking queries (`/ujvq/`) to a remote node at `172.64.155.76`. 
-  * **Phase 3 (Directory Fuzzing Sweep):** Endpoint `.49` attempts a brute-force sweep against `/irpw/` hosted on `146.59.71.167`, generating a high-density trail of successive `404 Not Found` server error records.
-  * **Phase 4 (Malicious Data Exfiltration):** Packet 11714 captures the completion of the attack loop, utilizing an unencrypted `GET` structure containing heavily appended alphanumeric parameters to leak system configurations out to the remote server.
+  * **Phase 3 (Directory Fuzzing/Busting Sweep):** Endpoint `.49` attempts a brute-force sweep against `/irpw/` hosted on `146.59.71.167`, generating a high-density trail of successive `404 Not Found` server error records.
+  * **Phase 4 (Malicious Data Exfiltration Execution):** Packet 11714 captures the completion of the attack loop, utilizing an unencrypted `GET` structure containing heavily appended alphanumeric parameters to leak system configurations out to the remote server.
 * **Incident Responder Verdict:** Confirmed malicious infection chain. Host `172.16.8.49` requires immediate network isolation and endpoint forensic remediation.
-
 
 <br><br>
 <blockquote><em> More filter response showing compromise. </em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 9 02 42 PM" src="https://github.com/user-attachments/assets/e5d6ec1d-e21a-441d-ac5a-272071531551" />
 
-
-
+ * **Phase 5 (Web Shell Injections):** Endpoint `172.16.8.49` switches targets to focus on an external destination at `38.182.168.246`. A barrage of `POST /lqjm/` structures triggers cascading structural breakdowns on the remote asset, evidenced by explicit `500 Internal Server Error` and `502 Bad Gateway` server responses.
+ * **Phase 6 (Automated Staging Beaconing Loop):** The compromise chain terminates in an aggressive, high-density checking cycle against a remote infrastructure node at `45.130.41.161`, continuously querying `/8nw8/` paths irrespective of persistent server-side `404 Not Found` error states.
 
 <br><br>
 <blockquote><em>Using display filter by tcp next. (Displayed 20 859 packets out of the total 22 473 packets) </em></blockquote><br>
@@ -243,24 +242,90 @@ However, clicking Follow Stream forces Wireshark to act like a private investiga
 <blockquote><em>Follow TCPStream for the first packet on the tcp filter </em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 48 42 PM" src="https://github.com/user-attachments/assets/56eef530-1784-4f6a-b84d-6bf866de32bb" />
 
+# Activity 1 Responses: 5 Suspicious Events from the Capture
 
+### Event 1: Active Directory Reconnaissance & User Enumeration
+* **Indicators:** Dense automated surges of `SAMR` requests from workstation `172.16.8.49`.
+* **Mechanics:** Executed high-frequency `LookupNames` and `GetGroupsForUser` queries against Domain Controller `.8` to map administrative privilege paths.
 
+### Event 2: High-Severity Administrative Directory Binding (DCSync)
+* **Indicators:** Station `172.16.8.53` initiating an unauthorized `DRSUAPI` transaction.
+* **Mechanics:** Attempted a `DSBind` request against the Domain Controller database. This behavior flags a DCSync credential dumping exploit to pull password hashes out offline.
 
+### Event 3: Cleartext Malware Callback & Token Transmission
+* **Indicators:** HTTP `GET` strings appended with highly randomized alphanumeric URL fields.
+* **Mechanics:** Station `172.16.8.49` reached out to external node `172.64.155.76` to post local machine parameters over unencrypted channels.
 
+### Event 4: Web Application Vulnerability Fuzzing & Directory Busting
+* **Indicators:** Surges of automated HTTP `POST` directories targeting `/irpw/` and `/8nw8/` paths, met by continuous `404 Not Found` server errors.
+* **Mechanics:** An automated scanning script on infected machine `.49` blindly probed the remote web apps looking for active backdoors or open directories.
 
+### Event 5: Active Remote Server Exploitation & Web Denial of Service
+* **Indicators:** HTTP `POST /lqjm/` strings triggering severe remote server crashes.
+* **Mechanics:** Payloads fired from host `.49` at external target `38.182.168.246` successfully broke the backend server application code, forcing continuous `500 Internal Server Error` and `502 Bad Gateway` drops.
 
+#
 
-
-
-### Part 2: Hypothetical Cross-Source Correlation Proofs
+### Activity 1: IoC's proof
 To validate a finding, an analyst must look for supporting evidence across surrounding system domains:
 
 * **Scenario A (Strengthening a C2 Finding):** If we track an outbound periodic beaconing flow, discovery of an entry inside the local **Auth Log** showing an unauthorized login from an unfamiliar country right before the traffic began drastically increases our threat confidence.
 * **Scenario B (Strengthening a Lateral Pivot Finding):** If we observe an endpoint connecting to multiple sibling nodes, locating a line in the target's local **System Log** confirming a new scheduled task was deployed concurrently confirms exploitation.
 * **Scenario C (Weakening a Threat Finding):** If an apparent beaconing signature aligns with a **System Log** entry showing a verified corporate patch tool running a scheduled update check, the finding is safely downgraded to a benign background action.
 
+#
 
-## 🛡️ Incident Response Wireshark Filter Matrix (Active Directory & Network Hunting)
+---
+
+## Activity 2: Cross-Source Log Forensic Case Study
+
+### 📊 Log Dataset (40-Minute Capture Timeline) - From Ms. Racheal
+
+| Timestamp | Source/Type | Log Message Details |
+| :--- | :--- | :--- |
+| 09:00:00 | System | Backup-Service started successfully |
+| 09:14:02 | Auth | Failed password for user jsmith from 102.44.5.6 |
+| 09:14:07 | Auth | Failed password for user jsmith from 102.44.5.6 |
+| 09:14:11 | Auth | Failed password for user jsmith from 102.44.5.6 |
+| 09:14:15 | Auth | Successful login for user jsmith from 102.44.5.6 |
+| 09:15:03 | Firewall | ALLOWED outbound connection to 185.9.2.1, port 4444 |
+| 09:20:00 | WebServer| GET /products.html from 102.44.5.6, response 200 |
+| 09:31:00 | Firewall | ALLOWED outbound connection to 185.9.2.1, port 4444 |
+| 09:35:12 | Auth | Successful login for user jsmith to Finance-Server-2 |
+| 09:35:40 | Auth | Successful login for user jsmith to Marketing-Server-1 |
+| 09:36:05 | Auth | Successful login for user jsmith to HR-Server-3 |
+| 09:36:30 | Auth | Successful login for user jsmith to Dev-Server-4 |
+| 09:42:00 | Firewall | ALLOWED outbound connection to 185.9.2.1, port 4444 |
+| 09:45:00 | WebServer| GET /checkout.html from 102.44.5.9, response 200 |
+| 09:50:00 | DNS | query for k3jd82ksla9fk2msla02kd.attacker-supply.net |
+| 09:53:00 | Firewall | ALLOWED outbound connection to 185.9.2.1, port 4444 |
+
+---
+
+### Forensic Analysis: 5 Entries that look suspicious and Why
+
+#### 1. Credential Brute-Forcing & Account Compromise
+* **Log Reference:** `09:14:02` through `09:14:15` (Auth Log)
+* **Analytical Finding:** The account `jsmith` shows three rapid password failures followed immediately by a successful authentication within a 13-second window from external IP `102.44.5.6`. This pattern indicates an automated password-spraying attack that successfully cracked the credential set.
+
+#### 2. Unauthorized Reverse Shell/C2 Initialization
+* **Log Reference:** `09:15:03` (Firewall Log)
+* **Analytical Finding:** Exactly 48 seconds following the initial account breach, an outbound connection is permitted to an external untrusted IP (`185.9.2.1`) over **Port 4444**. Port 4444 is a known default socket for malicious listener frameworks (like Metasploit payload handlers), marking the execution of an interactive backdoor shell.
+
+#### 3. Command & Control Beaconing (C2)
+* **Log Reference:** `09:15:03`, `09:31:00`, `09:42:00`, `09:53:00` (Firewall Log)
+* **Analytical Finding:** Outbound traffic to the external controller `185.9.2.1:4444` repeats down the timeline like clockwork every 11 to 15 minutes. This automated timing signature confirms a persistent malware implant is active, checking back in with its external command infrastructure for remote staging orders.
+
+#### 4. Lateral Movement
+* **Log Reference:** `09:35:12` through `09:36:30` (Auth Log)
+* **Analytical Finding:** In a tight 78-second window, the compromised `jsmith` account successfully authenticates to four critical network zones (Finance, Marketing, HR, and Dev servers). This velocity rules out legitimate human administration and points to an automated post-exploitation tool surveying data targets.
+
+#### 5. Exfiltration via DNS Tunneling
+* **Log Reference:** `09:50:00` (DNS Log)
+* **Analytical Finding:** A request is generated for an external server containing a massive, highly randomized alphanumeric subdomain string (`k3jd82ksla9fk2msla02kd.attacker-supply.net`). This is a classic indicator of DNS Tunneling, where a threat actor chunks and encodes stolen files into the query itself to smuggle data past perimeter defenses.
+
+
+## AI Suggested - Incident Response Wireshark Filter Matrix (Active Directory & Network Hunting)
 
 To filter out massive volumes of normal background traffic and isolate security breaches during a high-pressure triage investigation, utilize these precise display filters:
 
@@ -269,14 +334,14 @@ To filter out massive volumes of normal background traffic and isolate security 
   ```text
   samr.opnum == 34 or samr.opnum == 13 or samr.opnum == 36
   ```
-* **Why It Helps:** This isolates the specific operation numbers used during Active Directory account enumeration sweeps [image_IUc0-b.png]. It pulls out precise events like `LookupNames`, `GetGroupsForUser`, and `GetAliasMembership` [image_IUc0-b.png]. If an ordinary workstation IP runs this sequence at high frequency, it indicates an automated network profiling tool (like BloodHound or SharpHound) is mapping your privilege escalation paths.
+* **Why It Helps:** This isolates the specific operation numbers used during Active Directory account enumeration sweeps . It pulls out precise events like `LookupNames`, `GetGroupsForUser`, and `GetAliasMembership`. If an ordinary workstation IP runs this sequence at high frequency, it indicates an automated network profiling tool (like BloodHound or SharpHound) is mapping your privilege escalation paths.
 
 ### 2. Detect Potential DCSync Credential Dumping (DRSUAPI Hunting)
 * **Display Filter Syntax:**
   ```text
   drsuapi
   ```
-* **Why It Helps:** This isolates the Directory Replication Service Remote Protocol [image_E_RYvZ.png]. DRSUAPI should strictly occur between your actual physical Domain Controllers. If this query is initiated by a regular user terminal endpoint (e.g., `172.16.8.53`), it flags a high-severity **Indicator of Compromise (IoC)** matching a DCSync attack [image_E_RYvZ.png]. It shows that an attacker is trying to trick the server into dumping and leaking your entire database of corporate password hashes.
+* **Why It Helps:** This isolates the Directory Replication Service Remote Protocol. DRSUAPI should strictly occur between your actual physical Domain Controllers. If this query is initiated by a regular user terminal endpoint (e.g., `172.16.8.53`), it flags a high-severity **Indicator of Compromise (IoC)** matching a DCSync attack. It shows that an attacker is trying to trick the server into dumping and leaking your entire database of corporate password hashes.
 
 ### 3. Catch Cleartext Sensitive Data Exfiltration (HTTP Content Leakage)
 * **Display Filter Syntax:**
