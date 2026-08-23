@@ -140,22 +140,50 @@ An Indicator of Compromise is an artifact or behavior captured in log data that 
 <br><br>
 <blockquote><em>One Conversation Thread between 172.16.8.53(Client) and 172.16.8.8(Host)</em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 05 47 PM" src="https://github.com/user-attachments/assets/af47ee9e-ecff-453d-b4cb-c075ce0aede1" />
+
 <br>
 <blockquote><em>The One-to-One Conversation Rule <br>
 My previous view showed a list of every single DNS query across your whole network (485 packets).
-However, clicking Follow Stream forces Wireshark to act like a private investigator focusing on just one conversation thread, by filtering out the noise. The moment the client machine finishes asking those specific questions and closes that temporary local port (62757), that specific UDP stream is over. Any other DNS requests on your network are part of a completely separate stream number. Hence why the above stream only displayed 6 packets.
-</blockquote><br>
+However, clicking Follow Stream forces Wireshark to act like a private investigator focusing on just one conversation thread, by filtering out the noise. The moment the client machine finishes asking those specific questions and closes that temporary local port (62757), that specific UDP stream is over. Any other DNS requests on your network are part of a completely separate stream number. Hence why the above stream only displayed 6 packets.</em></blockquote>
 
- <br><br>
+<br><br>
 <blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 <br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 32 24 PM" src="https://github.com/user-attachments/assets/dfec9b42-1233-46d9-820f-ddb80c7b8359" />
 
 <br><br>
-<blockquote><em>Using display filter by tcp 2nd (displayed 20 859 packets out of the total 22 473 packets) </em></blockquote><br>
+<blockquote><em>Using display filter by tcp next. (Displayed 20 859 packets out of the total 22 473 packets) </em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 42 37 PM" src="https://github.com/user-attachments/assets/febef477-e54c-4c4a-bbf6-bcb1266b379f" />
+
+### Analysis of Layer 4/7 TCP Traffic Sequences From Above image
+
+#### A. The TCP 3-Way Handshake (Packets 27, 28, 29)
+* **What is happening:** Host `172.16.8.53` is establishing a formal connection with Server `172.16.8.8` on port 389. 
+* **The Sequence:** 
+  1. `49667 -> 389 [SYN]`: The client requests to synchronize a connection.
+  2. `389 -> 49667 [SYN, ACK]`: The server acknowledges the request and sends its own sync flag.
+  3. `49667 -> 389 [ACK]`: The client acknowledges the server, establishing a stable, reliable pipeline.
+
+#### B. LDAP - Lightweight Directory Access Protocol (Packets 30 & 32)
+* **What is happening:** Running over Port 389. This is active Windows Active Directory communication.
+* **The Sequence:** The client asks the domain controller to search for system objects (`searchRequest(2) "<ROOT>"`). The server successfully answers back and finishes the query (`searchResDone(2) success`).
+
+#### C. HTTP Cleartext Web Request (Packets 54 through 62)
+* **What is happening:** Host `172.16.8.53` connects to an external public IP address `23.33.85.235` on web port 80.
+* **The Sequence:** 
+  * After a 3-way handshake (Packets 54-56), the client sends an application request: `GET /connecttest.txt HTTP/1.1`.
+  * The web server responds back with `HTTP/1.1 200 OK (text/plain)`, confirming a successful page download.
+  * The conversation terminates gracefully in Packet 61 with a `[FIN, ACK]` (Finish/Acknowledge) flag sequence.
+
+#### D. SMB / SMB2 - Server Message Block (Packets 68 through 74)
+* **What is happening:** Running over Port 445. This protocol handles local corporate file sharing, network folders, and remote printing.
+* **The Sequence:** The client initiates a `Negotiate Protocol Request` to ask the server what version of file sharing it supports. The server answers with `Negotiate Protocol Response` utilizing the modern `SMB2` dialect standard.
+
 
 <br><br>
 <blockquote><em>Follow TCPStream for the first packet on the tcp filter </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 48 42 PM" src="https://github.com/user-attachments/assets/56eef530-1784-4f6a-b84d-6bf866de32bb" />
+
+
 
 
 
