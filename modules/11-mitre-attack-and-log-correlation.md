@@ -1,24 +1,39 @@
 # Day 9: MITRE ATT&CK Framework & Log Correlation
 
 ## Core Framework Architecture & Terminology
-* **What is MITRE ATT&CK?:** A globally accessible, comprehensive knowledge base and structured vocabulary of real-world threat actor behaviors, tactics, and techniques compiled from actual incident observations. ***https://attack.mitre.org***
+* **What is MITRE ATT&CK?:** A globally accessible, comprehensive knowledge base and structured vocabulary of real-world threat actor behaviors, tactics, and techniques compiled from actual incident observations. ***https://attack.mitre.org*** or ***https://mitre-attack.github.io/attack-navigator/***
 * **Tactics vs. Techniques vs. Procedures (TTPs):**
   * **Tactics:** The attacker's immediate operational goal or objective (the *What* and *Why*, e.g., Initial Access, Discovery, Credential Access).
   * **Techniques:** The specific technical method or mechanism the threat actor leverages to achieve that operational goal (the *How*, e.g., Brute Force, Scheduled Task).
   * **Procedures:** The exact contextual, platform-specific implementation or execution string used during an active intrusion sequence (e.g., executing an explicit script or specific terminal command line).
 * **Analysis:** Log correlation allows analysts to differentiate between a *Detected Attack* (where threat behavior generates real telemetry flags in our central logging matrix) and an *Undetected Attack* (where gaps in log enforcement or misconfigured endpoints allow a malicious technique to execute completely unrecorded).
 
+
+
+
+
 ---
 
 ## Activity 1: MITRE ATT&CK TTP Mapping Matrix
 
-These real-world attacker threat behaviors map cleanly to official database categories on [attack.mitre.org](https://mitre.org):
+These real-world attacker threat behaviors map cleanly to official database categories on [attack.mitre.org](https://attack.mitre.org):
 
 | Attacker Behavior Profile | Identified Technique Name | Technique ID | Parent Tactic Category |
 | :--- | :--- | :--- | :--- |
 | **Behavior 1:** An employee receives an email with an attachment disguised as an invoice. Opening it secretly installs malware. | **Phishing: Spearphishing Attachment** | `T1566.001` | **Initial Access** |
 | **Behavior 2:** After gaining access, an attacker creates a new scheduled task on the computer that automatically restarts their malware every time the computer reboots. | **Scheduled Task/Job: Scheduled Task** | `T1053.005` | **Persistence** |
 | **Behavior 3:** An attacker who has already compromised one computer uses stolen credentials to log into 5 other computers on the same network over the next hour. | **Lateral Movement: Remote Services** | `T1021` | **Lateral Movement** |
+
+<br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 11 40 15 PM" src="https://github.com/user-attachments/assets/d26ddfd6-4a9c-42b7-ac6a-2e803eb981d0" />
+
+<br><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 11 44 08 PM" src="https://github.com/user-attachments/assets/a8fd7664-35df-4768-ae68-2860d87afc43" />
+
+<br><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 11 45 51 PM" src="https://github.com/user-attachments/assets/7bf70e87-51a0-4b00-8e12-6291893ddad7" />
+
+
 
 ---
 
