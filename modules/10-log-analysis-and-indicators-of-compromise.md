@@ -147,9 +147,29 @@ My previous view showed a list of every single DNS query across your whole netwo
 However, clicking Follow Stream forces Wireshark to act like a private investigator focusing on just one conversation thread, by filtering out the noise. The moment the client machine finishes asking those specific questions and closes that temporary local port (62757), that specific UDP stream is over. Any other DNS requests on your network are part of a completely separate stream number. Hence why the above stream only displayed 6 packets.</em></blockquote>
 
 <br><br>
-<blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 </em></blockquote>![Uploading Screenshot 2026-08-23 at 8.02.41 PM.png…]()
-
+<blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 </em></blockquote>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 32 24 PM" src="https://github.com/user-attachments/assets/dfec9b42-1233-46d9-820f-ddb80c7b8359" />
+
+<br><br>
+<blockquote><em>Using display filter by http next showing suspicious packets. (Displayed 330 packets out of the total 22 473 packets) </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 8 54 39 PM" src="https://github.com/user-attachments/assets/6fc80807-5fb0-4842-8047-253bfdabec34" />
+
+#### HTTP Traffic Analysis - External Malware C2 & Data Exfiltration
+* **Target Workspace Scope:** Packet analysis of `2026-08-09-traffic-analysis-exercise.pcap` isolating unencrypted web protocols.
+* **Chronological Sequence Breakdown:**
+  * **Phase 1 (Baseline Connectivity):** System hosts automatically execute `GET /connecttest.txt` routines to confirm internet pipeline validation.
+  * **Phase 2 (Command & Control Callback):** Host `172.16.8.49` initiates complex, randomized URL tracking queries (`/ujvq/`) to a remote node at `172.64.155.76`. 
+  * **Phase 3 (Directory Fuzzing Sweep):** Endpoint `.49` attempts a brute-force sweep against `/irpw/` hosted on `146.59.71.167`, generating a high-density trail of successive `404 Not Found` server error records.
+  * **Phase 4 (Malicious Data Exfiltration):** Packet 11714 captures the completion of the attack loop, utilizing an unencrypted `GET` structure containing heavily appended alphanumeric parameters to leak system configurations out to the remote server.
+* **Incident Responder Verdict:** Confirmed malicious infection chain. Host `172.16.8.49` requires immediate network isolation and endpoint forensic remediation.
+
+
+<br><br>
+<blockquote><em> More filter response showing compromise. </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 9 02 42 PM" src="https://github.com/user-attachments/assets/e5d6ec1d-e21a-441d-ac5a-272071531551" />
+
+
+
 
 <br><br>
 <blockquote><em>Using display filter by tcp next. (Displayed 20 859 packets out of the total 22 473 packets) </em></blockquote><br>
