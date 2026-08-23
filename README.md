@@ -28,6 +28,30 @@ Welcome to my central repository for documenting my journey through the intensiv
 - [🔄] **Day 15:** 
 - [🔄] **Day 16:** 
 
+### 📁 Module 5: Incident Response & Security Governance
+- [🔄] **Day 17:** 
+- [🔄] **Day 18:** 
+- [🔄] **Day 19:** 
+- [🔄] **Day 20:** 
+
+### 📁 Module 6: Applied Sec, Crypto & Ethical Hacking
+- [🔄] **Day 21:** 
+- [🔄] **Day 22:** 
+- [🔄] **Day 23:** 
+- [🔄] **Day 24:** 
+
+### 📁 Module 7: AI in Cybersecurity & Security Tooling
+- [🔄] **Day 25:** 
+- [🔄] **Day 26:** 
+- [🔄] **Day 27:** 
+- [🔄] **Day 28:**
+
+### 📁 Module 8: Capstone Project
+- [🔄] **Day 29:** 
+- [🔄] **Day 30:** 
+- [🔄] **Day 31:** 
+- [🔄] **Day 32:**
+
 ---
 
 ## 🛠️ Essential Linux Commands Reference
