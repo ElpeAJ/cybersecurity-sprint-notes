@@ -12,5 +12,8 @@ Installing Sysmon
 
 <img width="1362" height="720" alt="image" src="https://github.com/user-attachments/assets/baad6995-ac51-4ac6-a485-ea86a2fb5bf9" />
 
+<img width="759" height="509" alt="image" src="https://github.com/user-attachments/assets/0b0eacd5-f68a-4180-aa18-b689113313cb" />
+
+
 ## Additional Materials
 * LetsDefend - Log analysis With Sysmon (Not started)
