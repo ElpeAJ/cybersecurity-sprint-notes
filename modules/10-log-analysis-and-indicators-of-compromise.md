@@ -96,7 +96,7 @@ An Indicator of Compromise is an artifact or behavior captured in log data that 
 
 ---
 
-## 🛠️ Log Analysis Best Practices & Pitfalls
+## Log Analysis Best Practices & Pitfalls
 
 ### Strategic Execution Habits
 * **Establish a Baseline First:** You must thoroughly document what normal employee traffic and login routines look like before you can accurately spot abnormal threat signatures.
@@ -111,19 +111,54 @@ An Indicator of Compromise is an artifact or behavior captured in log data that 
 
 ---
 
-## 🏢 Real-World Strategic Case: SolarWinds (2020)
+## Real-World Strategic Case: SolarWinds (2020)
 * **The Incident:** Attackers successfully compromised a vendor software update mechanism, placing malicious code on thousands of client systems.
 * **The Threat Design:** The resulting malicious outbound connections were intentionally engineered to blend perfectly with normal periodic update check-in routines, delaying detection for months.
 * **The Lesson:** Modern hackers design malicious traffic patterns specifically to pass casual log inspection. This makes understanding your network's baseline logs/habits mandatory.
 
 ---
 
-## 💻 Lab Simulation: Triage and Correlation
+## Lab Simulation and Activities: Triage and Correlation
 
 ### Part 1: Wireshark Suspicious Event Hunting
 * **Lab Environment:** Analysing pcap malware files sourced from training databases at `malware-traffic-analysis.net` *(Downloaded 2026-08-09-traffic-analysis-exercise.pcap)*.
 * **Triage Blueprint:** Full investigation credit requires capturing specific timestamps and technical payload properties for **5 distinct suspicious events**, ensuring findings are organized like a standard incident response record.
 * **Key Filter Application:** Sorting packet traffic by `dns` strings and evaluating subdomain character string lengths to catch active data tunneling channels.
+
+<br><br>
+<blockquote><em>Using the sample pcap file downloaded in Wireshark </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 6 35 13 PM" src="https://github.com/user-attachments/assets/a3f0d25b-6ad0-4b9b-88df-1c66f61b5248" />
+
+<br><br>
+<blockquote><em>Using display filter by dns first (displayed 485 packets out of the total 22 473 packets) </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 6 55 36 PM" src="https://github.com/user-attachments/assets/b4d7e35a-82ef-4cc6-b6d5-4032ea9b2de2" />
+
+<br><br>
+<blockquote><em>Follow UDPStream for the first packet on the dns filter </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 01 29 PM" src="https://github.com/user-attachments/assets/5e00ec20-2542-4577-a216-7510b9df1986" />
+
+<br><br>
+<blockquote><em>One Conversation Thread between 172.16.8.53(Client) and 172.16.8.8(Host)</em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 05 47 PM" src="https://github.com/user-attachments/assets/af47ee9e-ecff-453d-b4cb-c075ce0aede1" />
+<br>
+<blockquote><em>The One-to-One Conversation Rule <br>
+My previous view showed a list of every single DNS query across your whole network (485 packets).
+However, clicking Follow Stream forces Wireshark to act like a private investigator focusing on just one conversation thread, by filtering out the noise. The moment the client machine finishes asking those specific questions and closes that temporary local port (62757), that specific UDP stream is over. Any other DNS requests on your network are part of a completely separate stream number. Hence why the above stream only displayed 6 packets.
+</blockquote><br>
+
+ <br><br>
+<blockquote><em>Another Convo stream between 172.16.8.9 and 172.16.8.8 <br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 32 24 PM" src="https://github.com/user-attachments/assets/dfec9b42-1233-46d9-820f-ddb80c7b8359" />
+
+<br><br>
+<blockquote><em>Using display filter by tcp 2nd (displayed 20 859 packets out of the total 22 473 packets) </em></blockquote><br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 42 37 PM" src="https://github.com/user-attachments/assets/febef477-e54c-4c4a-bbf6-bcb1266b379f" />
+
+<br><br>
+<blockquote><em>Follow TCPStream for the first packet on the tcp filter </em></blockquote><br>
+
+
+
 
 ### Part 2: Hypothetical Cross-Source Correlation Proofs
 To validate a finding, an analyst must look for supporting evidence across surrounding system domains:
