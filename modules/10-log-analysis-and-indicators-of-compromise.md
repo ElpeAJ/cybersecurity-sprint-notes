@@ -265,8 +265,37 @@ However, clicking Follow Stream forces Wireshark to act like a private investiga
 * **Mechanics:** Payloads fired from host `.49` at external target `38.182.168.246` successfully broke the backend server application code, forcing continuous `500 Internal Server Error` and `502 Bad Gateway` drops.
 
 #
+---
 
-### Activity 1: IoC's proof
+# Packet Capture Case Analysis (5 Suspicious Events) - Corrected Format
+
+1. **Timestamp:** 407.242743
+   * **Detail:** Workstation `172.16.8.49` initiates a dense, automated barrage of `SAMR` protocol queries (`LookupNames`, `OpenUser`, `GetGroupsForUser`) against the Domain Controller `172.16.8.8`.
+   * **IoC Category:** Internal User Enumeration / Active Directory Reconnaissance
+   * **Reasoning:** A local host terminal executing high-frequency account mapping lookups highlights automated environment discovery tools scanning for high-value administrative accounts.
+
+2. **Timestamp:** 410.825124
+   * **Detail:** Host terminal `172.16.8.53` attempts a high-privilege `DSBind` database replication request over the `DRSUAPI` interface to the Domain Controller `172.16.8.8`.
+   * **IoC Category:** Active Directory Credential Dumping (DCSync Preparation)
+   * **Reasoning:** Directory replication binding should strictly occur between physical server nodes, meaning an active workstation triggering this function flags a DCSync exploit engineered to dump password hashes offline.
+
+3. **Timestamp:** 412.012543
+   * **Detail:** Workstation `172.16.8.49` initiates cleartext HTTP connection strings containing a heavily appended, randomized base64 alphanumeric variable string parameter (`GET /ujvq/?zknl=AbAb9...`) out to external node `172.64.155.76`.
+   * **IoC Category:** Command & Control (C2) Tracking Callback
+   * **Reasoning:** Malware implants utilize long, unreadable web query variables to smuggle host endpoint profiles and system identification metrics past outer perimeter checking rules.
+
+4. **Timestamp:** 413.110243
+   * **Detail:** Host terminal `172.16.8.49` floods external destination hosts `146.59.71.167` (`/irpw/`) and `45.130.41.161` (`/8nw8/`) with high-frequency HTTP `POST` directories, resulting in dense columns of sequential `404 Not Found` messages.
+   * **IoC Category:** Web Application Directory Busting / Fuzzing Reconnaissance
+   * **Reasoning:** A local host blasting systematic data requests at non-existent folder targets points to an automated scanning script trying to find hidden backdoors or open application directories.
+
+5. **Timestamp:** 413.529342
+   * **Detail:** Host `172.16.8.49` executes a targeted HTTP payload transmission (`POST /lqjm/`) against an external target at `38.182.168.246`, breaking backend handling structures to trigger cascading `500 Internal Server Error` and `502 Bad Gateway` server-side drops.
+   * **IoC Category:** Web Application Exploitation / Remote Code Execution
+   * **Reasoning:** An outbound data sequence triggering immediate internal server failures and gateway crashes on a remote web application indicates weaponized code blocks are actively breaking the target's operating code logic.
+
+
+## Activity 1: IoC's proof
 To validate a finding, an analyst must look for supporting evidence across surrounding system domains:
 
 * **Scenario A (Strengthening a C2 Finding):** If we track an outbound periodic beaconing flow, discovery of an entry inside the local **Auth Log** showing an unauthorized login from an unfamiliar country right before the traffic began drastically increases our threat confidence.
@@ -277,7 +306,7 @@ To validate a finding, an analyst must look for supporting evidence across surro
 
 ---
 
-## Activity 2: Cross-Source Log Forensic Case Study
+# Activity 2: Cross-Source Log Forensic Case Study
 
 ### 📊 Log Dataset (40-Minute Capture Timeline) - From Ms. Racheal
 
