@@ -219,7 +219,6 @@ However, clicking Follow Stream forces Wireshark to act like a private investiga
 * **What is happening:** Host `172.16.8.53` initiates a structural handshake to bind to the directory database replication engine (`DSBind request`).
 * **The Threat Hunter's Context:** While legitimate between sibling domain controller servers for database synchronization, an ordinary user workstation executing a DRSUAPI bind is a high-severity **Indicator of Compromise (IoC)**. This pattern matches a **DCSync Attack (e.g., weaponized via Mimikatz)**, where an attacker impersonates a domain controller to force the server to replicate and leak its entire database of user password hashes.
 
-
 <br><br>
 <blockquote><em>Follow TCPStream for the first packet on the tcp filter </em></blockquote><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 7 48 42 PM" src="https://github.com/user-attachments/assets/56eef530-1784-4f6a-b84d-6bf866de32bb" />
@@ -239,6 +238,138 @@ To validate a finding, an analyst must look for supporting evidence across surro
 * **Scenario A (Strengthening a C2 Finding):** If we track an outbound periodic beaconing flow, discovery of an entry inside the local **Auth Log** showing an unauthorized login from an unfamiliar country right before the traffic began drastically increases our threat confidence.
 * **Scenario B (Strengthening a Lateral Pivot Finding):** If we observe an endpoint connecting to multiple sibling nodes, locating a line in the target's local **System Log** confirming a new scheduled task was deployed concurrently confirms exploitation.
 * **Scenario C (Weakening a Threat Finding):** If an apparent beaconing signature aligns with a **System Log** entry showing a verified corporate patch tool running a scheduled update check, the finding is safely downgraded to a benign background action.
+
+
+## 🛡️ Incident Response Wireshark Filter Matrix (Active Directory & Network Hunting)
+
+To filter out massive volumes of normal background traffic and isolate security breaches during a high-pressure triage investigation, utilize these precise display filters:
+
+### 1. Isolate Directory Enumeration & Reconnaissance (SAMR Hunting)
+* **Display Filter Syntax:**
+  ```text
+  samr.opnum == 34 or samr.opnum == 13 or samr.opnum == 36
+  ```
+* **Why It Helps:** This isolates the specific operation numbers used during Active Directory account enumeration sweeps [image_IUc0-b.png]. It pulls out precise events like `LookupNames`, `GetGroupsForUser`, and `GetAliasMembership` [image_IUc0-b.png]. If an ordinary workstation IP runs this sequence at high frequency, it indicates an automated network profiling tool (like BloodHound or SharpHound) is mapping your privilege escalation paths.
+
+### 2. Detect Potential DCSync Credential Dumping (DRSUAPI Hunting)
+* **Display Filter Syntax:**
+  ```text
+  drsuapi
+  ```
+* **Why It Helps:** This isolates the Directory Replication Service Remote Protocol [image_E_RYvZ.png]. DRSUAPI should strictly occur between your actual physical Domain Controllers. If this query is initiated by a regular user terminal endpoint (e.g., `172.16.8.53`), it flags a high-severity **Indicator of Compromise (IoC)** matching a DCSync attack [image_E_RYvZ.png]. It shows that an attacker is trying to trick the server into dumping and leaking your entire database of corporate password hashes.
+
+### 3. Catch Cleartext Sensitive Data Exfiltration (HTTP Content Leakage)
+* **Display Filter Syntax:**
+  ```text
+  http.request.method == "POST" or http.request.method == "GET"
+  ```
+* **Why It Helps:** This filter skips background transport noise to show only explicit data requests or uploads to external web applications. When checking unencrypted HTTP connections, an incident responder can right-click these lines and select `Follow -> HTTP Stream` to inspect raw headers, browser user-agents, cookies, and the literal data payloads (like uploaded text, scripts, or stolen documents) flying out of the perimeter boundary.
+
+### 4. Audit Local Remote Command Execution (DCERPC Interface Mapping)
+* **Display Filter Syntax:**
+  ```text
+  dcerpc.pipe == "epmapper" or tcp.port == 135
+  ```
+* **Why It Helps:** This tracks attackers who are using Remote Procedure Calls to interact with server interfaces or execute hidden services remotely [image_rJa2tz.png]. Filtering by the Endpoint Mapper on Port 135 shows you exactly which internal host machines are asking the server for dynamic port mappings to launch remote administrative code blocks.
+
+### 5. Uncover Suspicious Outbound Core Data Smuggling (DNS Tunneling)
+* **Display Filter Syntax:**
+  ```text
+  dns.flags.response == 0 and dns.qry.name.len > 30
+  ```
+* **Why It Helps:** This isolates outbound DNS queries where the character length of the requested domain name is unusually long (greater than 30 characters). Because firewalls rarely block background DNS traffic, threat actors use it to tunnel data out. This string filters out normal queries like `google.com` to isolate malicious strings containing randomized base64-encoded strings (e.g., `://attacker-domain.com`).
+
+### 6. Track Network Boundary Blocks & Failure Reporting (ICMP Triage)
+* **Display Filter Syntax:**
+  ```text
+  icmp.type == 3
+  ```
+* **Why It Helps:** This isolates every single "Destination Unreachable" error code thrown by systems on your network [image_VGHXjB.png]. If an endpoint is scanning closed internal ports or an attacker is weaponizing WPAD spoofing vectors that break active client routing paths, a rapid burst of these ICMP error packets will instantly pin down the exact source and target of the connection failure.
+
+### 7. Detect Active Network Reconnaissance & Port Scanning (SYN Scans)
+* **Display Filter Syntax:**
+  ```text
+  tcp.flags.syn == 1 and tcp.flags.ack == 0
+  ```
+* **Why It Helps:** This isolates packets attempting to open a TCP connection without acknowledging an existing thread. During an active SYN port scan (like an `nmap` sweep), an attacker fires thousands of these initial handshakes across multiple port sockets to see what answers back. If a single internal IP generates a dense block of connection attempts to a massive array of sequential ports, you have found an active asset scan.
+
+### 8. Audit Encrypted C2 Channels & Malicious Web Targets (TLS/SNI Inspection)
+* **Display Filter Syntax:**
+  ```text
+  tls.handshake.extensions_server_name
+  ```
+* **Why It Helps:** While modern web traffic is encrypted via HTTPS (Layer 4/7), the initial TLS handshake must transmit the domain name in cleartext inside the Server Name Indication (SNI) field so the server knows which cryptographic certificate to present. This filter strips away the encrypted payload data to list the literal website domain names your endpoints are connecting to. Incident responders check this column against threat intelligence feeds to spot hidden Command and Control (C2) servers communication.
+
+### 9. Identify Web App Bruteforcing & Directory Busting (HTTP Error Tracking)
+* **Display Filter Syntax:**
+  ```text
+  http.response.code >= 400
+  ```
+* **Why It Helps:** This isolates every single unencrypted web response where a server issued an error token, such as `404 Not Found` or `401 Unauthorized`. If an attacker runs an automated directory fuzzing tool (like Gobuster) or a login brute-forcer, it will leave a massive trail of sequential 404 or 401 errors. Tracking these error surges reveals the exact web directories targeted for exploitation.
+
+### 10. Uncover Man-in-the-Middle Attacks (ARP Poisoning Tracking)
+* **Display Filter Syntax:**
+  ```text
+  arp.duplicate-address-detected or arp.opcode == 2
+  ```
+* **Why It Helps:** This catches actors attempting to hijack local network traffic. Address Resolution Protocol (ARP) maps software IPs to physical MAC addresses. In an ARP spoofing attack, a hacker floods the network with fraudulent ARP replies (`arp.opcode == 2`) to trick systems into routing traffic through the attacker's machine. Wireshark automatically flags these anomalies, allowing responders to identify when a rogue MAC address is trying to hijack your gateway.
+
+### 11. Catch Local Name Resolution Poisoning (LLMNR / NBNS Spoofing)
+* **Display Filter Syntax:**
+  ```text
+  llmnr or nbns or mdns
+  ```
+* **Why It Helps:** Windows machines automatically broadcast legacy LLMNR or NetBIOS (NBNS) requests to the local network when standard DNS lookups fail. Attackers running tools like **Responder** listen for these broadcasts and fire back fake answers to trick the victim endpoint into transmitting its local user password hashes. Isolating these legacy local broadcast layers lets responders audit whether rogue hosts are poisoning local identity traffic.
+
+### 12. Track Lateral Movement & Administrative File Access (SMB Share Mapping)
+* **Display Filter Syntax:**
+  ```text
+  smb2.cmd == 5
+  ```
+* **Why It Helps:** This isolates Server Message Block version 2 "Tree Connect" requests, which are executed when a device connects to a network folder or file share. When hackers move laterally across a network, they frequently attempt to map hidden administrative drives (like `C$` or `ADMIN$`) to deploy malware payloads remotely. Filtering for command type 5 lets you quickly see exactly which files shares are being mounted across your internal assets.
+
+### 13. Isolate Cleartext Credential Harvesting (FTP & HTTP Basic Auth)
+* **Display Filter Syntax:**
+  ```text
+  ftp.request.command == "USER" or ftp.request.command == "PASS" or http.authbinary
+  ```
+* **Why It Helps:** This filters for unencrypted legacy protocols that transmit administrative login credentials in cleartext. If an attacker is sniffing traffic or an legacy application is misconfigured, this filter instantly prints the raw usernames and passwords on the wire, allowing responders to identify immediately which accounts require forced credential resets.
+
+### 14. Spot Malicious Executable Transfers (File Carving Opportunities)
+* **Display Filter Syntax:**
+  ```text
+  http.file_data contains "This program cannot be run in DOS mode"
+  ```
+* **Why It Helps:** This searches the raw application data space for the standard compiler signature header found inside all Windows executable binaries (`.exe` or `.dll` files). If an endpoint is downloading unencrypted payloads from a web server or malware staging repository, this filter isolates the exact packet sequence, enabling investigators to export and analyze the malicious file directly.
+
+### 15. Track Command & Control (C2) Heartbeats (TCP Delta Time Hunting)
+* **Display Filter Syntax:**
+  ```text
+  tcp.time_delta > 10.0 and tcp.flags.push == 1
+  ```
+* **Why It Helps:** This measures the precise time elapsed between sequential packets in a single conversation thread. Automated malware implants often use long, regular sleep cycles (e.g., waking up exactly every 30 or 60 seconds) to check in with a C2 server. Filtering for high delta times alongside data push flags exposes these quiet, periodic beaconing pulses.
+
+### 16. Identify Data Leakage via Network Padding (ICMP Data Exfiltration)
+* **Display Filter Syntax:**
+  ```text
+  icmp.type == 8 and data.len > 64
+  ```
+* **Why It Helps:** Standard network ping requests contain a small, fixed block of dummy text padding. Attackers can weaponize custom scripts to replace this standard padding with highly compressed pieces of stolen files, smuggling data out over ICMP channels. Filtering for large outbound ping data fields flags these active exfiltration attempts instantly.
+
+### 17. Audit Remote Web Shell Injections (HTTP Dangerous Method Tracking)
+* **Display Filter Syntax:**
+  ```text
+  http.request.method in {"PUT", "DELETE", "OPTIONS"}
+  ```
+* **Why It Helps:** Standard internet browsing uses basic `GET` and `POST` methods. Attackers exploiting vulnerable web servers frequently use alternative methods like `PUT` or `OPTIONS` to upload backdoor web shells or map out hidden file permissions. Isolating these requests narrows down the triage focus to web asset exploitation points.
+
+### 18. Detect Kerberos AS-REP Roasting Exploits (Weak Encryption Downgrades)
+* **Display Filter Syntax:**
+  ```text
+  kerberos.cipher == 23
+  ```
+* **Why It Helps:** This checks for the old RC4-HMAC encryption standard (`cipher 23`) inside Kerberos authentication request tickets. Modern systems enforce robust AES encryption. Attackers leverage AS-REP Roasting attacks to intentionally force a downgrade to weak RC4 encryption because it allows them to crack user account passwords offline rapidly.
+
 
 ---
 
