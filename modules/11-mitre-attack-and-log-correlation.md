@@ -8,9 +8,9 @@
   * **Procedures:** The exact contextual, platform-specific implementation or execution string used during an active intrusion sequence (e.g., executing an explicit script or specific terminal command line).
 * **Analysis:** Log correlation allows analysts to differentiate between a *Detected Attack* (where threat behavior generates real telemetry flags in our central logging matrix) and an *Undetected Attack* (where gaps in log enforcement or misconfigured endpoints allow a malicious technique to execute completely unrecorded).
 
-
-
-
+<br>
+<img width="1210" height="755" alt="Screenshot 2026-08-23 at 11 48 05 PM" src="https://github.com/user-attachments/assets/ef616515-e4ab-4a08-bbae-ba3d00020520" />
+<br>
 
 ---
 
@@ -32,8 +32,7 @@ These real-world attacker threat behaviors map cleanly to official database cate
 
 <br><br>
 <img width="1210" height="755" alt="Screenshot 2026-08-23 at 11 45 51 PM" src="https://github.com/user-attachments/assets/7bf70e87-51a0-4b00-8e12-6291893ddad7" />
-
-
+<br>
 
 ---
 
