@@ -24,7 +24,7 @@ This is my central repository for documenting my journey through the intensive C
 
 ### 📁 Module 4: Vulnerability Assessment & Audit
 - [✓] **Day 13:** Vulnerability Management Lifecycle & CVSS v3.1 Scoring
-- [✓] **Day 14:** 
+- [✓] **Day 14:** Vulnerability Scanning  with Nmap & Nessus
 - [✓] **Day 15:** 
 - [✓] **Day 16:** 
 
@@ -81,6 +81,7 @@ netstat -tuln
 * [Day 10: Log Analysis & IoCs](modules/10-log-analysis-and-indicator-of-compromise.md) — Multi-source logging data matrices, detection indicators, cross-correlation strategies, and real-world SolarWinds analysis.
 * [Day 11: MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md) -
 * [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
+* [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
 
 
 
