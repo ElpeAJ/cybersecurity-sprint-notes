@@ -1,6 +1,6 @@
 # Tech4Dev Cybersecurity Sprint Course Notes
 
-Welcome to my central repository for documenting my journey through the intensive Cybersecurity Sprint Course. This repository serves as a digital notebook, lab log, and portfolio of my technical skills.
+This is my central repository for documenting my journey through the intensive Cybersecurity Sprint Course and Tech4Dev. This repository serves as a digital notebook, lab log, and portfolio of my technical skills.
 
 ## 📌 Course Syllabus & Progress Tracker
 
@@ -19,14 +19,14 @@ Welcome to my central repository for documenting my journey through the intensiv
 ### 📁 Module 3: Threat Detection & Analysis
 - [✓] **Day 09:** Wireshark & Tcpdump Packet Capture Fundamentals
 - [✓] **Day 10:** Log Analysis, Sources, & Indicators of Compromise (IoCs)
-- [✓] **Day 11:** 
-- [✓] **Day 12:** 
+- [🔄] **Day 11:** 
+- [🔄] **Day 12:** 
 
 ### 📁 Module 4: Vulnerability Assessment & Audit
-- [🔄] **Day 13:** 
-- [🔄] **Day 14:** 
-- [🔄] **Day 15:** 
-- [🔄] **Day 16:** 
+- [✓] **Day 13:** Vulnerability Management Lifecycle & CVSS v3.1 Scoring
+- [✓] **Day 14:** 
+- [✓] **Day 15:** 
+- [✓] **Day 16:** 
 
 ### 📁 Module 5: Incident Response & Security Governance
 - [🔄] **Day 17:** 
@@ -79,6 +79,9 @@ netstat -tuln
 * [Day 8: SIEM Concepts & Alert Triage](modules/08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
 * [Day 9: Wireshark & Tcpdump Fundamentals](modules/09-wireshark-tcpdump-fundamentals.md) — Traffic interception mechanics, display vs. capture filters, and command-line network analysis.
 * [Day 10: Log Analysis & IoCs](modules/10-log-analysis-and-indicator-of-compromise.md) — Multi-source logging data matrices, detection indicators, cross-correlation strategies, and real-world SolarWinds analysis.
+* [Day 11: MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md) -
+* [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
+
 
 
 
