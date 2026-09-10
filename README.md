@@ -35,7 +35,7 @@ This is my central repository for documenting my journey through the intensive C
 - [🔄] **Day 20:** 
 
 ### 📁 Module 6: Applied Sec, Crypto & Ethical Hacking
-- [🔄] **Day 21:** 
+- [🔄] **Day 21:** Cryptography Fundamentals, Algorithms, and Core Functions
 - [🔄] **Day 22:** 
 - [🔄] **Day 23:** 
 - [🔄] **Day 24:** 
@@ -82,9 +82,18 @@ netstat -tuln
 * [Day 11: MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md) -
 * [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
 * [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
+* [Day 20: Cryptography Fundamentals](modules/20-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 
 
 
 
+## 📅 Course Syllabus & Progress Tracker
+
+### 📁 Module 6: Applied Security, Cryptography & Ethical Hacking
+- [🔄] **Week 6, Day 1:** Cryptography Fundamentals, Algorithms, and Core Functions
+
+## 📂 Repository Directory
+* [Module 4: Vulnerability Reporting](modules/14-vulnerability-reporting-and-assessment.md)
+* [Module 6: Cryptography Fundamentals](modules/15-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 
 
