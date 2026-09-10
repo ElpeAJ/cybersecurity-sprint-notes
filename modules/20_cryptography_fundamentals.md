@@ -75,6 +75,13 @@ An evaluation of two symmetric cryptographic standards to analyze their current 
 * **Key Length Support:** Restricted to a short, rigid key size of only **56 bits**.
 * **Current Security Status:** **Broken and Deprecated**. Because a 56-bit key structure is small, modern computers can brute-force the entire key space within a few hours. It has been completely phased out and replaced by AES in production networks.
 
+
+
+<img width="1198" height="494" alt="Screenshot 2026-09-10 at 9 09 36 PM" src="https://github.com/user-attachments/assets/466632d7-6f9b-4272-8063-3838f02ac592" />
+
+
+
+
 ---
 
 ## ⚙️ Symmetric Encryption Architecture & Algorithm Analysis
