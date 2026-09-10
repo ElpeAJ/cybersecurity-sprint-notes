@@ -117,6 +117,19 @@ To prepare local analyst environments for advanced Linux-based cryptographic too
    ```
 7. Follow the initialization prompts inside the newly spawned window to establish your secure analyst root username and local system password credentials.
 
+<br>
+<img width="644" height="586" alt="image" src="https://github.com/user-attachments/assets/e518c3c5-179c-49ec-b913-d2c0b30f847e" />
+
+<br>
+<img width="788" height="583" alt="image" src="https://github.com/user-attachments/assets/bd81049e-a111-43aa-ac97-77f42c95040e" />
+
+<br>
+8. In the Windows Search bar search and open the Ubuntu terminal, then follow the commands in the screenshot below
+
+<br>
+<img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/62e8d905-3afe-4e54-a2a3-68c8143b2174" />
+
+
 ---
 
 ## 📝 Assessment Reference & Technical Self-Check
