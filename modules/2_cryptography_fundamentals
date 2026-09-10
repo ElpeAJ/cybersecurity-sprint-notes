@@ -1,0 +1,85 @@
+# Day 20: Cryptography Fundamentals & Algorithms
+
+## Cryptographic Principles
+* **Definition:** Cryptography is the practice of securing digital information by converting readable plaintext into unreadable ciphertext. This ensures data properties remain protected both while traveling across an untrusted network environment (Data in Transit) and while stored statically on local host drives or database repositories (Data at Rest).
+* **The Shared Objective:** Maps directly to the **Confidentiality** and **Integrity** pillars of the core security framework, ensuring unauthorized third parties cannot spy on or alter system information vectors without detection.
+
+---
+
+## Symmetric vs. Asymmetric Encryption Architectures
+
+Encryption is a **two-way, reversible process** used when data must be securely scrambled for transport or storage and later decoded back into its original text state using an explicit mathematical key.
+
+| Technical Parameter | Symmetric Encryption Matrix | Asymmetric Encryption Matrix |
+| :--- | :--- | :--- |
+| **Key Architecture** | Utilizes **one single shared key** for both locking (encrypting) and unlocking (decrypting) operations. | Utilizes a mathematically linked **Public and Private Key Pair**. Data locked with the public key can only be unlocked by the private key. |
+| **Operational Speed** | High performance; exceptionally fast and computationally lightweight. | Slower; highly resource-intensive and computationally expensive. |
+| **Primary Use Case** | Bulk data encryption, bulk storage protection, and long-term file encryption blocks. | Initial secure connection handshakes, identity verification, and digital signatures. |
+| **Core Limitation** | **The Key Sharing Problem:** Both sides must securely exchange the single key beforehand without an eavesdropper intercepting it. | Vulnerable to key management loss; if the private key is exposed or dropped, all encryption layers fail instantly. |
+| **System Resolution** | Requires a pre-shared secure secondary path to distribute the primary master key string. | Solves the key sharing dilemma completely because the public key can be freely distributed to anyone on the internet. |
+
+> 🌐 **Hybrid System Integration Note:** Modern architectures (such as **HTTPS / TLS**) do not choose one over the other. They use both together: **Asymmetric Encryption** securely executes the initial connection handshake to verify identity and share a temporary key, and **Symmetric Encryption** instantly takes over to handle the fast, bulk transmission of data throughout the rest of the session.
+
+---
+
+## Hashing: The One-Way Function
+
+### Foundational Concept
+Unlike encryption, **hashing is a strict one-way, irreversible mathematical operation**. It takes an input string of any size and converts it into a scrambled, fixed-length alphanumeric output text block (a hash value or message digest). 
+
+### The Blender Analogy
+Putting data into a hashing algorithm is analogous to processing an apple inside a mechanical blender. You obtain a blended smoothie output (the hash), but it is physically impossible to reverse the process to reconstruct the original intact apple from the liquid state.
+
+### Primary Structural Use Cases
+* **Secure Password Storage:** Systems hash your password locally and save only the resulting string in the database. When logging in, the system hashes your input and checks if the outputs match. This ensures that if the database is leaked, the attacker only steals one-way hashes rather than cleartext user credentials.
+* **File Integrity Verification:** Software developers publish hash values alongside installation downloads. Users hash their downloaded files locally; if the alphanumeric strings match perfectly, it proves the file has not been altered or injected with malware.
+
+---
+
+## 💻 Lab Activity 1: Guided Symmetric Message Scramble
+* **Lab Objective:** Observe plaintext structural conversion behaviors using an online symmetric engine (such as CyberChef or standard AES encryptors).
+
+### Step by Step Process in class
+1. Navigate to the website ' https://encode-decode.com '.
+2. Select **String encryptions** and choose one of the algorithms e.g **aes-128-cfb** as your encryption standard.
+3. Input a standard text message into the input field: `meet me at noon`.
+4. Set a secure, temporary pre-shared passkey string into the Key bar.
+5. Click **Encrypt** to process the data.
+
+
+
+
+
+
+
+
+
+
+
+#### Case Observations & Reflections:
+* **Ciphertext Properties:** The plain readable sentence transforms into a dense block of alphanumeric text digits with zero visible pattern.
+* **Determinism Property:** Encrypting the exact same plaintext message multiple times using the identical key string produces the exact same scrambled output every time. This deterministic property is normal and expected behavior in cryptography.
+
+---
+
+## 💻 Lab Activity 2: Symmetric Algorithm Evaluation (AES vs. DES)
+
+An evaluation of two symmetric cryptographic standards to analyze their current security status and key metrics:
+
+### 🛡️ 1. Advanced Encryption Standard (AES)
+* **Key Length Support:** Offers strong cryptographic variable options including **128-bit, 192-bit, and 256-bit** key tracking bounds.
+* **Current Security Status:** **Highly Secure (Industry Standard)**. It is widely used globally by corporations, banking systems, and governments, with no practical mathematical attack vectors currently known.
+
+### ❌ 2. Data Encryption Standard (DES)
+* **Key Length Support:** Restricted to a short, rigid key size of only **56 bits**.
+* **Current Security Status:** **Broken and Deprecated**. Because a 56-bit key structure is small, modern computers can brute-force the entire key space within a few hours. It has been completely phased out and replaced by AES in production networks.
+
+---
+
+## 📝 Assessment Reference & Technical Self-Check
+* **Format:** Laboratory Entry Logs and Protocol Evaluation Matrix.
+* **Milestone:** Graded portfolio components that feed into your upcoming **Week 6 Cryptography Lab Report** and **Day 4 Rotating Viva**.
+* **Required Task Checklist:**
+  * Complete the online encryption text scramble activity and record your output patterns.
+  * Document the 3-sentence algorithm comparison table evaluating AES vs. DES parameters.
+  * Review the difference between hashing and encryption mechanisms to prepare for the Day 2 Hash Cracking Lab challenge.
