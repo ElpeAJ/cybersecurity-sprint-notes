@@ -304,11 +304,11 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 ## Practical Assessment Delivery Checklist
 To claim full credit for today's independent lab evaluation tracking, verify your portfolio folder contains these specific verified text items:
 
-* [✓] **Two Unique SHA-256 Hashes:** Explicitly tracking the case shift signatures for `Hello` and `hello`.
-* [✓] **Plain-Text Analysis Paragraph:** Explaining the underlying mechanics of the Avalanche Effect.
-* [✓] **Granular Core Data String:** Documenting the ef92b... hash for `password123`.
-* [✓] **Governance Resolution Blueprint:** A 3-sentence explanation mapping Rainbow Table lookups and Salting protection.
-* [✓] **Digital Signature Logical Proofs:** Complete analysis detailing non-repudiation and transit tampering defenses.
+* [🔄] **Two Unique SHA-256 Hashes:** Explicitly tracking the case shift signatures for `Hello` and `hello`.
+* [🔄] **Plain-Text Analysis Paragraph:** Explaining the underlying mechanics of the Avalanche Effect.
+* [🔄] **Granular Core Data String:** Documenting the ef92b... hash for `password123`.
+* [🔄] **Governance Resolution Blueprint:** A 3-sentence explanation mapping Rainbow Table lookups and Salting protection.
+* [🔄] **Digital Signature Logical Proofs:** Complete analysis detailing non-repudiation and transit tampering defenses.
 
 
 
