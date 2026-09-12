@@ -372,6 +372,13 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 * **Current Security Status:** **Broken and Deprecated**. Because a 56-bit key structure is small, modern computers can brute-force the entire key space within a few hours. It has been completely phased out and replaced by AES in production networks.
 -->
 
+---
+
+## Additional Materials
+* TryHackMe - 
+* LetsDefend - 
+
+---
 
 ## 📝 Assessment Reference & Technical Self-Check
 * **Format:** Laboratory Entry Logs and Protocol Evaluation Matrix.
