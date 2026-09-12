@@ -82,7 +82,7 @@ netstat -tuln
 * [Day 11: MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md) -
 * [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
 * [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
-* [Day 22: Cryptography Fundamentals](modules/21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
+* [Day 21: Cryptography Fundamentals](modules/21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 * [Day 22: Hashing & Password Cracking](modules/22-hashing-and-password-cracking.md) — TLS/SSL layers, PKI trust verification structures, Certificate Pinning defense logic, MD5 weaknesses, and automated Rainbow Table lab analysis keys.
 
 
