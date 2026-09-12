@@ -3,12 +3,13 @@
 ## Transport Layer Security (TLS) & Public Key Infrastructure (PKI)
 * **Transport Layer Security (TLS):** Operating at **Layer 4 (Transport Layer) of the OSI model**, TLS provides an encrypted communication tunnel between a client browser and a remote server. It enforces **Confidentiality** and **Integrity** across the network wire.
 * **Historical Context:** **Secure Sockets Layer (SSL)** is the legacy predecessor to TLS. SSL is completely obsolete and deprecated for enterprise production settings due to design vulnerabilities. Modern environments deploy **TLS 1.2 and TLS 1.3**.
-* **The Padlock Icon:** The padlock displayed inside a browser address bar confirms that TLS encryption is active. *Crucial Analytical Insight: HTTPS only guarantees that data is encrypted in transit—it does not guarantee that the destination website itself is safe, trustworthy, or legitimate.*
+* **The Padlock Icon:** The padlock displayed inside a browser address bar confirms that TLS encryption is active.
+>*Crucial Analytical Insight: HTTPS only guarantees that data is encrypted in transit. It does not guarantee that the destination website itself is safe, trustworthy, or legitimate.*
 * **Public Key Infrastructure (PKI):** The complete framework of trusted organizations, governance rules, and technologies established to issue, manage, distribute, and verify digital identity certificates.
 
 ---
 
-## 📄 Digital Certificates & Verification Lifecycle
+## Digital Certificates & Verification Process
 A **Digital Certificate** functions as the verifiable digital identity card for a web asset. It binds a public cryptographic key to an organization's domain name, verified and cryptographically signed by an authoritative body called a **Certificate Authority (CA)**.
 
 ### Core Components of a Certificate
@@ -105,16 +106,17 @@ To analyze hashing behavior, structural MD5 digests were generated via PowerShel
 
 <br><br>
 
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 11 57 26 AM" src="https://github.com/user-attachments/assets/901bc7b6-393d-4aa5-b9cf-27c0b6b3ae2c" />
 
 <br><br>
 
-
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 11 58 01 AM" src="https://github.com/user-attachments/assets/03a32c48-76c3-4d2f-ac0b-0ea9462eaff8" />
 
 <br><br>
 
 ---
 
-## 💻 Lab Activity 3: The Avalanche Effect (Task 3 & 4 of Lab)
+## 💻 Lab Activity 3: The Avalanche Effect (Task 3 & 4 of Week 6's Lab Sheet)
 
 ### SHA-256 Digest using `https://tools.keycdn.com/sha256-online-generator`
 * **Target Word Input 1 (`Hello`):** `185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969`
@@ -131,12 +133,29 @@ Altering a single character's capitalization from uppercase `H` to lowercase `h`
 
 ---
 
-## 💻 Lab Activity 4: Weak Target Hashing Analysis
+## 💻 Lab Activity 4: Why Hashing Alone Does Not Fully Protect Password (Task 5 & 6 of Week 6's Lab Sheet)
 
-### 🔬 Data String Tracing (`password123`)
-* **Target Input Profile:** `password123`
+### Cracking Unsalted String (`password123`)
+* **Target data:** `password123`
 * **Generated SHA-256 Digest Output:** `ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f`
+* <img width="781" height="423" alt="Screenshot 2026-09-12 at 12 05 12 PM" src="https://github.com/user-attachments/assets/951930a5-000e-4c40-9e8d-d70e7e574b19" />
+
+<br><br>
+
 * **Forensic Vulnerability Assessment:** When submitted to a lookup engine, the plain text credential is recovered almost instantly. Because `password123` is a highly common password, its hash value is already precomputed inside global rainbow table dictionaries. To defend against this, systems must implement a cryptographic salt to randomize the output values and neutralize dictionary matching tactics.
+
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 12 09 06 PM" src="https://github.com/user-attachments/assets/50c579d4-7919-42a4-83b8-b05370be91bd" />
+
+<br><br>
+
+>***Mimicing systems adding cryptographic salt to make it hard to crack***
+>*Appended **`G!zyrT`** to **`password123`** before hashing*
+### Cracking Salted String (`G!zyrTpassword123`)
+* **Target data:** `G!zyrTpassword123`
+* **Generated SHA-256 Digest Output:** `ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f`
+
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 12 13 34 PM" src="https://github.com/user-attachments/assets/0540a822-adfd-44db-a52f-3e8a2d72aa5a" />
+
 
 ---
 
