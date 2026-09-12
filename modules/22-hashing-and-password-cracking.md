@@ -152,10 +152,12 @@ Altering a single character's capitalization from uppercase `H` to lowercase `h`
 >*Appended **`G!zyrT`** to **`password123`** before hashing*
 ### Cracking Salted String (`G!zyrTpassword123`)
 * **Target data:** `G!zyrTpassword123`
-* **Generated SHA-256 Digest Output:** `ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f`
+* **Generated SHA-256 Digest Output:** `2281e3f5981908a60da4014fc2adf0099ae95cfca495ea40bc25920a5ed1f269`
 
 <img width="781" height="423" alt="Screenshot 2026-09-12 at 12 13 34 PM" src="https://github.com/user-attachments/assets/0540a822-adfd-44db-a52f-3e8a2d72aa5a" />
 
+* **Salting in Action:** The salted string did not match any precomputed rainbow tables dictionaries and so the new hash was not found as shown in the image below
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 12 18 55 PM" src="https://github.com/user-attachments/assets/3814cb98-a55b-4f17-8a92-5103061f5146" />
 
 ---
 
