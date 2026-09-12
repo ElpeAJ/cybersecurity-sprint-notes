@@ -77,11 +77,11 @@ To analyze hashing behavior, structural MD5 digests were generated via PowerShel
 
 ## 💻 Lab Activity 2: Automated Rainbow Table Hacking Triage
 
-*Lab Execution Environment:* Triage operations executed using web-based precomputed lookup array systems (`CrackStation.net`) to parse exposed cryptographic targets.
+*Lab Execution Environment:* Triage operations executed using web-based precomputed lookup array systems (`CrackStation.net`) to parse exposed cryptographic targets. We tested the following hashes to see if they could be cracked and what the result matched to
 
 ### Verified Hash Cracking Results Ledger with screenshots
 
-| Target Hexadecimal Digest String | Verification Color Flag | Recovered Plaintext Password Result |
+| Hexadecimal Digest String (Hash) | Verification Color Flag | Recovered Plaintext Password Result |
 | :--- | :--- | :--- |
 | `5f4dcc3b5aa765d61d8327deb882cf99` | **Green** | `password` |
 | `e10adc3949ba59abbe56e057f20f883e` | **Green** | `123456` |
@@ -91,15 +91,42 @@ To analyze hashing behavior, structural MD5 digests were generated via PowerShel
 
 * **The Core Lesson:** The **Green** flag indicators confirm an immediate lookup match inside the rainbow database array. The fact that these five distinct strings were cracked in under one second without any computational brute-forcing proves that un-salted MD5 implementations offer zero protection against modern threat actors.
 
+* **Screenshots**
+
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 11 51 09 AM" src="https://github.com/user-attachments/assets/fda7f4a4-c899-46a6-8a6d-392ff0f47cd1" />
+
+<br><br>
+
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 11 52 18 AM" src="https://github.com/user-attachments/assets/c3d9891c-48fb-4dd7-bc95-6f677c16d5b9" />
+
+<br><br>
+
+<img width="781" height="423" alt="Screenshot 2026-09-12 at 11 53 24 AM" src="https://github.com/user-attachments/assets/f482f22b-990c-4075-90d4-39806b0726a6" />
+
+<br><br>
+
+
+<br><br>
+
+
+
+<br><br>
+
 ---
 
-## 💻 Lab Activity 3: The Avalanche Effect Validation
+## 💻 Lab Activity 3: The Avalanche Effect (Task 3 & 4 of Lab)
 
-### SHA-256 Digest Matrix Mapping
+### SHA-256 Digest using `https://tools.keycdn.com/sha256-online-generator`
 * **Target Word Input 1 (`Hello`):** `185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969`
 * **Target Word Input 2 (`hello`):** `2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824`
 
-### 🔍 Analytical Finding (The Avalanche Effect)
+<img width="725" height="419" alt="Screenshot 2026-09-12 at 11 36 09 AM" src="https://github.com/user-attachments/assets/fb995891-0a75-4ea4-b471-6bcb2efdee0e" />
+
+<br><br>
+
+<img width="725" height="419" alt="Screenshot 2026-09-12 at 11 36 45 AM" src="https://github.com/user-attachments/assets/e1e7f5a0-415a-41ea-bb27-d250c7fae70e" />
+
+### Comparison of hashes (The Avalanche Effect)
 Altering a single character's capitalization from uppercase `H` to lowercase `h` causes the output signature strings to look completely non-matching, changing the alphanumeric character sequence entirely. This behavior validates the **Avalanche Effect**. It demonstrates why hashing functions are exceptionally secure for verifying data integrity: if an attacker modifies even a single bit of a document during transit, the resulting digest output shifts completely, exposing the tampering attempt.
 
 ---
