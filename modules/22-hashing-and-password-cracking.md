@@ -175,3 +175,14 @@ To claim full credit for today's independent lab evaluation tracking, verify you
 * [✓] **Governance Resolution Blueprint:** A 3-sentence explanation mapping Rainbow Table lookups and Salting protection.
 * [✓] **Digital Signature Logical Proofs:** Complete analysis detailing non-repudiation and transit tampering defenses.
 
+
+## 📝 Assessment Reference & Technical Self-Check
+* **Format:** Laboratory Entry Logs and Protocol Evaluation Matrix.
+* **Milestone:** Graded portfolio components that feed into your upcoming **Week 6 Cryptography Lab Report** and **Day 4 Rotating Viva**.
+* **Required Task Checklist:**
+  * Record the manual cipher decoding puzzle responses for the QWERTY and Caesar shift tasks.
+  * Map out the key size matrices for symmetric (AES/3DES) and asymmetric (RSA/DSA) standards.
+  * Complete your administrative deployment of WSL and the Ubuntu Linux shell terminal environment.
+  * Complete the online encryption text scramble activity and record your output patterns.
+  * Document the 3-sentence algorithm comparison table evaluating AES vs. DES parameters.
+  * Review the difference between hashing and encryption mechanisms to prepare for the Day 2 Hash Cracking Lab challenge.
