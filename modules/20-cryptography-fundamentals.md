@@ -9,7 +9,7 @@
 
 ---
 
-## 🔏 Manual Cipher Decoding Operations & Rule Testing
+## Manual Cipher Decoding & Rule Testing
 
 Before executing automated algorithmic sweeps, threat analysts study simple cipher manipulation behaviors to understand translation rules. The following strings were parsed and successfully decoded using manual positional mappings:
 
@@ -177,7 +177,35 @@ Both laboratory tests used the exact same plaintext message (`meet mea at noon`)
 
 ---
 
-## 💻 Lab Activity 4: Asymmetric Algorithm Evaluation ( https://anycript.com/crypto/rsa )
+## 💻 Lab Activity 4: Asymmetric Algorithm Evaluation - Using RSA Encryption/Decryption Tool ( https://anycript.com/crypto/rsa )
+
+>*Choose both public and private key
+>
+<br>
+<img width="777" height="505" alt="Screenshot 2026-09-12 at 10 12 22 AM" src="https://github.com/user-attachments/assets/61ca3ef7-8f28-44de-8b2a-dc60306af15f" />
+<br><br>
+
+>*Click Create public/Private key
+>
+<br>
+<img width="777" height="505" alt="Screenshot 2026-09-12 at 10 15 13 AM" src="https://github.com/user-attachments/assets/63c2ad5e-09db-40c6-8a62-aa50c7f5ee5a" />
+<br><br>
+
+>*Write the text you wish to encrypt and enter the generated public key
+>
+<br>
+<!--<img width="777" height="714" alt="Screenshot 2026-09-12 at 10 18 01 AM" src="https://github.com/user-attachments/assets/c84b4a47-7ea0-4d98-a53e-88a264d4d8bb" />
+<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 20 17 AM" src="https://github.com/user-attachments/assets/63a7c28c-81a8-49e2-aef2-d5795aa51cb9" /> -->
+<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 21 07 AM" src="https://github.com/user-attachments/assets/9f9bd6b9-b2f2-4d88-bdbb-34dcd75d6a42" />
+<br><br>
+
+>*Click Create public/Private key
+>
+<br>
+
+
+
+
 
 ---
 
