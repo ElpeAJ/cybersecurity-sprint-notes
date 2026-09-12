@@ -1,3 +1,4 @@
+<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 24 17 AM" src="https://github.com/user-attachments/assets/9b51aa6c-209a-42bb-8faf-6ad107a929a6" />
 # Day 20: Cryptography Fundamentals & Algorithms
 
 ## Cryptographic Principles
@@ -177,33 +178,56 @@ Both laboratory tests used the exact same plaintext message (`meet mea at noon`)
 
 ---
 
-## 💻 Lab Activity 4: Asymmetric Algorithm Evaluation - Using RSA Encryption/Decryption Tool ( https://anycript.com/crypto/rsa )
+## 💻 Lab Activity 4: Asymmetric Algorithm Evaluation - Using RSA Encryption/Decryption Tool
 
->*Choose both public and private key
+**Start by visiting the website `https://anycript.com/crypto/rsa`**
+>***Choose both public and private key***
 >
 <br>
 <img width="777" height="505" alt="Screenshot 2026-09-12 at 10 12 22 AM" src="https://github.com/user-attachments/assets/61ca3ef7-8f28-44de-8b2a-dc60306af15f" />
 <br><br>
 
->*Click Create public/Private key
+>***Click Create public/Private key***
 >
 <br>
 <img width="777" height="505" alt="Screenshot 2026-09-12 at 10 15 13 AM" src="https://github.com/user-attachments/assets/63c2ad5e-09db-40c6-8a62-aa50c7f5ee5a" />
 <br><br>
 
->*Write the text you wish to encrypt and enter the generated public key
+>***Write the text you wish to encrypt and enter the generated public key***
 >
 <br>
 <!--<img width="777" height="714" alt="Screenshot 2026-09-12 at 10 18 01 AM" src="https://github.com/user-attachments/assets/c84b4a47-7ea0-4d98-a53e-88a264d4d8bb" />
-<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 20 17 AM" src="https://github.com/user-attachments/assets/63a7c28c-81a8-49e2-aef2-d5795aa51cb9" /> -->
-<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 21 07 AM" src="https://github.com/user-attachments/assets/9f9bd6b9-b2f2-4d88-bdbb-34dcd75d6a42" />
+<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 20 17 AM" src="https://github.com/user-attachments/assets/63a7c28c-81a8-49e2-aef2-d5795aa51cb9" /> 
+<img width="777" height="722" alt="Screenshot 2026-09-12 at 10 21 07 AM" src="https://github.com/user-attachments/assets/9f9bd6b9-b2f2-4d88-bdbb-34dcd75d6a42" />-->
+<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 24 58 AM" src="https://github.com/user-attachments/assets/9c2c731f-ef68-44f5-b72c-5a6087052c91" />
 <br><br>
 
->*Click Create public/Private key
+>***Encrypt the message using the Public key***
 >
 <br>
+<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 28 20 AM" src="https://github.com/user-attachments/assets/ef4163ce-ce73-4fa4-853c-f92a0e630174" />
+<br><br>
 
+>***Decrypt the encrypted text using the Private key***
+>
+<br>
+<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 37 35 AM" src="https://github.com/user-attachments/assets/1ca1334e-bce5-429b-b90b-6281e2858b21" />
+<br><br>
 
+>***Try decrypting an intercepted encrypted text (intentionally removed the `M` at the beginning***
+>
+<br>
+<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 50 40 AM" src="https://github.com/user-attachments/assets/d0259d0a-50a2-413a-9765-73612b7ae1f1" />
+<br><br>
+
+The text: This is why I love you! was encrypted 5x using the same public key generated: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJogRTjeRnqjdUFSEWg85BGgmg1REuxPSQXL4pWnjKoLjH3s9VnHnAmQXgPe+fod9AHRrzIHV92OuQh/b5SlWTkCAwEAAQ==
+The first encrypted text was: MPGtHiuCb9PBXxrSVzf+yLGbzOa55RfC0CgzHu1YpXJTRI7FnouIIXLnVGcrhmmT5XUC+Y47jBOmKhcHcRkDxA==
+The second encrypted text was: IoGsf9m2Updo+s1sm1zvWX3pg/Jc4Ac5SuQpgljlbquqBv9e7EoZWGr2CB6AR7vflgJtiPNDEEJgGD8MURxnQw==
+The third encrypted text was: NAdu3mljN4bZhMOvX1xemoMXLSLbpxRKm5Im2vzDB+PyD2jso0i9roiBiqMc8mENOw9hsOUcO9+RVVZ2J8WtMQ==
+The fourth encrypted text was: e+h6LdIseAdKUW7+edEB9jI8iKuXMcVfypJIHBIqXHSSOC3pinWaIirx/eLk0ILsojnCCGgGM/F2Ls7Jwim0pw==
+The fifth encrypted text was: ETEEvr5WUpCxHrjCau2uYe5bqww5O+DgD7SIHENVbBm+OqqJ6G+WWBxneN+qxQriiDQpqgL1Y82D+ow6n2NAXg==
+
+The 5 encrypted texts were now decrypted with the private key generated to see if they will all decrypt to the same message: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEAmiBFON5GeqN1QVIRaDzkEaCaDVES7E9JBcvilaeMqguMfez1WcecCZBeA975+h30AdGvMgdX3Y65CH9vlKVZOQIDAQABAkAPP10JxLedP1mExk0xjkCT29sRsTEZjrhvKd33JzW7xrRmS5a7RDM5gjXEDXP9eb32Dqusw2u8r/PGMsm/K5q/AiEAyt+nf1Xf5okMDgL3IfzmJf0isZTo5hq39mSLm7TLiMMCIQDCfKaDgUq8wk0aE5zhSmbVbfwENdewATKfkmsxRwfWUwIgKLNOC0HTNZDxFi6KHgt6sMxkFXRmdSOPHKN3Trmqy7kCIBy/PgGcH8bs1WawVXT7gV20xxZ8OuhaFPh/NPbwr9jfAiBAXJQl9vdQc9Dj0Q8t5rD5sTapkSxNmYsN/e53ahGVvQ==
 
 
 
