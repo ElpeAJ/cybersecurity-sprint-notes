@@ -221,16 +221,17 @@ Both laboratory tests used the exact same plaintext message (`meet mea at noon`)
 <img width="777" height="454" alt="Screenshot 2026-09-12 at 10 50 40 AM" src="https://github.com/user-attachments/assets/d0259d0a-50a2-413a-9765-73612b7ae1f1" />
 <br><br>
 
-The text: This is why I love you! was encrypted 5x using the same public key generated: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJogRTjeRnqjdUFSEWg85BGgmg1REuxPSQXL4pWnjKoLjH3s9VnHnAmQXgPe+fod9AHRrzIHV92OuQh/b5SlWTkCAwEAAQ==
-The first encrypted text was: MPGtHiuCb9PBXxrSVzf+yLGbzOa55RfC0CgzHu1YpXJTRI7FnouIIXLnVGcrhmmT5XUC+Y47jBOmKhcHcRkDxA==
-The second encrypted text was: IoGsf9m2Updo+s1sm1zvWX3pg/Jc4Ac5SuQpgljlbquqBv9e7EoZWGr2CB6AR7vflgJtiPNDEEJgGD8MURxnQw==
-The third encrypted text was: NAdu3mljN4bZhMOvX1xemoMXLSLbpxRKm5Im2vzDB+PyD2jso0i9roiBiqMc8mENOw9hsOUcO9+RVVZ2J8WtMQ==
-The fourth encrypted text was: e+h6LdIseAdKUW7+edEB9jI8iKuXMcVfypJIHBIqXHSSOC3pinWaIirx/eLk0ILsojnCCGgGM/F2Ls7Jwim0pw==
-The fifth encrypted text was: ETEEvr5WUpCxHrjCau2uYe5bqww5O+DgD7SIHENVbBm+OqqJ6G+WWBxneN+qxQriiDQpqgL1Y82D+ow6n2NAXg==
+* **The text:** This is why I love you! was encrypted 5x using the same public key generated:
+  **MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJogRTjeRnqjdUFSEWg85BGgmg1REuxPSQXL4pWnjKoLjH3s9VnHnAmQXgPe+fod9AHRrzIHV92OuQh/b5SlWTkCAwEAAQ==**
 
-The 5 encrypted texts were now decrypted with the private key generated to see if they will all decrypt to the same message: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEAmiBFON5GeqN1QVIRaDzkEaCaDVES7E9JBcvilaeMqguMfez1WcecCZBeA975+h30AdGvMgdX3Y65CH9vlKVZOQIDAQABAkAPP10JxLedP1mExk0xjkCT29sRsTEZjrhvKd33JzW7xrRmS5a7RDM5gjXEDXP9eb32Dqusw2u8r/PGMsm/K5q/AiEAyt+nf1Xf5okMDgL3IfzmJf0isZTo5hq39mSLm7TLiMMCIQDCfKaDgUq8wk0aE5zhSmbVbfwENdewATKfkmsxRwfWUwIgKLNOC0HTNZDxFi6KHgt6sMxkFXRmdSOPHKN3Trmqy7kCIBy/PgGcH8bs1WawVXT7gV20xxZ8OuhaFPh/NPbwr9jfAiBAXJQl9vdQc9Dj0Q8t5rD5sTapkSxNmYsN/e53ahGVvQ==
+* **The 1st encrypted text was:** MPGtHiuCb9PBXxrSVzf+yLGbzOa55RfC0CgzHu1YpXJTRI7FnouIIXLnVGcrhmmT5XUC+Y47jBOmKhcHcRkDxA==
+* **The 2nd encrypted text was:** IoGsf9m2Updo+s1sm1zvWX3pg/Jc4Ac5SuQpgljlbquqBv9e7EoZWGr2CB6AR7vflgJtiPNDEEJgGD8MURxnQw==
+* **The 3rd encrypted text was:** NAdu3mljN4bZhMOvX1xemoMXLSLbpxRKm5Im2vzDB+PyD2jso0i9roiBiqMc8mENOw9hsOUcO9+RVVZ2J8WtMQ==
+* **The 4th encrypted text was:** e+h6LdIseAdKUW7+edEB9jI8iKuXMcVfypJIHBIqXHSSOC3pinWaIirx/eLk0ILsojnCCGgGM/F2Ls7Jwim0pw==
+* **The 5th encrypted text was:** ETEEvr5WUpCxHrjCau2uYe5bqww5O+DgD7SIHENVbBm+OqqJ6G+WWBxneN+qxQriiDQpqgL1Y82D+ow6n2NAXg==
 
-
+* **The 5 encrypted texts were now decrypted** with the private key generated to see if they will all decrypt to the same message `This is why I love you!` and it did:
+**MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEAmiBFON5GeqN1QVIRaDzkEaCaDVES7E9JBcvilaeMqguMfez1WcecCZBeA975+h30AdGvMgdX3Y65CH9vlKVZOQIDAQABAkAPP10JxLedP1mExk0xjkCT29sRsTEZjrhvKd33JzW7xrRmS5a7RDM5gjXEDXP9eb32Dqusw2u8r/PGMsm/K5q/AiEAyt+nf1Xf5okMDgL3IfzmJf0isZTo5hq39mSLm7TLiMMCIQDCfKaDgUq8wk0aE5zhSmbVbfwENdewATKfkmsxRwfWUwIgKLNOC0HTNZDxFi6KHgt6sMxkFXRmdSOPHKN3Trmqy7kCIBy/PgGcH8bs1WawVXT7gV20xxZ8OuhaFPh/NPbwr9jfAiBAXJQl9vdQc9Dj0Q8t5rD5sTapkSxNmYsN/e53ahGVvQ==**
 
 ---
 
