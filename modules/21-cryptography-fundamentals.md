@@ -129,7 +129,7 @@ The core mechanism of this command-line decryption relies on the Linux **`tr` (T
 ---
 
 ## 💻 Lab Activity 2: Guided Symmetric Message Scramble
-* **Lab Objective:** Observe plaintext structural conversion behaviors using an online symmetric engine (such as CyberChef or standard AES encryptors).
+* **Lab Objective:** Observe plaintext structural conversion behaviors using an online symmetric engine (such as CyberChef - `https://gchq.github.io/CyberChef/#recipe=SHA2('512',64,160)&input=SEVMTE8` or standard AES encryptors).
 
 ### Step by Step Process in class
 1. Navigate to the website ' https://encode-decode.com '.
