@@ -26,7 +26,7 @@ This is my central repository for documenting my journey through the intensive C
 - [✓] **Day 13:** Vulnerability Management Lifecycle & CVSS v3.1 Scoring
 - [✓] **Day 14:** Vulnerability Scanning  with Nmap & Nessus
 - [✓] **Day 15:** 
-- [✓] **Day 16:** 
+- [🔄] **Day 16:** 
 
 ### 📁 Module 5: Incident Response & Security Governance
 - [🔄] **Day 17:** 
@@ -35,8 +35,8 @@ This is my central repository for documenting my journey through the intensive C
 - [🔄] **Day 20:** 
 
 ### 📁 Module 6: Applied Sec, Crypto & Ethical Hacking
-- [🔄] **Day 21:** Cryptography Fundamentals, Algorithms, and Core Functions
-- [🔄] **Day 22:** 
+- [✓] **Day 21:** Cryptography Fundamentals, Algorithms, and Core Functions
+- [✓] **Day 22:** TLS, Public Key Infrastructure (PKI), and Cryptographic Weaknesses
 - [🔄] **Day 23:** 
 - [🔄] **Day 24:** 
 
@@ -83,17 +83,10 @@ netstat -tuln
 * [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
 * [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
 * [Day 20: Cryptography Fundamentals](modules/20-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
+* [Day 21: Hashing & Password Cracking](modules/21-hashing-and-password-cracking.md) — TLS/SSL layers, PKI trust verification structures, Certificate Pinning defense logic, MD5 weaknesses, and automated Rainbow Table lab analysis keys.
 
 
 
 
-## 📅 Course Syllabus & Progress Tracker
-
-### 📁 Module 6: Applied Security, Cryptography & Ethical Hacking
-- [🔄] **Week 6, Day 1:** Cryptography Fundamentals, Algorithms, and Core Functions
-
-## 📂 Repository Directory
-* [Module 4: Vulnerability Reporting](modules/14-vulnerability-reporting-and-assessment.md)
-* [Module 6: Cryptography Fundamentals](modules/15-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 
 
