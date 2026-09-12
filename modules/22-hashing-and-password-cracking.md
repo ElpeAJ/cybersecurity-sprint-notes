@@ -186,3 +186,11 @@ To claim full credit for today's independent lab evaluation tracking, verify you
   * Complete the online encryption text scramble activity and record your output patterns.
   * Document the 3-sentence algorithm comparison table evaluating AES vs. DES parameters.
   * Review the difference between hashing and encryption mechanisms to prepare for the Day 2 Hash Cracking Lab challenge.
+ 
+---
+
+## Additional Materials
+* TryHackMe - 
+* LetsDefend - 
+
+---
