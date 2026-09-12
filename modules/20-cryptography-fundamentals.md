@@ -1,5 +1,4 @@
-<img width="777" height="454" alt="Screenshot 2026-09-12 at 10 24 17 AM" src="https://github.com/user-attachments/assets/9b51aa6c-209a-42bb-8faf-6ad107a929a6" />
-# Day 20: Cryptography Fundamentals & Algorithms
+# Day 21: Cryptography Fundamentals & Algorithms
 
 ## Cryptographic Principles
 * **Definition:** Cryptography is the practice of securing digital information by converting readable plaintext into unreadable ciphertext. This ensures data properties remain protected both while traveling across an untrusted network environment (Data in Transit) and while stored statically on local host drives or database repositories (Data at Rest).
@@ -114,7 +113,9 @@ The following sequential commands were executed within the local shell container
 
 ### Technical Analysis of the `tr` Decryption Pipeline
 
-The core mechanism of this command-line decryption relies on the Linux **`tr` (Translate)** utility powered by a structured pipeline parameter configuration:
+The core mechanism of this command-line decryption relies on the Linux **`tr` (Translate)** utility together with the pipeline operator:
+
+<br><br>
 <img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/62e8d905-3afe-4e54-a2a3-68c8143b2174" />
 <br>
 
@@ -246,7 +247,10 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 * **File Integrity Verification:** Software developers publish hash values alongside installation downloads. Users hash their downloaded files locally; if the alphanumeric strings match perfectly, it proves the file has not been altered or injected with malware.
 
 ---
+>***Hashing Labs were done the next day***
 
+
+<!--
 ## 💻 Lab 5: Comprehensive Independent Lab Worksheet Solutions
 
 ### 🚀 Task 1: Documenting the Avalanche Effect (SHA-256 Engine Mapping)
@@ -287,16 +291,17 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 #### 2. If an attacker changes one word in transit without Alice's private key, why does validation fail?
 * Due to the **Avalanche Effect**, altering a single word causes Bob's local calculation engine to output an entirely different hash value compared to the signature Alice signed. Because the attacker cannot access Alice's private key to forge a matching signature for the modified text, the final verification step fails instantly, exposing the active file tampering.
 
+-->
 ---
 
-## 🏢 Historic Security Breach Analysis: LinkedIn (2012)
+## Historic Security Breach Analysis: LinkedIn (2012)
 * **The Incident:** Threat actors successfully breached the network perimeter and exfiltrated a user profile database containing millions of customer passwords.
 * **The Security Flaw:** The organization made the fatal mistake of storing user passwords using an aging hashing algorithm **without salting**.
 * **The Impact:** Because the database was fully unsalted, attackers weaponized automated precomputed dictionaries and lookup scripts to reverse-engineer and crack millions of user passwords almost immediately after the leak occurred. This historic disaster stands as a stark real-world reminder of why salting infrastructure components is mandatory for corporate data protection.
 
 ---
 
-## 📝 Practical Assessment Delivery Checklist
+## Practical Assessment Delivery Checklist
 To claim full credit for today's independent lab evaluation tracking, verify your portfolio folder contains these specific verified text items:
 
 * [✓] **Two Unique SHA-256 Hashes:** Explicitly tracking the case shift signatures for `Hello` and `hello`.
