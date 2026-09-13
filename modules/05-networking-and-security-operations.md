@@ -122,8 +122,8 @@ When an endpoint boots up and attempts to access a service on the internet, prot
 ---
 
 ## 📂 Module Directory
-* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
-* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
-* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
-* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
-* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 1: Cybersecurity Foundations](01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
