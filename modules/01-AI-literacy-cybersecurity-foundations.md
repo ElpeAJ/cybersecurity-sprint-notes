@@ -38,5 +38,5 @@ The core framework guiding all security policies, defenses, and oral exams:
 
 
 ## 📂 Module Directory
-* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
-* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 1: Cybersecurity Foundations](/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](/02-common-threats.md) — Malware, phishing variants, and APT timelines.
