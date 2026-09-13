@@ -28,10 +28,11 @@ Analysis of practical scenario classifications reviewed during today's session:
 3. **14 Months of Quiet Extraction:** Classified as an **Advanced Persistent Threat (APT)** (Sustained, stealthy data infiltration over an extended timeline).
 4. **HR Text Message Scam:** Classified as **Smishing** (A variation of phishing executed entirely over SMS messaging channels).
 
+<!--
 > 💡 **Core Exam Takeaway:** Real-world cyber incidents frequently blur textbook categories together. For the upcoming Week 1 MCQ, focus on analyzing the operational details of what actually happened during the attack sequence rather than just relying on generic categorical labels.
+-->
 
 ---
-
 
 ## Additional Materials
 * TryHackMe - Common Attacks (Room Completed)
@@ -42,3 +43,10 @@ Analysis of practical scenario classifications reviewed during today's session:
 ## 📝 Assessment Reference
 * **Format:** Self-study reference material.
 * **Milestone:** Review thoroughly before taking the **Week 1 MCQ**.
+
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
