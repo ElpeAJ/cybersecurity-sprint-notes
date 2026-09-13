@@ -1,10 +1,10 @@
 # Day 4: Viva & MCQ Comprehensive Study Guide
 
-This guide compiles the technical foundations, case studies, and a complete 18-question mock exam covering Days 1–3 of the Cybersecurity Sprint.
+Today entails building the technical foundations for cybersecurity, look at case studies, and a 30-question AI generated mock exam covering Days 1–3 of the Cybersecurity Sprint in preparation for the Quiz.
 
 ---
 
-## The 3-Step Viva Reasoning Framework
+## The 3-Step Viva Guide
 When answering oral questions, do not just recite a definition. Follow this structure:
 1. **Identify the Asset:** What data, system, or user is targeted?
 2. **Isolate the Pillar/Vector:** Which CIA element or security mechanism is broken?
@@ -12,7 +12,7 @@ When answering oral questions, do not just recite a definition. Follow this stru
 
 ---
 
-## Master Case Studies (Oral Exam Scripts)
+## Scenario Answers
 
 ### Scenario 1: City Government Ransomware Attack
 * **Your Answer:** "This represents an attack on **Availability**. Ransomware is malware that encrypts operational assets. By locking out legitimate users from their infrastructure, the system cannot be accessed when needed, stopping operations until it is recovered."
@@ -25,7 +25,7 @@ When answering oral questions, do not just recite a definition. Follow this stru
 
 ---
 
-## Mock Practice Exam
+## AI-Generated Mock Practice Exam covering common threats, access control & social engineering
 
 #### Q1: Which element of the risk formula represents a weakness or flaw in code that could be exploited by an attacker?
 * A) Threat
