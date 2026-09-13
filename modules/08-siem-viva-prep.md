@@ -92,8 +92,29 @@ To definitively separate a true positive compromise from a false positive mistak
 * TryHackMe - SOC L1 Alert Triage(Room Completed)
 * TryHackMe - SOC L1 Alert Reporting (Room Completed)
 * LetsDefend - SOC Fundamentals (In progress)
-* <img width="733" height="425" alt="Screenshot 2026-08-16 at 9 40 38 PM" src="https://github.com/user-attachments/assets/c23b20b2-bd9d-45fa-baa5-88a377099fe2" />
-* <img width="733" height="594" alt="Screenshot 2026-08-16 at 9 40 19 PM" src="https://github.com/user-attachments/assets/7c90f123-8fc2-445c-a2eb-a2193196b206" />
-* <img width="883" height="446" alt="Screenshot 2026-08-16 at 9 44 21 PM" src="https://github.com/user-attachments/assets/f76f3e7f-cc6c-4131-aa20-6f76530dde56" />
-*<img width="567" height="462" alt="Screenshot 2026-08-16 at 9 55 01 PM" src="https://github.com/user-attachments/assets/0330d021-7cf4-4402-917f-e80faf0268f1" />
 
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](modules/07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+* [Day 8: SIEM Concepts & Alert Triage](modules/08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
+* [Day 9: Wireshark & Tcpdump Fundamentals](modules/09-wireshark-tcpdump-fundamentals.md) — Traffic interception mechanics, display vs. capture filters, and command-line network analysis.
+
+---
+
+<img width="150"  alt="Screenshot 2026-08-16 at 9 40 38 PM" src="https://github.com/user-attachments/assets/c23b20b2-bd9d-45fa-baa5-88a377099fe2" />
+<img width="150"  alt="Screenshot 2026-08-16 at 9 40 19 PM" src="https://github.com/user-attachments/assets/7c90f123-8fc2-445c-a2eb-a2193196b206" />
+<img width="150"  alt="Screenshot 2026-08-16 at 9 44 21 PM" src="https://github.com/user-attachments/assets/f76f3e7f-cc6c-4131-aa20-6f76530dde56" />
+<img width="150"  alt="Screenshot 2026-08-16 at 9 55 01 PM" src="https://github.com/user-attachments/assets/0330d021-7cf4-4402-917f-e80faf0268f1" />
+
+<!--
+<img width="733" height="425" alt="Screenshot 2026-08-16 at 9 40 38 PM" src="https://github.com/user-attachments/assets/c23b20b2-bd9d-45fa-baa5-88a377099fe2" />
+<img width="733" height="594" alt="Screenshot 2026-08-16 at 9 40 19 PM" src="https://github.com/user-attachments/assets/7c90f123-8fc2-445c-a2eb-a2193196b206" />
+<img width="883" height="446" alt="Screenshot 2026-08-16 at 9 44 21 PM" src="https://github.com/user-attachments/assets/f76f3e7f-cc6c-4131-aa20-6f76530dde56" />
+<img width="567" height="462" alt="Screenshot 2026-08-16 at 9 55 01 PM" src="https://github.com/user-attachments/assets/0330d021-7cf4-4402-917f-e80faf0268f1" />
+-->
