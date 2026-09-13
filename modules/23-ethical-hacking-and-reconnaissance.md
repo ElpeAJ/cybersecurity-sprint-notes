@@ -13,21 +13,21 @@ Offensive security engagements move systematically through a five-stage operatio
 
 ```text
 +---------------------------------------------------------------------------------+
-
+|                                                                                 |
 |                          THE ETHICAL HACKING LIFECYCLE                          |
 +---------------------------------------------------------------------------------+
-
-|  1. RECONNAISSANCE ----> 2. SCANNING -----------> 3. EXPLOITATION ------------+
-
+|                                                                                 |
+|  1. RECONNAISSANCE ----> 2. SCANNING -----------> 3. EXPLOITATION ------------> |
+|                                                                                 | 
 |     Passive gathering       Active footprinting        Loophole weaponization   |
 |     (OSINT Scrapes)         (Nmap Port Probes)         (Access Authorization)   |
 +---------------------------------------------------------------------------------+
-                                                                                  |
-                                                                                  v
-|  5. REPORTING <--------- 4. POST-EXPLOITATION ----------------------------------+
-
-|     Documentation           Privilege Pivot Log                                 |
-|     (Triage Executive summary)("I got in, now what?")                           |
+|                                                                                 |
+|                                                                                 |                                                                                  
+|  5. REPORTING <---------------   4. POST-EXPLOITATION <-------------------------|
+|                                                                                 |
+|     Documentation                   Privilege Pivot Log                         |
+|   (Triage Executive summary).       ("I got in, now what?")                     |
 +---------------------------------------------------------------------------------+
 ```
 
@@ -42,10 +42,10 @@ Offensive security engagements move systematically through a five-stage operatio
 
 ---
 
-## ⚙️ Strategic Concept Engineering: Scope vs. Rules
+## Strategic Concept Engineering: Scope vs. Rules
 
 ### 1. Reconnaissance vs. Scanning
-* **Reconnaissance (Passive Layer):** Focuses on light, out-of-band data aggregation. It scrapes open social media data, company web directories, public news, and corporate job postings to build a blueprint without triggering automated alerts.
+* **Reconnaissance (Passive Layer):** It scrapes open social media data, company web directories, public news, and corporate job postings to build a blueprint without triggering automated alerts.
 * **Scanning (Active Layer):** Involves hitting target host firewalls and ports directly using discovery packets (such as Nmap sweeps). Scanning leaves a highly visible, permanent forensic footprint that is easily logged by network defense monitors.
 * **Analyst Insight:** Real-world threat actors spend up to 70% of their timeline constraints purely on Reconnaissance. Gathering rich information beforehand allows them to locate weak targets precisely, minimizing the time spent running loud, active scans that alert the incident response team.
 
