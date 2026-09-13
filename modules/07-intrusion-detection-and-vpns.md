@@ -81,7 +81,7 @@ grep "4444" ~/Desktop/traffic.log && echo "BLOCKED: adding 10.0.0.22 to firewall
 ---
 
 ### Part 2: Guided Tunnel Configuration via WireGuard & Proton VPN
-### 💡 Lab Concept: How Our Setup Actually Works
+### Lab Concept: How Our Setup Actually Works
 Instead of downloading and installing the full Proton VPN desktop software application onto the PC, we split the service provider parameters from the connection engine:
 1. **The Configuration File:** We log into Proton VPN online to generate a specialized configuration file (`.conf`). This file acts as our permission slip and mapping guide to use Proton's secure global infrastructure.
 2. **The WireGuard Engine:** We feed this configuration file directly into the WireGuard client. WireGuard reads the file instructions to build the tunnel and change our virtual location whenever we activate it.
@@ -159,5 +159,14 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 <img width="845" height="863" alt="Screenshot 2026-08-22 at 12 03 28 AM" src="https://github.com/user-attachments/assets/2f6696cf-a1b4-4436-9a17-e1af518e20fb" />
 
 
+---
 
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](modules/07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+* [Day 8: SIEM Concepts & Alert Triage](modules/08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
 
