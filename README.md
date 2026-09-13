@@ -8,7 +8,7 @@ This is my central repository for documenting my journey through the intensive C
 - [✓] **Day 01:** [AI Literacy Foundations & Introduction to Cybersecurity](modules/01-AI-literacy-cybersecurity-foundations.md)
 - [✓] **Day 02:** [The Threat Landscape (Malware, Phishing, Ransomware, & APTs)](modules/02-common-threats.md)
 - [✓] **Day 03:** [Access Control Architecture (AAA) & Social Engineering Tactics](modules/03-access-control-social-engineering.md)
-- [✓] **Day 04:** Week 1 Assessment (MCQ Quiz & Viva Oral Examination)
+- [✓] **Day 04:** Week 1 Assessment (MCQ Quiz & Viva)
 
 ### 📁 Module 2: Network Security & Operations
 - [✓] **Day 05:** [Core Networking, Architecture, & Segmentation Mechanics](modules/05-networking-and-security-operations.md)
