@@ -61,38 +61,41 @@ Offensive security engagements move systematically through a five-stage operatio
 ---
 
 ## 💻 Lab Activity: OSINT & Code Audit (GreenLeaf Logistics)
-*Target Profile:* GreenLeaf Logistics, a 30-person logistics and delivery provider running its primary public web presence on the Render cloud hosting infrastructure platform (`://onrender.com`).
+*Target Profile:* GreenLeaf Logistics, a 30-person logistics and delivery provider running its primary public web presence on the Render cloud hosting infrastructure platform [greenleaf-logistics](https://greenleaf-logistics.onrender.com).
 
-### 🔬 Part 1: Passive Web Footprint Discovery (Manual OSINT Layer)
+>***Note:*** The owner of the site gave us permission to use the site at the time of the Lab.
+> Also have the site running these scripts in the terminal
+
+### Part 1: Passive Web Footprint Discovery (Manual OSINT Layer)
 * **Corporate Email Matrix Pattern:** `hello@greenleaf.com`
-* **Internal Tracking Identifier Schema:** Compiled as `CompanyInitials_Year_Number` (e.g., `GL_2026_001245`).
-* **Communications Boundary Vector:** Corporate contact routing is tied to phone line `+233 302904180`.
+* **Internal Tracking Identifier Schema:** Compiled as `CompanyInitials_Year_Number` (e.g., `GL_2026_001234`).
+* **Communications Boundary Vector:** Corporate contact routing is tied to phone line `+233 000000000`.
 * **Platform Footprint Vulnerability:** The host asset relies on the Render hosting platform architecture, exposing the system to public cloud configuration vulnerabilities documented as of April 2026.
 * **Job Posting Reconnaissance:** Open corporate hiring listings explicitly reference internal toolsets and software dependencies. Attackers scrape these postings because discovering an outdated application name tells them exactly which CVE databases to query for public exploits before firing a single packet.
 
-### 🔬 Part 2: Active Endpoint Profiling (Command Line Execution)
-To cross-examine the target's boundary settings, the following terminal commands were executed inside the local analyst workspace shell environment:
+### Part 2: Active Endpoint Profiling (Command Line Execution)
+To cross-examine the target's boundary settings, the following terminal commands were executed inside our local shell environment:
 
 #### 1. Boundary Header Inspection
 * **Linux/macOS Script:**
   ```bash
-  curl -I https://://onrender.com
+  curl -I https://greenleaf-logistics.onrender.com
   ```
 * **Windows PowerShell Script:**
   ```powershell
-  (Invoke-WebRequest -Uri "https://://onrender.com" -Method Head -UseBasicParsing).Headers
+  (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
   ```
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
-#### 2. Target Port Discovery Sweep
+#### 2. Inspecting Ports Status
 * **Linux/macOS Script:**
   ```bash
-  for port in 80 443 8080 8443 3000 5000; do nc -zv -G 2 ://onrender.com $port 2>&1 | grep -E "succeeded|Connection to"; done
+  for port in 80 443 8080 8443 3000 5000; do nc -zv -G greenleaf-logistics.onrender.com $port 2>&1 | grep -E "succeeded|Connection to"; done
   ```
 * **Windows PowerShell Script:**
   ```powershell
   @(80, 443, 8080, 8443, 3000, 5000) | ForEach-Object {
-     $res = Test-NetConnection -ComputerName ://onrender.com -Port $_ -WarningAction SilentlyContinue
+     $res = Test-NetConnection -ComputerName greenleaf-logistics.onrender.com -Port $_ -WarningAction SilentlyContinue
      [PSCustomObject]@{ Port = $_; Open = $res.TcpTestSucceeded }
   }
   ```
@@ -105,17 +108,17 @@ To cross-examine the target's boundary settings, the following terminal commands
   ```
 * **Windows PowerShell Script:**
   ```powershell
-  $res = Invoke-WebRequest -Uri "http://://onrender.com" -MaximumRedirection 0 -UseBasicParsing
+  $res = Invoke-WebRequest -Uri "http://greenleaf-logistics.onrender.com" -MaximumRedirection 0 -UseBasicParsing
   [PSCustomObject]@{ StatusCode = $res.StatusCode; Location = $res.Headers.Location }
   ```
-* **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial client browser handshakes still start over risky cleartext channels before upgrading.
+* **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
 ---
 
-### 🔬 Part 3: Advanced Frontend JavaScript Code Auditing (Asset Scrape)
+### Part 3: Advanced Frontend JavaScript Code Auditing (Asset Scrape)
 To uncover hidden secrets buried within the public distribution folder layer, we bypassed standard browser views to download, filter, and extract hardcoded parameters directly from the application's compiled assets file using regex string matching.
 
-#### 🛠️ The Combined OSINT Pipeline Snippet
+#### The Combined OSINT Pipeline Snippet
 *Note for Mac execution environments: Running `unsetopt banghist` disables default Zsh history expansion for exclamation tokens to prevent processing syntax errors.*
 
 ```bash
