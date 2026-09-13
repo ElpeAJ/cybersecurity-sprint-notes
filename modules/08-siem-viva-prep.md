@@ -65,12 +65,12 @@ Solutions and analytical justifications for the lab exercise packet alerts:
 
 ---
 
-## 🎓 Viva Voice Exam Preparation Script
+## Viva Task
 
 ### The Viva Prompt:
 > *"Explain how to distinguish a true positive from a false positive using Alert 8 from your triage exercise."*
 
-#### 🗣️ Strong Answer Formulation (Copy This Structure for the Interviewer):
+#### Strong Answer:
 "Alert 8 flags an unrecognized endpoint authenticating onto corporate Wi-Fi with valid staff credentials, which then instantly attempts to access an HR salary vault it has zero historical record of interacting with. 
 
 I classified this alert as **Requires Investigation**. A weak response would blindly label this a True Positive just because the device is new. However, as an analyst, I must consider contextual business logic: this could be an authorized employee connecting a new personal phone to access their own payroll data. 
