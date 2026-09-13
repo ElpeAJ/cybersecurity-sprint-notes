@@ -1,4 +1,4 @@
-## 📅 Day 1 Summary: Everything to Remember
+## Day 1 Summary
 
 ### Part 1: AI Literacy Foundations
 These four core concepts form our baseline for using AI tools safely and effectively every single week of this sprint:
@@ -21,15 +21,17 @@ The core framework guiding all security policies, defenses, and oral exams:
 | **Integrity** | Accurate & untampered data | Altered accounting spreadsheet | Malicious data modification |
 | **Availability** | Accessible when needed | Flood of fake traffic / Ransomware | **GitHub** (DDoS downtime) |
 
-📢 **Day 4 Viva Reminder:** Be prepared to explain one of these CIA Triad violation scenarios in your own words with clear structural reasoning, rather than just repeating a memorized definition.
+**Day 4 Viva Reminder:** Be prepared to explain one of these CIA Triad violation scenarios in your own words with clear structural reasoning, rather than just repeating a memorized definition.
 
 ---
 
 ## Additional Materials
-* TryHackMe - Introduction to Cyber Security
+* TryHackMe - Introduction to Cyber Security (Completed)
 
 ---
 
+<!--
 ## 📂 Repository Directory
-* [Module Notes](modules/) — Detailed conceptual notes and deep dives per week.
+* [Module Notes](../README.md) — Detailed conceptual notes and deep dives per week.
 * [Lab Walkthroughs](labs/) — Step-by-step documentation of practical virtual machine exercises.
+-->
