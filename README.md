@@ -35,8 +35,8 @@ This is my central repository for documenting my journey through the intensive C
 - [🔄] **Day 20:** 
 
 ### 📁 Module 6: Applied Sec, Crypto & Ethical Hacking
-- [✓] **Day 21:** Cryptography Fundamentals, Algorithms, and Core Functions
-- [✓] **Day 22:** TLS, Public Key Infrastructure (PKI), and Cryptographic Weaknesses
+- [✓] [**Day 21:** Cryptography Fundamentals, Algorithms, and Core Functions](modules/21-cryptography-fundamentals.md)
+- [✓] [**Day 22:** TLS, Public Key Infrastructure (PKI), and Cryptographic Weaknesses](modules/22-hashing-and-password-cracking.md)
 - [🔄] **Day 23:** 
 - [🔄] **Day 24:** 
 
