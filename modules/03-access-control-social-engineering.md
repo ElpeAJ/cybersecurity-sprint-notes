@@ -9,8 +9,8 @@ Defensive frameworks deployed to verify corporate identities and strictly isolat
 
 ### Core Defensive Strategy: Least Privilege
 > **Principle of Least Privilege (PoLP):** Restricting user identities and computing accounts to the absolute bare minimum privileges required to execute their specific job functions. 
-> 
-> * **Blast Radius Reduction:** If an identity profile is compromised by an external threat actor, restricting its privileges prevents lateral network movement and limits the scope of total data destruction.
+
+* **Blast Radius Reduction:** If an identity profile is compromised by an external threat actor, restricting its privileges prevents lateral network movement and limits the scope of total data destruction.
 
 ---
 
@@ -38,7 +38,7 @@ Psychological manipulation techniques engineered to deceive employees into willi
 
 ---
 
-## ⚖️ Professional Ethics & AI Security
+## Professional Ethics & AI Security
 * **The Authorization Rule:** Acquiring specialized offensive testing skills gives you substantial technical power. These tools and techniques must **never** be executed against any infrastructure without direct, written authorization from the system owners.
 * **AI Tool Validation:** Artificial Intelligence utilities used for log synthesis or defense verification require constant human technical validation. Never deploy or trust AI recommendations blindly without looking over the code manually.
 
@@ -51,7 +51,7 @@ Psychological manipulation techniques engineered to deceive employees into willi
 ---
 
 ## 📂 Module Directory
-* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
-* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
-* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
-* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 1: Cybersecurity Foundations](01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
