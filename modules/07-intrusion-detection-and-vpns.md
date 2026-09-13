@@ -162,11 +162,11 @@ Traffic Route        Exposed Local ISP          Encrypted WireGuard Pipeline
 ---
 
 ## 📂 Module Directory
-* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
-* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
-* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
-* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
-* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
-* [Day 7: Intrusion Detection & VPNs](modules/07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
-* [Day 8: SIEM Concepts & Alert Triage](modules/08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
+* [Day 1: Cybersecurity Foundations](01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+* [Day 8: SIEM Concepts & Alert Triage](08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
 
