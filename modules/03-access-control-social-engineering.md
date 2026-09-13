@@ -47,3 +47,11 @@ Psychological manipulation techniques engineered to deceive employees into willi
 ## 📝 Assessment Reference
 * **Format:** Self-study reference material.
 * **Milestone:** Review thoroughly alongside Day 1 and Day 2 before taking your **Day 4 Viva (Oral Exam)** and **Week 1 MCQ**.
+
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
