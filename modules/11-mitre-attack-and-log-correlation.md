@@ -1,4 +1,4 @@
-# Day 9: MITRE ATT&CK Framework & Log Correlation
+# Day 11: MITRE ATT&CK Framework & Log Correlation
 
 ## Core Framework Architecture & Terminology
 * **What is MITRE ATT&CK?:** A globally accessible, comprehensive knowledge base and structured vocabulary of real-world threat actor behaviors, tactics, and techniques compiled from actual incident observations. ***https://attack.mitre.org*** or ***https://mitre-attack.github.io/attack-navigator/***
