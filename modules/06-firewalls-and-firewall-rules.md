@@ -173,7 +173,7 @@ Paste this explicit filtering statement into the file space, then save and exit 
 block in all
 pass in proto tcp to port 5555 keep state
 ```
-> 🧠 **Key Concept:** The `keep state` parameter commands the network card to track this session. Once it allows an incoming request through port 5555, it automatically allows the outbound response to pass back through without a second rule.
+> **Key Concept:** The `keep state` parameter commands the network card to track this session. Once it allows an incoming request through port 5555, it automatically allows the outbound response to pass back through without a second rule.
 
 ### Step 5: Load and initialize rule definitions
 Load the custom anchor rules definition list and explicitly trigger the engine:
@@ -195,7 +195,7 @@ Reload your runtime settings configuration:
 ```bash
 sudo pfctl -a demo -f /etc/pf.anchors/demo
 ```
-> 🧠 **Key Concept:** Changing the instruction parameter to `no state` shifts the firewall into a stateless layout. The literal absence or inclusion of the `state` keyword is the visible syntax switch between these two architectures.
+> **Key Concept:** Changing the instruction parameter to `no state` shifts the firewall into a stateless layout. The literal absence or inclusion of the `state` keyword is the visible syntax switch between these two architectures.
 
 ### Step 8: Post-Lab Environment Cleanup
 Disable the rule engine backend fully to restore your machine to normal operating states:
@@ -215,3 +215,13 @@ sudo pfctl -d
 ## 📝 Assessment Reference
 * **Format:** Reference material.
 * **Milestone:** Review thoroughly before the **Week 2 MCQ Exam**.
+
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](modules/07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
