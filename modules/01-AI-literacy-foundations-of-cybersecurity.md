@@ -35,3 +35,8 @@ The core framework guiding all security policies, defenses, and oral exams:
 * [Module Notes](../README.md) — Detailed conceptual notes and deep dives per week.
 * [Lab Walkthroughs](labs/) — Step-by-step documentation of practical virtual machine exercises.
 -->
+
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
