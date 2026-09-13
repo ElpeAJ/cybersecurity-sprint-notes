@@ -19,7 +19,7 @@ This is my central repository for documenting my journey through the intensive C
 ### 📁 Module 3: Threat Detection & Analysis
 - [✓] **Day 09:** [Wireshark & Tcpdump Packet Capture Fundamentals](modules/09-wireshark-tcpdump-fundamentals.md)
 - [✓] **Day 10:** [Log Analysis, Sources, & Indicators of Compromise (IoCs)](modules/10-log-analysis-and-indicator-of-compromise.md)
-- [✓] **Day 11:** [MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md)
+- [✓] **Day 11:** [MITRE ATT&CK & Log Correlation](modules/11-mitre-attack-and-log-correlation.md)
 - [🔄] **Day 12:** 
 
 ### 📁 Module 4: Vulnerability Assessment & Audit
@@ -79,7 +79,7 @@ netstat -tuln
 * [Day 8: SIEM Concepts & Alert Triage](modules/08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
 * [Day 9: Wireshark & Tcpdump Fundamentals](modules/09-wireshark-tcpdump-fundamentals.md) — Traffic interception mechanics, display vs. capture filters, and command-line network analysis.
 * [Day 10: Log Analysis & IoCs](modules/10-log-analysis-and-indicator-of-compromise.md) — Multi-source logging data matrices, detection indicators, cross-correlation strategies, and real-world SolarWinds analysis.
-* [Day 11: MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md) -
+* [Day 11: MITRE ATT&CK & Log Correlation](modules/11-mitre-attack-and-log-correlation.md) -
 * [Day 13: Vulnerability Management & CVSS](modules/13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
 * [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
 * [Day 21: Cryptography Fundamentals](modules/21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
