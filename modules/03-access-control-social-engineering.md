@@ -1,20 +1,20 @@
 # Day 3: Access Control & Social Engineering
 
-## 🔐 Access Control Architecture (AAA)
+## Access Control Architecture (AAA)
 Defensive frameworks deployed to verify corporate identities and strictly isolate organizational assets:
 
 * **Authentication:** Validates identity assertions. Answers the question: **"Who are you?"** (e.g., via passwords, biometric markers, or MFA tokens).
 * **Authorization:** Configures individual permission mapping. Answers the question: **"What are you allowed to do?"** (e.g., read, write, or execute administrative parameters).
 * **Access Control Enforcement:** The technical system or process that actively executes and maintains these authorization choices across data resources.
 
-### 🛡️ Core Defensive Strategy: Least Privilege
+### Core Defensive Strategy: Least Privilege
 > **Principle of Least Privilege (PoLP):** Restricting user identities and computing accounts to the absolute bare minimum privileges required to execute their specific job functions. 
 > 
 > * **Blast Radius Reduction:** If an identity profile is compromised by an external threat actor, restricting its privileges prevents lateral network movement and limits the scope of total data destruction.
 
 ---
 
-## 🧠 Social Engineering & Human Hacking
+## Social Engineering & Human Hacking
 Psychological manipulation techniques engineered to deceive employees into willingly transferring security credentials or sensitive administrative parameters.
 
 ### The Four Primary Tactics
@@ -23,11 +23,11 @@ Psychological manipulation techniques engineered to deceive employees into willi
 3. **Baiting:** Leaving infected physical media (like USB drives) or offering highly desirable free software downloads to exploit user curiosity and introduce malware.
 4. **Tailgating:** Following an authorized employee physically through a secured building entrance or biometric checkpoint without presenting valid entry credentials.
 
-### 📊 Real-World Case Studies
+### Real-World Case Studies
 * **RSA Incident (2011):** Executed using sophisticated **Phishing** vectors to gain an initial foothold into internal secure network resources.
 * **Twitter/X Incident (2020):** Attackers utilized targeted employee **Pretexting** over the phone to systematically hijack high-profile verified user accounts.
 
-### 🧠 Psychological Triggers vs. Defenses
+### Psychological Triggers vs. Defenses
 
 | Psychological Trigger | Threat Actor Mechanism | Your Defensive Protocol |
 | :--- | :--- | :--- |
