@@ -1,6 +1,6 @@
 # Day 5: Networking & Security Operations
 
-## 🌐 Networking Fundamentals
+## Networking Fundamentals
 * **Definition:** Network is the framework that allows one computer or device to communicate with another.
 * **Endpoints:** Client-facing terminal machines (e.g., laptops, mobile devices, servers) that initiate or receive network communication.
 * **Nodes:** Connection points or redistribution hubs within a network infrastructure (e.g., switches, routers).
@@ -13,7 +13,7 @@
   * **DHCP (Dynamic Host Configuration Protocol):** Automatically assigns dynamic IP parameters to connecting endpoints.
 
 
-### 🏷️ IP Addressing Schemas
+### IP Addressing Schemas
 
 | IP Type | Structural Function | Behavioral Property |
 | :--- | :--- | :--- |
@@ -22,7 +22,7 @@
 
 ---
 
-## 🗺️ The OSI Model Reference Layering
+## The OSI Model Reference Layering
 A 7-layer logical blueprint mapping out how data moves across a structural network space:
 
 * **Layer 7: Application Layer** — User interaction interface handling software communication (e.g., WhatsApp, TikTok).
@@ -43,7 +43,7 @@ A 7-layer logical blueprint mapping out how data moves across a structural netwo
 
 ---
 
-## 🧮 Practical Subnetting & Network Segmentation
+## Practical Subnetting & Network Segmentation
 > **Subnetting:** Segmenting a broad, single network footprint into tight, isolated pieces for simplified administrative control and departmental boundary management.
 
 ### 📌 CIDR Mask Block Halving Principle on the last octet
@@ -62,7 +62,7 @@ A 7-layer logical blueprint mapping out how data moves across a structural netwo
 * `/20` = 16 Allocations
 * `/21` = 8 Allocations
 
-### 🖊️ Class Exercise Solutions
+### Class Exercise Solutions
 #### Group Class Exercise: Split `10.0.0.0/24` into 2 subnets
 **Subnet mask** is 255.255.255.128
 * Each block uses a `/25` mask constraint providing exactly 128 allocations per subnet:
@@ -88,7 +88,7 @@ Each split uses a `/26` mask constraint to divide the 256 address block into 64 
 * **Subnet G (/19):** `172.16.192.0` to `172.16.223.255`
 * **Subnet H (/19):** `172.16.224.0` to `172.16.255.255`
 
-## 🏁 The Sequencing Challenge
+## The Sequencing Challenge
 When an endpoint boots up and attempts to access a service on the internet, protocols must be executed in this exact operational order:
 1. **DHCP:** The host broadcasts to obtain a local IP address configuration.
 2. **DNS:** The host queries a name server to translate the destination domain name into a routable IP target.
@@ -115,7 +115,15 @@ When an endpoint boots up and attempts to access a service on the internet, prot
 
 ---
 
-
 ## 📝 Assessment Reference
 * **Format:** Reference material.
 * **Milestone:** Review thoroughly before the **Week 2 MCQ Exam**.
+
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](modules/05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](modules/06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
