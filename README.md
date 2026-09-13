@@ -5,26 +5,26 @@ This is my central repository for documenting my journey through the intensive C
 ## 📌 Course Syllabus & Progress Tracker
 
 ### 📁 Module 1: Cyber Security Fundamentals & Human Factors
-- [✓] **Day 01:** AI Literacy Foundations & Introduction to Cybersecurity
-- [✓] **Day 02:** The Threat Landscape (Malware, Phishing, Ransomware, & APTs)
-- [✓] **Day 03:** Access Control Architecture (AAA) & Social Engineering Tactics
+- [✓] **Day 01:** [AI Literacy Foundations & Introduction to Cybersecurity](modules/01-AI-literacy-cybersecurity-foundations.md)
+- [✓] **Day 02:** [The Threat Landscape (Malware, Phishing, Ransomware, & APTs)](modules/02-common-threats.md)
+- [✓] **Day 03:** [Access Control Architecture (AAA) & Social Engineering Tactics](modules/03-access-control-social-engineering.md)
 - [✓] **Day 04:** Week 1 Assessment (MCQ Quiz & Viva Oral Examination)
 
 ### 📁 Module 2: Network Security & Operations
-- [✓] **Day 05:** Core Networking, Architecture, & Segmentation Mechanics
-- [✓] **Day 06:** Firewalls, Stateful/Stateless Inspection, & Rule Writing Labs
-- [✓] **Day 07:** Intrusion Detection (IPS, IDS) & Virtual Private Network (VPN)
-- [✓] **Day 08:** SIEM & ... Week 2 Assessment (MCQ Quiz & Viva Oral Examination)
+- [✓] **Day 05:** [Core Networking, Architecture, & Segmentation Mechanics](modules/05-networking-and-security-operations.md)
+- [✓] **Day 06:** [Firewalls, Stateful/Stateless Inspection, & Rule Writing Labs](modules/06-firewalls-and-firewall-rules.md)
+- [✓] **Day 07:** [Intrusion Detection (IPS, IDS) & Virtual Private Network (VPN)](modules/07-intrusion-detection-and-vpns.md)
+- [✓] **Day 08:** [SIEM Concepts & Alert Triage | Week 2 Assessment (MCQ Quiz & Viva Oral Examination)](modules/08-siem-concepts-and-alert-triage.md)
 
 ### 📁 Module 3: Threat Detection & Analysis
-- [✓] **Day 09:** Wireshark & Tcpdump Packet Capture Fundamentals
-- [✓] **Day 10:** Log Analysis, Sources, & Indicators of Compromise (IoCs)
-- [🔄] **Day 11:** 
+- [✓] **Day 09:** [Wireshark & Tcpdump Packet Capture Fundamentals](modules/09-wireshark-tcpdump-fundamentals.md)
+- [✓] **Day 10:** [Log Analysis, Sources, & Indicators of Compromise (IoCs)](modules/10-log-analysis-and-indicator-of-compromise.md)
+- [✓] **Day 11:** [MITRE ATT&CK & Log Correlation](modules/10-mitre-attack-and-log-correlation.md)
 - [🔄] **Day 12:** 
 
 ### 📁 Module 4: Vulnerability Assessment & Audit
-- [✓] **Day 13:** Vulnerability Management Lifecycle & CVSS v3.1 Scoring
-- [✓] **Day 14:** Vulnerability Scanning  with Nmap & Nessus
+- [✓] **Day 13:** [Vulnerability Management Lifecycle & CVSS v3.1 Scoring](modules/13-vulnerability-management-and-cvss.md)
+- [✓] **Day 14:** [Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md)
 - [✓] **Day 15:** 
 - [🔄] **Day 16:** 
 
@@ -53,7 +53,7 @@ This is my central repository for documenting my journey through the intensive C
 - [🔄] **Day 32:**
 
 ---
-
+<!--
 ## 🛠️ Essential Linux Commands Reference
 During this course, I frequently use these terminal commands for reconnaissance and network troubleshooting:
 
@@ -67,9 +67,9 @@ ping -c 4 8.8.8.8
 # Display active network connections and listening ports
 netstat -tuln
 ```
+-->
 
-
-## 📂 Module Directory
+## 📂 Module Directory, Note Links & Details
 * [Day 1: Cybersecurity Foundations](modules/01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
 * [Day 2: Common Threats](modules/02-common-threats.md) — Malware, phishing variants, and APT timelines.
 * [Day 3: Access Control & Social Engineering](modules/03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
