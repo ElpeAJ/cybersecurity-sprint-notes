@@ -163,6 +163,23 @@ Altering a single character's capitalization from uppercase `H` to lowercase `h`
 
 ## 🏢 Historic Case Study: LinkedIn Breach (2012)
 * **The Incident:** Attackers compromised the enterprise database perimeter and exfiltrated a massive table containing millions of user account passwords.
+* **The Architecture Failure:** The passwords were encrypted using an aging SHA-1 hashing algorithm completely without salting.
+* **The Consequence:** Because no salt was used, security analysts and threat actors deployed automated rainbow table lookup tools to match and crack millions of user passwords within days of the initial leak. This major incident forced the global tech industry to adopt salted hashing as a mandatory security standard for access control management.
+
+---
+
+## 📝 Assessment Reference & Viva Defense Blueprint
+
+### 1. Grading Focus & Submission Deliverables
+* **Format:** Laboratory Entry Logs and Protocol Evaluation Matrix.
+* **Milestone:** The data inputs and analysis recorded in this module directly populate the Week 6 Cryptography Lab Report due on Day 4 and prep you for the milestone exams.
+
+### 🗣️ Viva: Certificate Pinning vs. MitM Attacks
+* **The Board Prompt:** "Explain in your own words how Certificate Pinning specifically mitigates a Man-in-the-Middle (MitM) attack vector."
+* **Answer:** 
+  A Man-in-the-Middle attack occurs when a threat actor positions themselves between a client browser and a target server to intercept, inspect, or modify data traffic. In a traditional network setup, if an attacker uses a compromised or rogue Certificate Authority to forge a technically valid digital certificate for our website domain, the victim's browser will trust it automatically and establish an encrypted session with the attacker's device. 
+  
+  Certificate Pinning completely eliminates this vulnerability by instructing the application client to trust only one specific, expected public key or certificate fingerprint hardcoded directly in the application source code. When the connection initializes, even if the attacker presents a fraudulent certificate that looks completely valid to a regular browser, the pinned application will detect that the certificate fingerprint does not match the hardcoded value and drop the connection instantly, neutralizing the MitM attack.
 
 ---
 
