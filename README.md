@@ -37,7 +37,7 @@ This is my central repository for documenting my journey through the intensive C
 ### 📁 Module 6: Applied Sec, Crypto & Ethical Hacking
 - [✓] **Day 21:** [Cryptography Fundamentals, Algorithms, and Core Functions](modules/21-cryptography-fundamentals.md)
 - [✓] **Day 22:** [TLS, Public Key Infrastructure (PKI), and Cryptographic Weaknesses](modules/22-hashing-and-password-cracking.md)
-- [🔄] **Day 23:** 
+- [🔄] **Day 23:** [Ethical Hacking Phases, Penetration Testing Scope, & OSINT Reconnaissance](modules/23-ethical-hacking-and-reconnaissance.md)
 - [🔄] **Day 24:** 
 
 ### 📁 Module 7: AI in Cybersecurity & Security Tooling
@@ -84,9 +84,19 @@ netstat -tuln
 * [Day 14: Vulnerability Scanning  with Nmap & Nessus](modules/14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
 * [Day 21: Cryptography Fundamentals](modules/21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 * [Day 22: Hashing & Password Cracking](modules/22-hashing-and-password-cracking.md) — TLS/SSL layers, PKI trust verification structures, Certificate Pinning defense logic, MD5 weaknesses, and automated Rainbow Table lab analysis keys.
+* [Day 23: Ethical Hacking & Reconnaissance](modules/23-ethical-hacking-and-reconnaissance.md) — The 5 operational execution phases, Rules of Engagement parameters, legal authorization frameworks, and Open Source Intelligence (OSINT) site audits.
 
 
+## 📅 Course Syllabus & Progress Tracker
 
+### 📁 Module 6: Applied Security, Cryptography & Ethical Hacking
+- [✓] **Week 6, Day 1:** Cryptography Fundamentals, Algorithms, and Core Functions
+- [✓] **Week 6, Day 2:** TLS, Public Key Infrastructure (PKI), and Cryptographic Weaknesses
+- [🔄] **Week 6, Day 3:** Ethical Hacking Phases, Penetration Testing Scope, & OSINT Reconnaissance
+
+## 📂 Repository Directory
+* [Module 6: Hashing & Password Cracking](modules/16-hashing-and-password-cracking.md)
+* [Module 6: Ethical Hacking & Reconnaissance](modules/17-ethical-hacking-and-reconnaissance.md) — The 5 operational execution phases, Rules of Engagement parameters, legal authorization frameworks, and Open Source Intelligence (OSINT) site audits.
 
 
 
