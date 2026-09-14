@@ -375,12 +375,6 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 
 ---
 
-## Additional Materials
-* TryHackMe - 
-* LetsDefend - 
-
----
-
 ## 📝 Assessment Reference & Technical Self-Check
 * **Format:** Laboratory Entry Logs and Protocol Evaluation Matrix.
 * **Milestone:** Graded portfolio components that feed into your upcoming **Week 6 Cryptography Lab Report** and **Day 4 Rotating Viva**.
@@ -392,3 +386,8 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
   * Document the 3-sentence algorithm comparison table evaluating AES vs. DES parameters.
   * Review the difference between hashing and encryption mechanisms to prepare for the Day 2 Hash Cracking Lab challenge.
 
+---
+
+## Additional Materials
+* TryHackMe - 
+* LetsDefend - 
