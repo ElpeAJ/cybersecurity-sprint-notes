@@ -136,22 +136,52 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
-***************MAC***************
-#### 4. Disable Dynamic Shell Token History Expansion
-* **Command Executed:**
+#### Disable Dynamic Shell Token History Expansion *Only for Mac, so skip if using Powershell*
+* **Linux/macOS Script:**
   ```bash
   unsetopt banghist
   ```
 * **Why It Helps:** Disables the native Zsh feature that treats exclamation marks (`!`) as special history commands, preventing terminal syntax crashes when handling complex password character strings.
-
-#### 5. Download and Map the Frontend JS Asset Bundle
-* **Command Executed:**
+  
+#### 4. Download Public Frontend Asset Bundle Into System Memory / Download and Map the Frontend JS Asset Bundle
+* **Linux/macOS Script:**
   ```bash
-  bundle_url="https://onrender.com"\$(curl -s "https://onrender.com" | grep -oE '/assets/index-[a-zA-Z0-9_-]+\.js' | head -n 1)
+  curl -s -o /dev/null -w "StatusCode: %{http_code}\nLocation: %{redirect_url}\n" http://://onrender.com
+  ```
+
+<!--<img width="1003" height="135" alt="Screenshot 2026-09-14 at 11 42 55 AM" src="https://github.com/user-attachments/assets/379d90c8-804d-4b97-9e26-d46cc650d0b4" />-->
+<img width="1003" height="136" alt="Screenshot 2026-09-14 at 11 59 24 AM" src="https://github.com/user-attachments/assets/65d1ddbe-40b1-4268-bd21-c622b01d55dc" />
+
+
+* **Windows PowerShell Script:**
+  ```powershell
+  $res = Invoke-WebRequest -Uri "http://greenleaf-logistics.onrender.com" -MaximumRedirection 0 -UseBasicParsing
+  [PSCustomObject]@{ StatusCode = $res.StatusCode; Location = $res.Headers.Location }
+  ```
+
+<img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
+
+* **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
+***************MAC***************
+
+
+#### 5. Download Public Frontend Asset Bundle Into System Memory Download and Map the Frontend JS Asset Bundle
+* **Linux/macOS Script:**
+  ```bash
+  bundle_url="https://greenleaf-logistics.onrender.com$(curl -s "https://greenleaf-logistics.onrender.com" | grep -oE '/assets/index-[a-zA-Z0-9_-]+\.js' | head -n 1)"
   bundle=(curl -s "bundle_url")
   ```
-* **Why It Helps:** Queries the landing page HTML structure to find the name of the active, compiled JavaScript bundle file, down-loading its entire text configuration into a dynamic terminal string environment variable.
+* **Why It Helps:** Queries the landing page HTML structure to find the name of the active, compiled JavaScript bundle file, down-loading its entire text configuration into a dynamic terminal string environment variable. First, Extract and Store the Bundle URLThis fetches the main page, finds the dynamic asset filename, builds the full URL, and stores it as a regular string variable.Then, Download the Bundle Content into MemoryThis downloads the actual JavaScript code from that URL and stores it into the $bundle variable.
 
+#### 5. Download Public Frontend Asset Bundle Into System Memory
+* **Windows PowerShell Script:**
+  ```powershell
+  $bundleUrl = "https://greenleaf-logistics.onrender.com/assets/index-BjFx252d.js" 
+  $bundle = (Invoke-WebRequest -Uri $bundleUrl -UseBasicParsing).Content
+  ```
+* **Why It Helps:** This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives.
+
+  
 #### 6. Extract Hardcoded Identifiers and Secrets
 * **Command Executed:**
   ```bash
