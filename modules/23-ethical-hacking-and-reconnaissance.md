@@ -85,13 +85,14 @@ To cross-examine the target's boundary settings, the following terminal commands
 <!--<img width="697" height="301" alt="Screenshot 2026-09-14 at 11 39 13 AM" src="https://github.com/user-attachments/assets/1a50a47d-faea-4711-b526-4dc686b9d6e7" />-->
 <img width="1003" height="301" alt="Screenshot 2026-09-14 at 11 57 22 AM" src="https://github.com/user-attachments/assets/df2ab8bf-fe53-4d04-9983-2fd896d67987" />
 
-
+<br><br>
 * **Windows PowerShell Script:**
   ```powershell
   (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
   ```
 <img width="955" height="524" alt="image" src="https://github.com/user-attachments/assets/942313da-e641-4c09-a0f3-e96570ec0c43" />
 
+<br><br>
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
 #### 2. Inspecting Ports Status
@@ -103,7 +104,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 <!--<img width="1003" height="191" alt="Screenshot 2026-09-14 at 11 41 26 AM" src="https://github.com/user-attachments/assets/8294f05f-56d3-4318-b6cf-558341a9d8a8" />-->
 <img width="1003" height="191" alt="Screenshot 2026-09-14 at 11 58 40 AM" src="https://github.com/user-attachments/assets/342a1f2c-ff08-493e-a009-f96800daff63" />
 
-
+<br><br>
 * **Windows PowerShell Script:**
   ```powershell
   @(80, 443, 8080, 8443, 3000, 5000) | ForEach-Object {
@@ -114,6 +115,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="960" height="330" alt="image" src="https://github.com/user-attachments/assets/0418bf61-eb70-46a0-bb2e-06a92b427e32" />
 
+<br><br>
 * **Forensic Finding:** Map checking verifies exactly which transport sockets are open or closed, pinpointing alternative backend management ports (like 8080 or 3000) that expand the target area.
 
 #### 3. Cleartext Protocol Redirection Audit
@@ -125,7 +127,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 <!--<img width="1003" height="135" alt="Screenshot 2026-09-14 at 11 42 55 AM" src="https://github.com/user-attachments/assets/379d90c8-804d-4b97-9e26-d46cc650d0b4" />-->
 <img width="1003" height="136" alt="Screenshot 2026-09-14 at 11 59 24 AM" src="https://github.com/user-attachments/assets/65d1ddbe-40b1-4268-bd21-c622b01d55dc" />
 
-
+<br><br>
 * **Windows PowerShell Script:**
   ```powershell
   $res = Invoke-WebRequest -Uri "http://greenleaf-logistics.onrender.com" -MaximumRedirection 0 -UseBasicParsing
@@ -134,6 +136,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
 
+<br><br>
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
 #### Disable Dynamic Shell Token History Expansion *Only for Mac, so skip if using Powershell*
@@ -141,61 +144,68 @@ To cross-examine the target's boundary settings, the following terminal commands
   ```bash
   unsetopt banghist
   ```
-* **Why It Helps:** Disables the native Zsh feature that treats exclamation marks (`!`) as special history commands, preventing terminal syntax crashes when handling complex password character strings.
-  
-#### 4. Download Public Frontend Asset Bundle Into System Memory / Download and Map the Frontend JS Asset Bundle
+
+* **Essence:** No output in the terminal but Disables the native Zsh feature that treats exclamation marks (`!`) as special history commands, preventing terminal syntax crashes when handling complex password character strings. 
+
+#### 4. Download Public Frontend Asset Bundle Into System Memory Download and Map the Frontend JS Asset Bundle
 * **Linux/macOS Script:**
   ```bash
-  curl -s -o /dev/null -w "StatusCode: %{http_code}\nLocation: %{redirect_url}\n" http://://onrender.com
+  bundle_url="https://greenleaf-logistics.onrender.com$(curl -s "https://greenleaf-logistics.onrender.com" | grep -oE '/assets/index-[a-zA-Z0-9_-]+\.js' | head -n 1)";
+  bundle=$(curl -s "$bundle_url")
   ```
 
-<!--<img width="1003" height="135" alt="Screenshot 2026-09-14 at 11 42 55 AM" src="https://github.com/user-attachments/assets/379d90c8-804d-4b97-9e26-d46cc650d0b4" />-->
-<img width="1003" height="136" alt="Screenshot 2026-09-14 at 11 59 24 AM" src="https://github.com/user-attachments/assets/65d1ddbe-40b1-4268-bd21-c622b01d55dc" />
+<img width="1003" height="71" alt="Screenshot 2026-09-14 at 1 48 44 PM" src="https://github.com/user-attachments/assets/6a125362-7c38-452c-a3da-64ac297a1200" />
 
-
-* **Windows PowerShell Script:**
-  ```powershell
-  $res = Invoke-WebRequest -Uri "http://greenleaf-logistics.onrender.com" -MaximumRedirection 0 -UseBasicParsing
-  [PSCustomObject]@{ StatusCode = $res.StatusCode; Location = $res.Headers.Location }
-  ```
-
-<img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
-
-* **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
-***************MAC***************
-
-
-#### 5. Download Public Frontend Asset Bundle Into System Memory Download and Map the Frontend JS Asset Bundle
-* **Linux/macOS Script:**
-  ```bash
-  bundle_url="https://greenleaf-logistics.onrender.com$(curl -s "https://greenleaf-logistics.onrender.com" | grep -oE '/assets/index-[a-zA-Z0-9_-]+\.js' | head -n 1)"
-  bundle=(curl -s "bundle_url")
-  ```
-* **Why It Helps:** Queries the landing page HTML structure to find the name of the active, compiled JavaScript bundle file, down-loading its entire text configuration into a dynamic terminal string environment variable. First, Extract and Store the Bundle URLThis fetches the main page, finds the dynamic asset filename, builds the full URL, and stores it as a regular string variable.Then, Download the Bundle Content into MemoryThis downloads the actual JavaScript code from that URL and stores it into the $bundle variable.
-
-#### 5. Download Public Frontend Asset Bundle Into System Memory
+<br><br>
 * **Windows PowerShell Script:**
   ```powershell
   $bundleUrl = "https://greenleaf-logistics.onrender.com/assets/index-BjFx252d.js" 
   $bundle = (Invoke-WebRequest -Uri $bundleUrl -UseBasicParsing).Content
   ```
-* **Why It Helps:** This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives.
+
+
+<br><br>
+* **Essence:** No output in the terminal but 
+This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives. First, Extract and Store the Bundle URLThis fetches the main page, finds the dynamic asset filename, builds the full URL, and stores it as a regular string variable.Then, Download the Bundle Content into MemoryThis downloads the actual JavaScript code from that URL and stores it into the $bundle variable.
 
   
-#### 6. Extract Hardcoded Identifiers and Secrets
-* **Command Executed:**
+#### 5. Extract Hardcoded Credentials and Internal Product Identifiers
+* **Linux/macOS Script:**
   ```bash
-  echo "\$bundle" | grep -oEi "(password|username|secret|api|token|GL-[0-9]{4}-[0-9]+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)" | sort -u
+  echo -e "\n=== CRITICAL CREDENTIALS & IDENTIFIERS ==="; echo "$bundle" | grep -oEi '(password|username|secret|api|token|GL-[0-9]{4}-[0-9]+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)' | sort -u
   ```
-* **Why It Helps:** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen.
 
-#### 7. Scrape Internal Employee Email Addresses
-* **Command Executed:**
+<img width="1003" height="212" alt="Screenshot 2026-09-14 at 2 04 33 PM" src="https://github.com/user-attachments/assets/c2731783-94db-4c29-af07-26edb054a088" />
+
+<br><br>
+* **Windows PowerShell Script:**
+  ```powershell
+  [regex]::Matches($bundle, '(?i)(password|username|secret|api|token|GL-\d{4}-\d+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)')| ForEach-Object {$_.Value } | Select-Object -Unique
+  ```
+
+
+<br><br>
+* **Forensic Findingg** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen. This scans the downloaded code for sensitive hardcoded tokens, passwords, and identifiers.
+
+
+#### 6. Extract Exposed Employee Email Addresses
+* **Linux/macOS Script:**
   ```bash
-  echo "\$bundle" | grep -oEi "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" | sort -u
+  echo -e "\n=== EXPOSED EMPLOYEE EMAILS ==="; echo "$bundle" | grep -oEi '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' | sort -u; echo -e "\n================================\n"
   ```
-* **Why It Helps:** Scrapes out every single email address embedded within the public application file layer, exposing corporate identity structure footprints.
+  
+<img width="1003" height="167" alt="Screenshot 2026-09-14 at 2 05 29 PM" src="https://github.com/user-attachments/assets/43db40d9-cf72-4a76-8a6c-2a205d9ba509" />
 
+<br><br>
+```powershell
+  [regex]::Matches(\(bundle, '[a-zA-Z0-9._\%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+
+
+<br><br>
+* **Forensic Findings** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns. Scanning and Printing Exposed Emails pulls out all structural corporate email addresses hidden inside the bundle.
+
+***************MAC***************
 #### 8. Project Dependency Vulnerability Auditing
 * **Command Executed:**
   ```bash
