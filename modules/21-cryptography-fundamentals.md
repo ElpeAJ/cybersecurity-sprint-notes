@@ -390,4 +390,24 @@ Putting data into a hashing algorithm is analogous to processing an apple inside
 
 ## Additional Materials
 * TryHackMe - 
-* LetsDefend - 
+* LetsDefend -
+
+---
+
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+* [Day 8: SIEM Concepts & Alert Triage](08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
+* [Day 9: Wireshark & Tcpdump Fundamentals](09-wireshark-tcpdump-fundamentals.md) — Traffic interception mechanics, display vs. capture filters, and command-line network analysis.
+* [Day 10: Log Analysis & IoCs](10-log-analysis-and-indicator-of-compromise.md) — Multi-source logging data matrices, detection indicators, cross-correlation strategies, and real-world SolarWinds analysis.
+* [Day 11: MITRE ATT&CK & Log Correlation](11-mitre-attack-and-log-correlation.md) - The MITRE ATT&CK Framework TTP, ATT&CK Navigator & Correlation Steps, Mapping Behaviours & Reconstructing an Attack Timeline.
+* [Day 13: Vulnerability Management & CVSS](13-vulnerability-management-and-cvss.md) — The 4-stage lifecycle loop, CVSS structural metric groups, prioritization logic matrix, and classroom scoring exercises.
+* [Day 14: Vulnerability Scanning  with Nmap & Nessus](14-vulnerability-scanning-with-nmap-and-nessus.md) — Port state, core syntax & flags, class target walkthroughs, and Nessus configurations & use cases.
+* [Day 21: Cryptography Fundamentals](21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
+* [Day 22: Hashing & Password Cracking](22-hashing-and-password-cracking.md) — TLS/SSL layers, PKI trust verification structures, Certificate Pinning defense logic, MD5 weaknesses, and automated Rainbow Table lab analysis keys.
+
+---
