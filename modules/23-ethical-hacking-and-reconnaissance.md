@@ -73,7 +73,7 @@ Offensive security engagements move systematically through a five-stage operatio
 * **Platform Footprint Vulnerability:** The host asset relies on the Render hosting platform architecture, exposing the system to public cloud configuration vulnerabilities documented as of April 2026.
 * **Job Posting Reconnaissance:** Open corporate hiring listings explicitly reference internal toolsets and software dependencies. Attackers scrape these postings because discovering an outdated application name tells them exactly which CVE databases to query for public exploits before firing a single packet.
 
-### Part 2: Active Endpoint Profiling (Command Line Execution)
+### Part 2: Recon & Scanning - Active Endpoint Profiling (Command Line Execution)
 To cross-examine the target's boundary settings, the following terminal commands were executed inside our local shell environment:
 
 #### 1. Boundary Header Inspection
@@ -186,7 +186,7 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 <img width="1124" height="223" alt="image" src="https://github.com/user-attachments/assets/194f0a8a-c208-42a0-b536-687412bcc528" />
 
 <br><br>
-* **Forensic Findingg** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen. This scans the downloaded code for sensitive hardcoded tokens, passwords, and identifiers.
+* **Forensic Finding** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen. This scans the downloaded code for sensitive hardcoded tokens, passwords, and identifiers.
 
 #### 6. Extract Exposed Employee Email Addresses
 * **Linux/macOS Script:**
@@ -197,12 +197,13 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 <img width="1003" height="167" alt="Screenshot 2026-09-14 at 2 05 29 PM" src="https://github.com/user-attachments/assets/43db40d9-cf72-4a76-8a6c-2a205d9ba509" />
 
 <br><br>
-```powershell
-  [regex]::Matches(\(bundle, '[a-zA-Z0-9._\%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+ ```powershell
+  [regex]::Matches($bundle, '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 
+<img width="1121" height="106" alt="image" src="https://github.com/user-attachments/assets/acaf686b-308e-48e9-b7c2-dbc8260c61bd" />
 
-<br><br>
+<br>
 * **Forensic Findings** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns. Scanning and Printing Exposed Emails pulls out all structural corporate email addresses hidden inside the bundle.
 
 ***************MAC***************
@@ -249,8 +250,8 @@ This downloads the target web server's entire compiled, client-side JavaScript e
   [regex]::Matches(\(bundle, '[a-zA-Z0-9._\%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
   ```
 
-    ```powershell
-  [regex]::Matches($(bundle, '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') | ForEach-Object {$_.Value } | Select-Object -Unique
+  ```powershell
+  [regex]::Matches($bundle, '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 * **Why It Helps:** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns.
 
