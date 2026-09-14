@@ -71,7 +71,7 @@ Offensive security engagements move systematically through a five-stage operatio
 * **Internal Tracking Identifier Schema:** Compiled as `CompanyInitials_Year_Number` (e.g., `GL_2026_001234`).
 * **Communications Boundary Vector:** Corporate contact routing is tied to phone line `+233 000000000`.
 * **Platform Footprint Vulnerability:** The host asset relies on the Render hosting platform architecture, exposing the system to public cloud configuration vulnerabilities documented as of April 2026.
-* **Job Posting Reconnaissance:** Open corporate hiring listings explicitly reference internal toolsets and software dependencies. Attackers scrape these postings because discovering an outdated application name tells them exactly which CVE databases to query for public exploits before firing a single packet.
+* **Job Posting Reconnaissance:** Open corporate hiring listings explicitly reference internal toolsets and software they use. Attackers scrape these postings because discovering an outdated application name tells them exactly which CVE databases to query for public exploits before firing a single packet.
 
 ### Part 2: Recon & Scanning - Active Endpoint Profiling (Command Line Execution)
 To cross-examine the target's boundary settings, the following terminal commands were executed inside our local shell environment:
@@ -209,6 +209,9 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 
 ---
 
+## Part 3: Advanced Frontend JavaScript Code Auditing (Asset Scrape)
+To uncover hidden secrets buried within the public distribution folder layer, we bypassed standard browser views to download, filter, and extract hardcoded parameters directly from the application's compiled assets file using regex string matching.
+
 ### 7. Project Dependency Vulnerability Auditing
 Download & extract the Zipped file (Website codes) as provided by the owner, change your path to the location of extracted file (folder), then type pnpm audit. If you do not have pnpm installed, follow the steps on Mac(bash terminal) or Windows (powershell with Admin rights) to do so
 
@@ -265,7 +268,11 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
   ```bash
   pnpm audit
   ```
-  
+<img width="578" height="724" alt="Screenshot 2026-09-14 at 4 04 42 PM" src="https://github.com/user-attachments/assets/30981724-2a3d-41f6-aefc-bd97f98e7319" />
+
+<br>
+
+<img width="578" height="724" alt="Screenshot 2026-09-14 at 4 05 46 PM" src="https://github.com/user-attachments/assets/5b04777f-93be-44f0-8017-69d94406a1eb" />
 
 <br><br>
 * **Windows PowerShell Script:**
@@ -279,43 +286,45 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
 <img width="739" height="716" alt="image" src="https://github.com/user-attachments/assets/b7cf8adf-cf4a-4a8a-a7aa-83655b1f7410" />
 
 <br><br>
-> ***Note***
+> ***Note*** pnpm audit scans your project dependencies for known security vulnerabilities and prints a report of affected packages and severity levels. pnpm audit can only be used for Node.js projects that use pnpm as their package manager. It cannot be used for non-JavaScript programming languages or JavaScript projects using other package managers.
 
 #### 7e. Interrogate Source Files for Authentication Loop-Bypasses(Mac) & Target Account Exploitation (Windows)
 * **Linux/macOS Script:**
   ```bash
- grep -rEi "(password|username|secret|token|flag|credential|DemoOnly|GL-[0-9]{4})" client/src/ shared/
+  grep -rEi "(password|username|secret|token|flag|credential|DemoOnly|GL-[0-9]{4})" client/src/ shared/
   ```
-  
+
+<img width="1001" height="398" alt="Screenshot 2026-09-14 at 4 10 52 PM" src="https://github.com/user-attachments/assets/2a85edfe-85d8-47b0-a44b-3d166735b98e" />
 
 <br><br>
-* **Windows PowerShell Script:**
-```powershell
+* **Windows PowerShell Script:** 
+  ```powershell
   [regex]::Matches($bundle, '(?s)(demo-user.*?DemoOnly123!|username\s*===.*?password\s*===.*?\})') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 <img width="1122" height="100" alt="image" src="https://github.com/user-attachments/assets/f3d57539-71c2-45ca-b8ac-074c2c13e6c2" />
 
-* **Essence:**Code on Mac recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
+* **Essence:** Code on Mac recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
 * Code on Windows focuses regex checking rules explicitly on finding hardcoded conditional logic strings, confirming the presence of cleartext admin login bypass rules (`demo-user` / `DemoOnly123!`). 
-
-
-#### 8. Project Dependency Vulnerability Auditing
-* **Command Executed:**
-  ```bash
-  cd /path/to/extracted/greenleaf-logistics
-  pnpm audit
-  ```
-* **Why It Helps:** Scans the target application's library dependency files locally using `pnpm` to verify if the project is relying on libraries with known public security vulnerabilities.
-
-#### 9. Interrogate Source Files for Authentication Loop-Bypasses
-* **Command Executed:**
-  ```bash
-  grep -rEi "(password|username|secret|token|flag|credential|DemoOnly|GL-[0-9]{4})" client/src/ shared/
-  ```
-* **Why It Helps:** Recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
 
 ---
 
+## Real-World Legal Precedent Case: Aaron Swartz (2011)
+* **The Incident:** A prominent technology advocate connected a laptop to an academic network node and ran an automated script to download a massive database of premium research papers.
+* **The Core Issue:** Despite having access to the building and holding arguments for public educational benefits, the network administrators did not grant formal **written authorization** for automated mass extraction scripts.
+* **The Legal Outcome:** The federal judicial system bypassed arguments regarding the user's intent, treating the unauthorized access as a serious computer crime under the Computer Fraud and Abuse Act (CFAA). This landmark case is cited globally to remind cybersecurity practitioners that authorization is absolute: performing a technical action without a signed contract is treated as a crime, regardless of your intentions.
+
+---
+
+## 📝 Assessment Reference & Verification
+* **Format:** Laboratory Entry Logs and OSINT Recon Matrix.
+* **Milestone:** Subsystem commands and credential extraction results directly populate the **Week 6 Lab Submission** and feed Wk6 MCQ exam.
+
+---
+
+
+
+
+<!--
 *********************WINDOWS*********************
 #### 4. Download Public Frontend Asset Bundle Into System Memory
 * **Command Executed:**
@@ -373,4 +382,4 @@ To uncover hidden secrets buried within the public distribution folder layer, we
 #### The Combined OSINT Pipeline Snippet
 *Note for Mac execution environments: Running `unsetopt banghist` disables default Zsh history expansion for exclamation tokens to prevent processing syntax errors.*
 
-```bash
+-->
