@@ -82,8 +82,10 @@ To cross-examine the target's boundary settings, the following terminal commands
   curl -I https://greenleaf-logistics.onrender.com
   ```
   
-<img width="697" height="301" alt="Screenshot 2026-09-14 at 11 39 13 AM" src="https://github.com/user-attachments/assets/1a50a47d-faea-4711-b526-4dc686b9d6e7" />
- 
+<!--<img width="697" height="301" alt="Screenshot 2026-09-14 at 11 39 13 AM" src="https://github.com/user-attachments/assets/1a50a47d-faea-4711-b526-4dc686b9d6e7" />-->
+<img width="1003" height="301" alt="Screenshot 2026-09-14 at 11 57 22 AM" src="https://github.com/user-attachments/assets/df2ab8bf-fe53-4d04-9983-2fd896d67987" />
+
+
 * **Windows PowerShell Script:**
   ```powershell
   (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
@@ -98,8 +100,10 @@ To cross-examine the target's boundary settings, the following terminal commands
   for port in 80 443 8080 8443 3000 5000; do nc -zv -G greenleaf-logistics.onrender.com $port 2>&1 | grep -E "succeeded|Connection to"; done
   ```
   
-<img width="1003" height="191" alt="Screenshot 2026-09-14 at 11 41 26 AM" src="https://github.com/user-attachments/assets/8294f05f-56d3-4318-b6cf-558341a9d8a8" />
-  
+<!--<img width="1003" height="191" alt="Screenshot 2026-09-14 at 11 41 26 AM" src="https://github.com/user-attachments/assets/8294f05f-56d3-4318-b6cf-558341a9d8a8" />-->
+<img width="1003" height="191" alt="Screenshot 2026-09-14 at 11 58 40 AM" src="https://github.com/user-attachments/assets/342a1f2c-ff08-493e-a009-f96800daff63" />
+
+
 * **Windows PowerShell Script:**
   ```powershell
   @(80, 443, 8080, 8443, 3000, 5000) | ForEach-Object {
@@ -118,7 +122,9 @@ To cross-examine the target's boundary settings, the following terminal commands
   curl -s -o /dev/null -w "StatusCode: %{http_code}\nLocation: %{redirect_url}\n" http://://onrender.com
   ```
 
-<img width="1003" height="135" alt="Screenshot 2026-09-14 at 11 42 55 AM" src="https://github.com/user-attachments/assets/379d90c8-804d-4b97-9e26-d46cc650d0b4" />
+<!--<img width="1003" height="135" alt="Screenshot 2026-09-14 at 11 42 55 AM" src="https://github.com/user-attachments/assets/379d90c8-804d-4b97-9e26-d46cc650d0b4" />-->
+<img width="1003" height="136" alt="Screenshot 2026-09-14 at 11 59 24 AM" src="https://github.com/user-attachments/assets/65d1ddbe-40b1-4268-bd21-c622b01d55dc" />
+
 
 * **Windows PowerShell Script:**
   ```powershell
