@@ -136,6 +136,50 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
+#### 4. Disable Dynamic Shell Token History Expansion
+* **Command Executed:**
+  ```bash
+  unsetopt banghist
+  ```
+* **Why It Helps:** Disables the native Zsh feature that treats exclamation marks (`!`) as special history commands, preventing terminal syntax crashes when handling complex password character strings.
+
+#### 5. Download and Map the Frontend JS Asset Bundle
+* **Command Executed:**
+  ```bash
+  bundle_url="https://onrender.com"\$(curl -s "https://onrender.com" | grep -oE '/assets/index-[a-zA-Z0-9_-]+\.js' | head -n 1)
+  bundle=(curl -s "bundle_url")
+  ```
+* **Why It Helps:** Queries the landing page HTML structure to find the name of the active, compiled JavaScript bundle file, down-loading its entire text configuration into a dynamic terminal string environment variable.
+
+#### 6. Extract Hardcoded Identifiers and Secrets
+* **Command Executed:**
+  ```bash
+  echo "\$bundle" | grep -oEi "(password|username|secret|api|token|GL-[0-9]{4}-[0-9]+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)" | sort -u
+  ```
+* **Why It Helps:** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen.
+
+#### 7. Scrape Internal Employee Email Addresses
+* **Command Executed:**
+  ```bash
+  echo "\$bundle" | grep -oEi "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" | sort -u
+  ```
+* **Why It Helps:** Scrapes out every single email address embedded within the public application file layer, exposing corporate identity structure footprints.
+
+#### 8. Project Dependency Vulnerability Auditing
+* **Command Executed:**
+  ```bash
+  cd /path/to/extracted/greenleaf-logistics
+  pnpm audit
+  ```
+* **Why It Helps:** Scans the target application's library dependency files locally using `pnpm` to verify if the project is relying on libraries with known public security vulnerabilities.
+
+#### 9. Interrogate Source Files for Authentication Loop-Bypasses
+* **Command Executed:**
+  ```bash
+  grep -rEi "(password|username|secret|token|flag|credential|DemoOnly|GL-[0-9]{4})" client/src/ shared/
+  ```
+* **Why It Helps:** Recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
+
 ---
 
 ### Part 3: Advanced Frontend JavaScript Code Auditing (Asset Scrape)
