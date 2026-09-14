@@ -197,16 +197,66 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 <img width="1003" height="167" alt="Screenshot 2026-09-14 at 2 05 29 PM" src="https://github.com/user-attachments/assets/43db40d9-cf72-4a76-8a6c-2a205d9ba509" />
 
 <br><br>
+* **Windows PowerShell Script:**
  ```powershell
   [regex]::Matches($bundle, '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 
 <img width="1121" height="106" alt="image" src="https://github.com/user-attachments/assets/acaf686b-308e-48e9-b7c2-dbc8260c61bd" />
-
 <br>
 * **Forensic Findings** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns. Scanning and Printing Exposed Emails pulls out all structural corporate email addresses hidden inside the bundle.
 
-***************MAC***************
+---
+
+### 7. Project Dependency Vulnerability Auditing
+Download & extract the Zipped file (Website codes) as provided by the owner, change your path to the location of extracted file (folder), then type pnpm audit. If you do not have pnpm installed, follow the steps on Mac(bash terminal) or Windows (powershell with Admin rights) to do so
+
+#### 7a. Change your path to extracted folder location
+* **Linux/macOS Script:**
+  ```bash
+  cd /path/to/extracted/greenleaf-logistics
+  ```
+  
+  <img width="1003" height="21" alt="Screenshot 2026-09-14 at 3 14 20 PM" src="https://github.com/user-attachments/assets/02b6c8b5-e829-44cc-b496-fdc535e6363c" />
+
+<br><br>
+* **Windows PowerShell Script:**
+ ```powershell
+ cd /path/to/extracted/greenleaf-logistics
+  ```
+
+
+<br>
+
+#### 7b. Install ppm
+* **Linux/macOS Script:**
+  ```bash
+  sudo npm install -g pnpm
+  ```
+  ```bash
+  pnpm -v
+  ```
+
+  <img width="1003" height="138" alt="Screenshot 2026-09-14 at 3 15 35 PM" src="https://github.com/user-attachments/assets/7b608888-5801-4748-ba82-87791b443eed" />
+
+
+<br><br>
+* **Windows PowerShell Script:**
+ ```powershell
+ sudo npm install -g pnpm
+  ```
+
+ ```powershell
+ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+  ```
+
+```powershell
+ pnpm -v
+  ```
+
+> ***Note*** On Windows, first go to Developer Settings in the Settings app to enable Sudo. Additionally you will need to modify execution policy to allow locally created scripts to run without signature as explained by [codecity.com]()
+> On Mac, you will need to enter your password during the installation which will not be visible while you type
+
 #### 8. Project Dependency Vulnerability Auditing
 * **Command Executed:**
   ```bash
