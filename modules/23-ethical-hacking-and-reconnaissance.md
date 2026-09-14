@@ -92,7 +92,7 @@ To cross-examine the target's boundary settings, the following terminal commands
   ```
 <img width="955" height="524" alt="image" src="https://github.com/user-attachments/assets/942313da-e641-4c09-a0f3-e96570ec0c43" />
 
-<br><br>
+<br>
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
 #### 2. Inspecting Ports Status
@@ -115,7 +115,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="960" height="330" alt="image" src="https://github.com/user-attachments/assets/0418bf61-eb70-46a0-bb2e-06a92b427e32" />
 
-<br><br>
+<br>
 * **Forensic Finding:** Map checking verifies exactly which transport sockets are open or closed, pinpointing alternative backend management ports (like 8080 or 3000) that expand the target area.
 
 #### 3. Cleartext Protocol Redirection Audit
@@ -136,7 +136,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
 
-<br><br>
+<br>
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
 #### Disable Dynamic Shell Token History Expansion *Only for Mac, so skip if using Powershell*
@@ -233,7 +233,7 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 * **Why It Helps:** This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives.
 
 #### 5. Extract Hardcoded Credentials and Internal Product Identifiers
-* **Command Executed:**
+* **Command Executed (wrong 1st, corrected 2nd):**
   ```powershell
   [regex]::Matches(\(bundle, '(?i)(password\vert{}username\vert{}secret\vert{}api\vert{}token\vert{}GL-\d{4}-\d+\vert{}demo-[a-z0-9_-]+\vert{}DemoOnly[a-zA-Z0-9!]+)') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
   ```
@@ -244,9 +244,13 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 * **Why It Helps:** Uses regular expressions to scan the downloaded code memory for sensitive strings like passwords, API keys, or tracking tokens, filtering out duplicate hits to present a clean vulnerability list.
 
 #### 6. Extract Exposed Employee Email Formats
-* **Command Executed:**
+* **Command Executed (wrong 1st, corrected 2nd):**
   ```powershell
   [regex]::Matches(\(bundle, '[a-zA-Z0-9._\%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+
+    ```powershell
+  [regex]::Matches($(bundle, '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 * **Why It Helps:** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns.
 
