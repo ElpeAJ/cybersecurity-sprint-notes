@@ -162,11 +162,11 @@ To cross-examine the target's boundary settings, the following terminal commands
   $bundleUrl = "https://greenleaf-logistics.onrender.com/assets/index-BjFx252d.js" 
   $bundle = (Invoke-WebRequest -Uri $bundleUrl -UseBasicParsing).Content
   ```
-
+<img width="1130" height="52" alt="image" src="https://github.com/user-attachments/assets/152663ed-e485-4fd2-9a8c-cd799ff1a660" />
 
 <br><br>
 * **Essence:** No output in the terminal but 
-This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives. First, Extract and Store the Bundle URLThis fetches the main page, finds the dynamic asset filename, builds the full URL, and stores it as a regular string variable.Then, Download the Bundle Content into MemoryThis downloads the actual JavaScript code from that URL and stores it into the $bundle variable.
+This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives. First, Extract and Store the Bundle URLThis fetches the main page, finds the dynamic asset filename, builds the full URL, and stores it as a regular string variable.Then, Download the Bundle Content into Memory. This downloads the actual JavaScript code from that URL and stores it into the $bundle variable.
 
   
 #### 5. Extract Hardcoded Credentials and Internal Product Identifiers
@@ -182,11 +182,11 @@ This downloads the target web server's entire compiled, client-side JavaScript e
   ```powershell
   [regex]::Matches($bundle, '(?i)(password|username|secret|api|token|GL-\d{4}-\d+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)')| ForEach-Object {$_.Value } | Select-Object -Unique
   ```
-
+  
+<img width="1124" height="223" alt="image" src="https://github.com/user-attachments/assets/194f0a8a-c208-42a0-b536-687412bcc528" />
 
 <br><br>
 * **Forensic Findingg** Pipes the downloaded script block through `grep` using regular expressions to print all unique, hardcoded system configurations and credentials on your screen. This scans the downloaded code for sensitive hardcoded tokens, passwords, and identifiers.
-
 
 #### 6. Extract Exposed Employee Email Addresses
 * **Linux/macOS Script:**
