@@ -498,5 +498,19 @@ To filter out massive volumes of normal background traffic and isolate security 
 * LetsDefend - Log management (Not started)
 * LetsDefend - Log collection (Not started)
 
+---
 
+## 📂 Module Directory
+* [Day 1: Cybersecurity Foundations](01-AI-literacy-cybersecurity-foundations.md) — CIA Triad definitions and risk formulas.
+* [Day 2: Common Threats](02-common-threats.md) — Malware, phishing variants, and APT timelines.
+* [Day 3: Access Control & Social Engineering](03-access-control-social-engineering.md) — AAA frameworks, human hacking vectors, and operational ethics.
+* [Day 5: Networking & Security Operations](05-networking-and-security-operations.md) — OSI Model layers, IP Addressing structures, and practical subnetting math.
+* [Day 6: Firewalls & Perimeter Defense](06-firewalls-and-firewall-rules.md) — Stateful vs. stateless mechanics, the 4 rule components, real-world failures, and structural lab policies.
+* [Day 7: Intrusion Detection & VPNs](07-intrusion-detection-and-vpns.md) — IDS vs. IPS mechanics, Marriott & Pulse Secure breaches, and WireGuard VPN tunnel configurations.
+* [Day 8: SIEM Concepts & Alert Triage](08-siem-concepts-and-alert-triage.md) - SIEM fundamental, Alert thresholds, 4 core triage (True Positive, False Positive, Requires Investigation & Escalation)
+* [Day 9: Wireshark & Tcpdump Fundamentals](09-wireshark-tcpdump-fundamentals.md) — Traffic interception mechanics, display vs. capture filters, and command-line network analysis.
+* [Day 10: Log Analysis & IoCs](10-log-analysis-and-indicator-of-compromise.md) — Multi-source logging data matrices, detection indicators, cross-correlation strategies, and real-world SolarWinds analysis.
+* [Day 11: MITRE ATT&CK & Log Correlation](11-mitre-attack-and-log-correlation.md) - The MITRE ATT&CK Framework TTP, ATT&CK Navigator & Correlation Steps, Mapping Behaviours & Reconstructing an Attack Timeline.
+
+---
 
