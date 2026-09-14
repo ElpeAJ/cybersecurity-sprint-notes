@@ -136,6 +136,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
+***************MAC***************
 #### 4. Disable Dynamic Shell Token History Expansion
 * **Command Executed:**
   ```bash
@@ -181,6 +182,45 @@ To cross-examine the target's boundary settings, the following terminal commands
 * **Why It Helps:** Recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
 
 ---
+
+*********************WINDOWS*********************
+#### 4. Download Public Frontend Asset Bundle Into System Memory
+* **Command Executed:**
+  ```powershell
+  \$bundleUrl = "https://onrender.com" 
+  bundle = (Invoke-WebRequest -Uri bundleUrl -UseBasicParsing).Content
+  ```
+* **Why It Helps:** This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives.
+
+#### 5. Extract Hardcoded Credentials and Internal Product Identifiers
+* **Command Executed:**
+  ```powershell
+  [regex]::Matches(\(bundle, '(?i)(password\vert{}username\vert{}secret\vert{}api\vert{}token\vert{}GL-\d{4}-\d+\vert{}demo-[a-z0-9_-]+\vert{}DemoOnly[a-zA-Z0-9!]+)') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+* **Why It Helps:** Uses regular expressions to scan the downloaded code memory for sensitive strings like passwords, API keys, or tracking tokens, filtering out duplicate hits to present a clean vulnerability list.
+
+#### 6. Extract Exposed Employee Email Formats
+* **Command Executed:**
+  ```powershell
+  [regex]::Matches(\(bundle, '[a-zA-Z0-9._\%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+* **Why It Helps:** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns.
+
+#### 7. Execute Local Node Package Security Audit
+* **Command Executed:**
+  ```powershell
+  cd \(\path\to\extracted\greenleaf-\)logistics
+  pnpm audit
+  ```
+* **Why It Helps:** Navigates into the unzipped website codebase directory and runs the `pnpm audit` package manager. This checks the site's project library dependencies straight against global vulnerability databases to find outdated third-party modules.
+
+#### 8. Target Account Session Exploitation
+* **Command Executed:**
+  ```powershell
+  [regex]::Matches(\(bundle, '(?s)(demo-user.*?DemoOnly123!\vert{}username\s*===.*?password\s*===.*?\})') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+* **Why It Helps:** Focuses regex checking rules explicitly on finding hardcoded conditional logic strings, confirming the presence of cleartext admin login bypass rules (`demo-user` / `DemoOnly123!`).
+
 
 ### Part 3: Advanced Frontend JavaScript Code Auditing (Asset Scrape)
 To uncover hidden secrets buried within the public distribution folder layer, we bypassed standard browser views to download, filter, and extract hardcoded parameters directly from the application's compiled assets file using regex string matching.
