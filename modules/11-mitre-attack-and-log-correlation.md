@@ -45,7 +45,7 @@ Forensic log triage and correlation executed against an abstracted Linux system 
 * **Operational Constraint Note:** On macOS platforms, opening password-protected compressed archives natively can drop threads silently due to OS volume handling design. The engineering remediation requires explicit extraction via terminal tools or third-party utility applications.
 * **File Scoping Strategy:** The extracted forensic target directory presents multiple platform indicators. Large multi-megabyte log files like `auth.log` must be handled inside robust, developer-grade paging engines (e.g., Visual Studio Code or Notepad++) to prevent buffer crashes or memory locks. Small package logging units (`dpkg.log`) can be safely evaluated inside baseline text parsers.
 
-### 🔬 Forensic Log Extraction Evidence & Proofs
+### Forensic Log Extraction Evidence & Proofs
 
 #### Step 1: Identifying Password Guessing Waveforms
 * **Target File Layer:** `auth.log`
@@ -68,17 +68,15 @@ Forensic log triage and correlation executed against an abstracted Linux system 
 
 ---
 
-### 📋 Chronological Incident Narrative (Managerial Summary)
+### Chronological Incident Narrative (Managerial Summary)
 
 Between April 19 and April 24, an enterprise server system sustained a multi-stage compromise orchestrated by external attackers. Initially, the perimeter log layers capture thousands of high-frequency connection attempts executing a rapid password-guessing campaign targeting core administrative accounts. On April 19 at 05:41:44 AM, this automated attack successfully cracked the master system access credentials, enabling attackers to log directly into the high-privilege `root` account. 
 
 Once inside the endpoint perimeter, the threat actors executed local system queries to discover the machine's current firewall protection matrix and system security rules. Finally, on April 24 at 07:38:15 PM, the attackers bypassed administrative guardrails to install an active network utility tool named `nmap`, effectively staging the machine to launch subsequent lateral scans against surrounding corporate sister networks.
 
+---
 
-
-
-
-Installing Sysmon
+Installing Sysmon and using it to perform scans
 <img width="979" height="622" alt="image" src="https://github.com/user-attachments/assets/c2d7e58a-2794-4322-877b-8954cf73522f" />
 
 
@@ -93,6 +91,9 @@ Installing Sysmon
 <img width="1362" height="720" alt="image" src="https://github.com/user-attachments/assets/baad6995-ac51-4ac6-a485-ea86a2fb5bf9" />
 
 <img width="759" height="509" alt="image" src="https://github.com/user-attachments/assets/0b0eacd5-f68a-4180-aa18-b689113313cb" />
+
+---
+
 
 
 ## Additional Materials
