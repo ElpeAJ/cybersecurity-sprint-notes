@@ -2,7 +2,7 @@
 
 ## Web Application Vulnerability Architecture
 * **The Core Shift:** While network-level scanning looks for unpatched background daemons, protocol version regressions, or unlocked hardware communication ports, web application security focuses entirely on logical flaws embedded within the source code and input parameter handling blocks of Layer 7 application software.
-* **The OWASP Mission:** The Open Web Application Security Project (OWASP) is an international non-profit foundation that compiles the **OWASP Top 10**—a peer-reviewed, industry-standard consensus reference index detailing the ten most critical, real-world security risks facing modern web software applications.
+* **The OWASP Mission:** The Open Web Application Security Project (OWASP) is an international non-profit foundation that compiles the **OWASP Top 10**: a peer-reviewed, industry-standard consensus reference index detailing the ten most critical, real-world security risks facing modern web software applications.
 
 ---
 
@@ -25,8 +25,8 @@
 
 ### 4. Insecure Direct Object References (IDOR)
 * **The Underlying Flaw:** A type of access control failure where an application presents direct horizontal or vertical data identifiers (like database tracking keys or user ID numbers) straight inside visible page structures (such as URL paths) without validating whether the active session holds permission to view that specific record.
-* **The Exploitation Mechanism:** An authenticated user alters an ID parameter value visible inside their web browser bar (e.g., changing `://app.com` to `id=1002`) [11-vulnerability-management-and-cvss.md].
-* **The Danger Level:** Enables users to view, download, or edit private data blocks belonging to any other user across the database domain simply by guessing numbers [11-vulnerability-management-and-cvss.md].
+* **The Exploitation Mechanism:** An authenticated user alters an ID parameter value visible inside their web browser bar (e.g., changing `://app.com` to `id=1002`) [13-vulnerability-management-and-cvss.md].
+* **The Danger Level:** Enables users to view, download, or edit private data blocks belonging to any other user across the database domain simply by guessing numbers [13-vulnerability-management-and-cvss.md].
 
 ---
 
@@ -44,9 +44,9 @@
 * **Core Vulnerability Lesson:** The web framework failed to sanitize or encode application layer characters before presenting data, allowing user input to convert into executable web browser instructions.
 
 ### Vulnerability Finding 3: Insecure Direct Object References (IDOR)
-* **Exploitation String Used:** Intercepted web requests to map parameter routing patterns: `http://[Target_IP]/api/v1/users/4` [11-vulnerability-management-and-cvss.md, 12-network-discovery-and-vulnerability-scanning.md]. Changing the trailing index increment digit sequentially to `5`, `6`, and `7` [11-vulnerability-management-and-cvss.md].
-* **Observed App Reaction:** The backend API instantly dumped plain-text profiles, email records, and hashed password values belonging to other registered system users, ignoring access check rules [11-vulnerability-management-and-cvss.md].
-* **Core Vulnerability Lesson:** The backend logic relied entirely on the obscurity of hidden URLs rather than enforcing strict access control token lookups on the server for each record requested [11-vulnerability-management-and-cvss.md].
+* **Exploitation String Used:** Intercepted web requests to map parameter routing patterns: `http://[Target_IP]/api/v1/users/4` [13-vulnerability-management-and-cvss.md, 14-network-discovery-and-vulnerability-scanning.md]. Changing the trailing index increment digit sequentially to `5`, `6`, and `7` [13-vulnerability-management-and-cvss.md].
+* **Observed App Reaction:** The backend API instantly dumped plain-text profiles, email records, and hashed password values belonging to other registered system users, ignoring access check rules [13-vulnerability-management-and-cvss.md].
+* **Core Vulnerability Lesson:** The backend logic relied entirely on the obscurity of hidden URLs rather than enforcing strict access control token lookups on the server for each record requested [13-vulnerability-management-and-cvss.md].
 
 ---
 
@@ -55,7 +55,17 @@
 * **Output Encoding & Sanitization:** The baseline mitigation against XSS. Web engines must automatically convert hazardous characters (like `<` or `>`) into benign HTML entity tags (such as `&lt;` or `&gt;`) before printing them back to a user's browser, preventing execution.
 * **The Fallacy of Security by Obscurity:** Assuming an asset is safe merely because its URL path is unlinked or hard to guess is a fatal architectural mistake. Security controls must actively validate session tokens on every single resource request at the server layer.
 
-* ---
+---
+
+### Self-Check Verification Checklist
+Verify your documentation aligns perfectly with these professional engineering evaluation standards:
+
+* [ ] **No Absolute Worst-Case Guessing:** Are your impact metrics and descriptions based strictly on the actual, documented behavior observed on your screen, rather than worst-case theoretical assumptions?
+* [ ] **True Plain-Language Translation:** Are your 1-sentence vulnerability descriptions written fully in your own words? *Test: If you can read your sentence to a non-technical manager or a friend without it sounding like a textbook, it passes.*
+* [ ] **Context-Driven Prioritization:** Does your top patching choice look past the raw severity score alone to actively argue based on **Asset Value** (e.g., customer databases vs. test files) and **Exposure** (e.g., public-facing portals vs. internal VPN layers)?
+* [ ] **Remediation Precision:** Does your mitigation documentation suggest robust source-code level architecture fixes (like Parameterized Queries or Output Encoding) rather than fragile, easily bypassed regex input character filters?
+
+---
 
 ## 📝 Assessment Reference & Technical Self-Check
 
@@ -66,14 +76,3 @@
   * A completed local sandboxed deployment run of an approved vulnerable application (Juice Shop / DVWA).
   * Written documentation of 3 distinct OWASP findings containing the exact exploitation string used, the observed application reaction, and the technical remediation solution.
   * A professional, 2-to-3 sentence prioritization risk justification explaining which web vulnerability requires urgent emergency patching first.
-
----
-
-### 🧼 Triage Portfolio Self-Check Verification Checklist
-Before committing this file to your public portfolio repository, verify your documentation aligns perfectly with these professional engineering evaluation standards:
-
-* [ ] **No Absolute Worst-Case Guessing:** Are your impact metrics and descriptions based strictly on the actual, documented behavior observed on your screen, rather than worst-case theoretical assumptions?
-* [ ] **True Plain-Language Translation:** Are your 1-sentence vulnerability descriptions written fully in your own words? *Test: If you can read your sentence to a non-technical manager or a friend without it sounding like a textbook, it passes.*
-* [ ] **Context-Driven Prioritization:** Does your top patching choice look past the raw severity score alone to actively argue based on **Asset Value** (e.g., customer databases vs. test files) and **Exposure** (e.g., public-facing portals vs. internal VPN layers)?
-* [ ] **Remediation Precision:** Does your mitigation documentation suggest robust source-code level architecture fixes (like Parameterized Queries or Output Encoding) rather than fragile, easily bypassed regex input character filters?
-
