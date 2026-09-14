@@ -91,7 +91,8 @@ To cross-examine the target's boundary settings, the following terminal commands
   (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
   ```
 <img width="955" height="524" alt="image" src="https://github.com/user-attachments/assets/942313da-e641-4c09-a0f3-e96570ec0c43" />
-<br>
+
+<br><br>
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
 #### 2. Inspecting Ports Status
@@ -114,7 +115,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="960" height="330" alt="image" src="https://github.com/user-attachments/assets/0418bf61-eb70-46a0-bb2e-06a92b427e32" />
 
-<br>
+<br><br>
 * **Forensic Finding:** Map checking verifies exactly which transport sockets are open or closed, pinpointing alternative backend management ports (like 8080 or 3000) that expand the target area.
 
 #### 3. Cleartext Protocol Redirection Audit
@@ -135,7 +136,7 @@ To cross-examine the target's boundary settings, the following terminal commands
 
 <img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
 
-<br>
+<br><br>
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
 #### Disable Dynamic Shell Token History Expansion *Only for Mac, so skip if using Powershell*
@@ -202,7 +203,8 @@ This downloads the target web server's entire compiled, client-side JavaScript e
   ```
 
 <img width="1121" height="106" alt="image" src="https://github.com/user-attachments/assets/acaf686b-308e-48e9-b7c2-dbc8260c61bd" />
-<br>
+
+<br><br>
 * **Forensic Findings** Automatically scrapes all corporate email addresses left inside the public JavaScript code, providing an attacker with a target list for spear-phishing campaigns. Scanning and Printing Exposed Emails pulls out all structural corporate email addresses hidden inside the bundle.
 
 ---
@@ -210,7 +212,9 @@ This downloads the target web server's entire compiled, client-side JavaScript e
 ### 7. Project Dependency Vulnerability Auditing
 Download & extract the Zipped file (Website codes) as provided by the owner, change your path to the location of extracted file (folder), then type pnpm audit. If you do not have pnpm installed, follow the steps on Mac(bash terminal) or Windows (powershell with Admin rights) to do so
 
-#### 7a. Change your path to extracted folder location
+#### 7a. Download & Extract the Zipped file (Website codes)
+
+#### 7b. Change your path to extracted folder location
 * **Linux/macOS Script:**
   ```bash
   cd /path/to/extracted/greenleaf-logistics
@@ -223,11 +227,9 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
  ```powershell
  cd /path/to/extracted/greenleaf-logistics
   ```
+<img width="1127" height="34" alt="image" src="https://github.com/user-attachments/assets/31349fbf-c0dd-4fbd-9dfe-8256336c2e24" />
 
-
-<br>
-
-#### 7b. Install ppm
+#### 7c. Install ppm
 * **Linux/macOS Script:**
   ```bash
   sudo npm install -g pnpm
@@ -237,7 +239,6 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
   ```
 
   <img width="1003" height="138" alt="Screenshot 2026-09-14 at 3 15 35 PM" src="https://github.com/user-attachments/assets/7b608888-5801-4748-ba82-87791b443eed" />
-
 
 <br><br>
 * **Windows PowerShell Script:**
@@ -253,9 +254,33 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
  pnpm -v
   ```
 
-> ***Note*** On Windows, first go to Developer Settings in the Settings app to enable Sudo. Additionally you will need to modify execution policy to allow locally created scripts to run without signature as explained by [codecity.com](https://www.thecodecity.com/vs-code/fixed-running-scripts-is-disabled-on-this-system-in-vs-code/)
-> On Mac, you will need to enter your password during the installation which will not be visible while you type
+<img width="1128" height="227" alt="image" src="https://github.com/user-attachments/assets/37bf9cdc-0293-440b-a010-4abadccfa23b" />
 
+<br><br>
+> ***Note*** On Windows, first go to Developer Settings in the Settings app to enable Sudo. Additionally you will need to modify execution policy to allow locally created scripts to run without signature as explained by [codecity.com](https://www.thecodecity.com/vs-code/fixed-running-scripts-is-disabled-on-this-system-in-vs-code/)
+>  On Mac, you will need to enter your password during the installation which will not be visible while you type
+
+#### 7d. Scan project dependencies for known vulnerabilities and print report
+* **Linux/macOS Script:**
+  ```bash
+  pnpm audit
+  ```
+  
+
+<br><br>
+* **Windows PowerShell Script:**
+ ```powershell
+ pnpm audit
+  ```
+<img width="737" height="718" alt="image" src="https://github.com/user-attachments/assets/8271300e-2497-4560-abe8-a6fa85d92050" />
+
+<br>
+
+<img width="739" height="716" alt="image" src="https://github.com/user-attachments/assets/b7cf8adf-cf4a-4a8a-a7aa-83655b1f7410" />
+
+<br><br>
+> ***Note***
+> 
 #### 8. Project Dependency Vulnerability Auditing
 * **Command Executed:**
   ```bash
@@ -313,9 +338,13 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
 * **Why It Helps:** Navigates into the unzipped website codebase directory and runs the `pnpm audit` package manager. This checks the site's project library dependencies straight against global vulnerability databases to find outdated third-party modules.
 
 #### 8. Target Account Session Exploitation
-* **Command Executed:**
+* **Command Executed(Wrong & Corrected):**
   ```powershell
   [regex]::Matches(\(bundle, '(?s)(demo-user.*?DemoOnly123!\vert{}username\s*===.*?password\s*===.*?\})') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+
+  ```powershell
+  [regex]::Matches($(bundle, '(?s)(demo-user.*?DemoOnly123!|username\s*===.*?password\s*===.*?\})') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 * **Why It Helps:** Focuses regex checking rules explicitly on finding hardcoded conditional logic strings, confirming the presence of cleartext admin login bypass rules (`demo-user` / `DemoOnly123!`).
 
