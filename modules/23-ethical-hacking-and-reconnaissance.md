@@ -91,7 +91,6 @@ To cross-examine the target's boundary settings, the following terminal commands
   (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
   ```
 <img width="955" height="524" alt="image" src="https://github.com/user-attachments/assets/942313da-e641-4c09-a0f3-e96570ec0c43" />
-
 <br>
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
@@ -254,7 +253,7 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
  pnpm -v
   ```
 
-> ***Note*** On Windows, first go to Developer Settings in the Settings app to enable Sudo. Additionally you will need to modify execution policy to allow locally created scripts to run without signature as explained by [codecity.com]()
+> ***Note*** On Windows, first go to Developer Settings in the Settings app to enable Sudo. Additionally you will need to modify execution policy to allow locally created scripts to run without signature as explained by [codecity.com](https://www.thecodecity.com/vs-code/fixed-running-scripts-is-disabled-on-this-system-in-vs-code/)
 > On Mac, you will need to enter your password during the installation which will not be visible while you type
 
 #### 8. Project Dependency Vulnerability Auditing
