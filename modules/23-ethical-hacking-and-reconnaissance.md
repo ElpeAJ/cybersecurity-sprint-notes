@@ -187,8 +187,8 @@ To cross-examine the target's boundary settings, the following terminal commands
 #### 4. Download Public Frontend Asset Bundle Into System Memory
 * **Command Executed:**
   ```powershell
-  \$bundleUrl = "https://onrender.com" 
-  bundle = (Invoke-WebRequest -Uri bundleUrl -UseBasicParsing).Content
+  $bundleUrl = "https://greenleaf-logistics.onrender.com/assets/index-BjFx252d.js" 
+  $bundle = (Invoke-WebRequest -Uri $bundleUrl -UseBasicParsing).Content
   ```
 * **Why It Helps:** This downloads the target web server's entire compiled, client-side JavaScript execution logic straight into your active PowerShell session memory without cluttering your storage drives.
 
@@ -196,6 +196,10 @@ To cross-examine the target's boundary settings, the following terminal commands
 * **Command Executed:**
   ```powershell
   [regex]::Matches(\(bundle, '(?i)(password\vert{}username\vert{}secret\vert{}api\vert{}token\vert{}GL-\d{4}-\d+\vert{}demo-[a-z0-9_-]+\vert{}DemoOnly[a-zA-Z0-9!]+)') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
+  ```
+
+   ```powershell
+  [regex]::Matches($bundle, '(?i)(password|username|secret|api|token|GL-\d{4}-\d+|demo-[a-z0-9_-]+|DemoOnly[a-zA-Z0-9!]+)')| ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 * **Why It Helps:** Uses regular expressions to scan the downloaded code memory for sensitive strings like passwords, API keys, or tracking tokens, filtering out duplicate hits to present a clean vulnerability list.
 
