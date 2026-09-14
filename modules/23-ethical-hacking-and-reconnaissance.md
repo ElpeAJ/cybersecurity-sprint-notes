@@ -88,8 +88,8 @@ To cross-examine the target's boundary settings, the following terminal commands
   ```powershell
   (Invoke-WebRequest -Uri "https://greenleaf-logistics.onrender.com" -Method Head -UseBasicParsing).Headers
   ```
+<img width="955" height="524" alt="image" src="https://github.com/user-attachments/assets/942313da-e641-4c09-a0f3-e96570ec0c43" />
 
-  
 * **Forensic Finding:** Reveals the cloud routing signatures, server banner tokens, and reverse proxy layers handling incoming corporate connections.
 
 #### 2. Inspecting Ports Status
@@ -108,7 +108,8 @@ To cross-examine the target's boundary settings, the following terminal commands
   }
   ```
 
-  
+<img width="960" height="330" alt="image" src="https://github.com/user-attachments/assets/0418bf61-eb70-46a0-bb2e-06a92b427e32" />
+
 * **Forensic Finding:** Map checking verifies exactly which transport sockets are open or closed, pinpointing alternative backend management ports (like 8080 or 3000) that expand the target area.
 
 #### 3. Cleartext Protocol Redirection Audit
@@ -124,6 +125,9 @@ To cross-examine the target's boundary settings, the following terminal commands
   $res = Invoke-WebRequest -Uri "http://greenleaf-logistics.onrender.com" -MaximumRedirection 0 -UseBasicParsing
   [PSCustomObject]@{ StatusCode = $res.StatusCode; Location = $res.Headers.Location }
   ```
+
+<img width="1128" height="350" alt="image" src="https://github.com/user-attachments/assets/48c10a8b-dfc7-45f8-9f08-be4a65954112" />
+
 * **Forensic Finding:** Returns an explicit `HTTP 301 Moved Permanently` tracking code redirecting traffic straight to the encrypted `https://greenleaf-logistics.onrender.com` portal. Unencrypted port 80 traffic is actively blocked. However, the complete absence of **HSTS (HTTP Strict Transport Security)** headers confirms that initial browser connections still initiate in plaintext.
 
 ---
