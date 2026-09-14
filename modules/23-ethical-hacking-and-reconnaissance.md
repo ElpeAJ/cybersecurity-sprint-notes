@@ -280,7 +280,25 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
 
 <br><br>
 > ***Note***
-> 
+
+#### 7e. Interrogate Source Files for Authentication Loop-Bypasses(Mac) & Target Account Exploitation (Windows)
+* **Linux/macOS Script:**
+  ```bash
+ grep -rEi "(password|username|secret|token|flag|credential|DemoOnly|GL-[0-9]{4})" client/src/ shared/
+  ```
+  
+
+<br><br>
+* **Windows PowerShell Script:**
+```powershell
+  [regex]::Matches($bundle, '(?s)(demo-user.*?DemoOnly123!|username\s*===.*?password\s*===.*?\})') | ForEach-Object {$_.Value } | Select-Object -Unique
+  ```
+<img width="1122" height="100" alt="image" src="https://github.com/user-attachments/assets/f3d57539-71c2-45ca-b8ac-074c2c13e6c2" />
+
+* **Essence:**Code on Mac recursively searches the internal source code directories (`client/src/` and `shared/`) to pinpoint the exact code line where credentials were hardcoded into the project logic.
+* Code on Windows focuses regex checking rules explicitly on finding hardcoded conditional logic strings, confirming the presence of cleartext admin login bypass rules (`demo-user` / `DemoOnly123!`). 
+
+
 #### 8. Project Dependency Vulnerability Auditing
 * **Command Executed:**
   ```bash
@@ -338,13 +356,13 @@ Download & extract the Zipped file (Website codes) as provided by the owner, cha
 * **Why It Helps:** Navigates into the unzipped website codebase directory and runs the `pnpm audit` package manager. This checks the site's project library dependencies straight against global vulnerability databases to find outdated third-party modules.
 
 #### 8. Target Account Session Exploitation
-* **Command Executed(Wrong & Corrected):**
+* **Command Executed(Wrong, 2nd, 1st & Corrected):**
   ```powershell
   [regex]::Matches(\(bundle, '(?s)(demo-user.*?DemoOnly123!\vert{}username\s*===.*?password\s*===.*?\})') \vert{} ForEach-Object {\)_.Value } | Select-Object -Unique
   ```
 
   ```powershell
-  [regex]::Matches($(bundle, '(?s)(demo-user.*?DemoOnly123!|username\s*===.*?password\s*===.*?\})') | ForEach-Object {$_.Value } | Select-Object -Unique
+  [regex]::Matches($bundle, '(?s)(demo-user.*?DemoOnly123!|username\s*===.*?password\s*===.*?\})') | ForEach-Object {$_.Value } | Select-Object -Unique
   ```
 * **Why It Helps:** Focuses regex checking rules explicitly on finding hardcoded conditional logic strings, confirming the presence of cleartext admin login bypass rules (`demo-user` / `DemoOnly123!`).
 
