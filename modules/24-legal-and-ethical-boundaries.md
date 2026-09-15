@@ -70,8 +70,12 @@ Engaging in unauthorized scanning or testing against real websites out of mere c
 | **1. The Request** | The client device app asks the local router to resolve the destination address for `bank.com`. | The client app requests `bank.com`, but sits on a compromised network (e.g., a hacked public Wi-Fi router). |
 | **2. The Routing Line** | The clean local router returns the true, authentic server IP address (`12.34.56.78`). | The attacker's compromised router lies, redirecting all traffic to the attacker's proxy laptop IP (`192.168.1.50`). |
 | **3. The TLS Handshake** | The device connects straight to the real bank server. The bank returns its authentic certificate signed by a public CA (e.g., *DigiCert Global Root G2*). | The device unknowingly connects to the proxy laptop. The attacker's proxy software intercepts the handshake and issues a custom, fake certificate matching the bank's domain. |
-| **4. The OS Trust Check** | The phone's operating system checks its built-in list of Certificate Authorities, confirms the signature matches a trusted root CA, and allows data flow. | If the attacker successfully pre-installed their custom malicious Root Certificate onto the phone's OS root store beforehand, the operating system will blindly accept the fake certificate as trusted. |
+| **4. The OS Trust Check** | The phone's operating system (client's device) checks its built-in list of Certificate Authorities, confirms the signature matches a trusted root CA, and allows data flow. | If the attacker successfully pre-installed their custom malicious Root Certificate onto the phone's OS (client's device) root store beforehand, the operating system will blindly accept the fake certificate as trusted. |
 | **5. The Pinning Resolution** | **Connection Successful:** The hardcoded app reads the incoming certificate public key hash, confirms it matches the hardcoded string (`sha256/9f8e7d...`), and establishes a clean secure tunnel. | **Connection Terminated (Attack Defeated):** The application completely overrides the operating system's trust check. It reads the fake certificate's public key hash (`sha256/1a2b3c...`), flags the mismatch against its hardcoded code pin, drops the connection instantly, and blocks data leakage. |
+
+## [Step by Step Breakdown of How Certificate Pinning Mitigates Man-in-the-middle (MitM) Attacks](MitM_Attack_Certificate_Pinning.md)
+
+<p>Screenshots of the mechanism described above. Visit the Link above for a step-by-step explanation</p>
 
 <img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/97d52fb4-dac2-4bf3-93ae-db9b0b58a2e4" />
 
