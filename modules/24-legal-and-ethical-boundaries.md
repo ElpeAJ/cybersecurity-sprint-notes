@@ -59,6 +59,10 @@ Engaging in unauthorized scanning or testing against real websites out of mere c
 
 ---
 
+<img width="1085" height="992" alt="AI_MitM" src="https://github.com/user-attachments/assets/1ed317c2-3980-458f-8328-e58df4b2d298" />
+
+---
+
 ### Technical Traffic Flow Comparison Matrix
 
 | Operational Stage | 🟢 Scenario A: Legitimate Direct Connection | 🔴 Scenario B: Intercepted Man-in-the-Middle (MitM) Attack |
@@ -68,6 +72,16 @@ Engaging in unauthorized scanning or testing against real websites out of mere c
 | **3. The TLS Handshake** | The device connects straight to the real bank server. The bank returns its authentic certificate signed by a public CA (e.g., *DigiCert Global Root G2*). | The device unknowingly connects to the proxy laptop. The attacker's proxy software intercepts the handshake and issues a custom, fake certificate matching the bank's domain. |
 | **4. The OS Trust Check** | The phone's operating system checks its built-in list of Certificate Authorities, confirms the signature matches a trusted root CA, and allows data flow. | If the attacker successfully pre-installed their custom malicious Root Certificate onto the phone's OS root store beforehand, the operating system will blindly accept the fake certificate as trusted. |
 | **5. The Pinning Resolution** | **Connection Successful:** The hardcoded app reads the incoming certificate public key hash, confirms it matches the hardcoded string (`sha256/9f8e7d...`), and establishes a clean secure tunnel. | **Connection Terminated (Attack Defeated):** The application completely overrides the operating system's trust check. It reads the fake certificate's public key hash (`sha256/1a2b3c...`), flags the mismatch against its hardcoded code pin, drops the connection instantly, and blocks data leakage. |
+
+<img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/97d52fb4-dac2-4bf3-93ae-db9b0b58a2e4" />
+
+<img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/4ef7eaed-4d99-4621-a414-f44bbb415dea" />
+
+<img width="468" height="135" alt="image" src="https://github.com/user-attachments/assets/5f2ea61c-eecd-4419-b821-ff81c021500e" />
+
+<img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/0a1f7c28-7bd3-4518-bdb5-c5a205dd3bf7" />
+
+<img width="468" height="270" alt="image" src="https://github.com/user-attachments/assets/a2c36afa-ce3a-4b60-a5e6-1b32b8b3565d" />
 
 
 ## Additional Materials
