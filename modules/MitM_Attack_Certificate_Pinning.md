@@ -68,9 +68,12 @@ The app opens the certificate, compares it to the hardcoded "pin" inside its cod
 Once you see the network as a highway where the signs can be flipped, **Certificate Pinning** makes perfect sense. It acts like an app having a photograph of the destination in its pocket so it can never be fooled by a fake sign.
 
 Since you have the core concept down completely, you can:
+<br>
 •	Look at a real code snippet showing how easy it is to hardcode a pin into an Android or iOS app.
+<br>
 •	Discuss the major operational risk of pinning (what happens if the bank legitimately changes its certificate and forgets to update the app?).
+<br>
 •	Explore how developers use this exact same "middleman" trick safely to debug and test their own apps using tools like Charles Proxy.
 
->Explanation and Analogies were given by AI and the pictures were created by me with Draw.io
+>P.S All Explanations and Analogies were given by AI and the pictures were created by me with Draw.io to clarify my understanding of the concept explained.
 
