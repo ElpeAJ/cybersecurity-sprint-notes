@@ -85,7 +85,7 @@ netstat -tuln
 * [Day 21: Cryptography Fundamentals](modules/21-cryptography-fundamentals.md) — Symmetric vs. Asymmetric protocols, mathematical hashing primitives, algorithm performance evaluations, and hands-on lab solutions.
 * [Day 22: Hashing & Password Cracking](modules/22-hashing-and-password-cracking.md) — TLS/SSL layers, PKI trust verification structures, Certificate Pinning defense logic, MD5 weaknesses, and automated Rainbow Table lab analysis keys.
 * [Day 23: Ethical Hacking & Reconnaissance](modules/23-ethical-hacking-and-reconnaissance.md) — The 5 operational execution phases of Ethical Hacking, Rules of Engagement parameters, legal authorization frameworks, and Open Source Intelligence (OSINT) site audits.
-* [Day 24: Legal & Ethical Boundaries](modules/24-legal-and-ethical-boundaries.md) — Criminal statutes, professional codes of conduct, 3-part classroom ethics scenario blueprints, and the complete master viva guide for certificate pinning.
+* [Day 24: Legal & Ethical Boundaries](modules/24-legal-and-ethical-boundaries.md) — Offensive Security, legal & ethical boundaries, professional codes of conduct, 3-part classroom ethics scenario blueprints, and the complete master viva guide for certificate pinning.
 
 
 
